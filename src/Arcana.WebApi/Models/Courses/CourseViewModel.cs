@@ -8,10 +8,10 @@ public class CourseViewModel
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
-    public DateTime Duration { get; set; }
+    public int Duration { get; set; }
     public int CountOfLessons { get; set; }
     public Level Level { get; set; }
-    // public CategoryViewModel Category { get; set; }
+    // public CourseCategoryViewModel Category { get; set; }
     // public InstructorViewModel Instructor { get; set; }
     // public AssetViewModel File { get; set; }
     //public LanguageViewModel Language {  get; set; }
