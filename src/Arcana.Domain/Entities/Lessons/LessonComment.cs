@@ -7,8 +7,8 @@ namespace Arcana.Domain.Entities.Lessons;
 public class LessonComment : Auditable
 {
     public long LessonId { get; set; }
-    public long? UserId { get; set; }
-    public long? InstructorId { get; set; }
+    public long UserId { get; set; }
+    public long InstructorId { get; set; }
     public long? ParentId {  get; set; }
     public string Content { get; set; }
     public Lesson Lesson { get; set; }
