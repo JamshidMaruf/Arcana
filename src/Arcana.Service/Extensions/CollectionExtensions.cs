@@ -1,7 +1,7 @@
-﻿using Arcana.Service.Configurations;
+﻿using Newtonsoft.Json;
+using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Helpers;
-using Newtonsoft.Json;
 using System.Linq.Expressions;
 
 namespace Arcana.Service.Extensions;
