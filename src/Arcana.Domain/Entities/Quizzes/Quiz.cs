@@ -9,5 +9,4 @@ public class Quiz : Auditable
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     public long ModuleId { get; set; }
-    //public CourseModule Module { get; set; }
 }

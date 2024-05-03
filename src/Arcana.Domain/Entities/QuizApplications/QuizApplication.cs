@@ -7,7 +7,5 @@ namespace Arcana.Domain.Entities.QuizApplications;
 public class QuizApplication : Auditable
 {
     public long StudentId { get; set; }
-    public Student Student { get; set; }
     public long QuizId { get; set; }
-    public Quiz Quiz { get; set; }
 }

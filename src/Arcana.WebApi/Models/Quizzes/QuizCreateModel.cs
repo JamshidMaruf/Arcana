@@ -7,5 +7,4 @@ public class QuizCreateModel
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     public long ModuleId { get; set; }
-    //public CourseModuleCreateModel Module { get; set; }
 }
