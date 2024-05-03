@@ -9,11 +9,14 @@ public class Course : Auditable
     public string Description { get; set; }
     public decimal Price { get; set; }
     public DateTime Duration { get; set; }
-    public int Count_Of_Lessons { get; set; }
+    public int CountOfLessons { get; set; }
     public Level Level { get; set; }
-    public long Category_Id { get; set; }
-    public long Instructor_Id { get; set; }
-    public long File_Id { get; set; }
-    //public long Language_Id {  get; set; }
-
+    public long CategoryId { get; set; }
+    //public Category Category{ get; set; } //added entity
+    public long InstructorId { get; set; }
+    //public Instructor Intructor{ get; set; }//added entity
+    public long FileId { get; set; }
+    //public File File{ get; set; }//added entity
+    public long LanguageId {  get; set; }
+    //public Language Language { get; set; }
 }
