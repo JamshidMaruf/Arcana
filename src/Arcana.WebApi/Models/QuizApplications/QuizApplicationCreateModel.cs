@@ -1,7 +1,4 @@
-﻿using Arcana.WebApi.Models.Quizzes;
-using Arcana.WebApi.Models.Students;
-
-namespace Arcana.WebApi.Models.QuizApplications;
+﻿namespace Arcana.WebApi.Models.QuizApplications;
 
 public class QuizApplicationCreateModel
 {
