@@ -9,8 +9,8 @@ public class LessonCommentViewModel : Auditable
 {
     public long Id { get; set; }
     public string Content { get; set; }
-    public Lesson Lesson { get; set; }
-    public User User { get; set; }
-    public Instructor Instructor { get; set; }
-    public LessonComment Parent { get; set; }
+    // public LessonViewModel Lesson { get; set; }
+    // public UserViewModel User { get; set; }
+    // public InstructorViewModel Instructor { get; set; }
+    // public LessonCommentViewModel Parent { get; set; }
 }
