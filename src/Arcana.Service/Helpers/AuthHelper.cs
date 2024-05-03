@@ -1,8 +1,8 @@
-﻿using Arcana.Domain.Entities.Users;
+﻿using System.Text;
+using Arcana.Domain.Entities.Users;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 
 namespace Arcana.Service.Helpers;
 
