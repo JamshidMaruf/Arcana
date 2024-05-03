@@ -5,6 +5,7 @@ namespace Arcana.WebApi.Models.CourseStars;
 
 public class CourseStarViewModel
 {
+    public long Id { get; set; }
     public StudentViewModel Student { get; set; }
     public CourseViewModel Course { get; set; }
     public byte Stars { get; set; }
