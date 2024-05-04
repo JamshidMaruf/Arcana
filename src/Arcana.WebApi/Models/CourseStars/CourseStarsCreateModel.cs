@@ -1,6 +1,6 @@
 ﻿namespace Arcana.WebApi.Models.CourseStars;
 
-public class CourseStarCreateModel
+public class CourseStarsCreateModel
 {
     public long StudentId { get; set; }
     public long CourseId { get; set; }
