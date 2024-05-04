@@ -1,8 +1,9 @@
-﻿using Arcana.Domain.Entities.Students;
+﻿using Arcana.Domain.Commons;
+using Arcana.Domain.Entities.Students;
 
 namespace Arcana.Domain.Entities.Instructors;
 
-public class InstructorComment
+public class InstructorComment : Auditable
 {
     public long StudentId { get; set; }
     public long InstructorId { get; set; }
