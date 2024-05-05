@@ -9,5 +9,5 @@ public class LessonViewModel
     public string Title { get; set; }
     public string Description { get; set; }
     public AssetViewModel File { get; set; }
-    public CourseModulViewModel Module { get; set; }
+    public CourseModuleViewModel Module { get; set; }
 }
