@@ -1,7 +1,7 @@
 ﻿namespace Arcana.WebApi.Models.CourseModules;
 
-public class CourseModulViewModel
+public class CourseModuleCreateModel
 {
     public string Name { get; set; }
-    public CourseModulViewModel Course { get; set; }
+    public long CourseId { get; set; }
 }
