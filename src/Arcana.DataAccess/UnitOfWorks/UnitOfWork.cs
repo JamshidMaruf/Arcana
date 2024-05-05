@@ -2,9 +2,9 @@
 using Arcana.DataAccess.Repositories;
 using Arcana.Domain.Entities.Commons;
 using Arcana.Domain.Entities.Instructors;
+using Arcana.Domain.Entities.Lessons;
 using Arcana.Domain.Entities.Students;
 using Arcana.Domain.Entities.Users;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Arcana.DataAccess.UnitOfWorks;
@@ -19,6 +19,9 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Instructor> Instructors { get; }
     public IRepository<Permission> Permissions { get; }
     public IRepository<RolePermission> RolePermissions { get; }
+    public IRepository<Lesson> Lessons { get; }
+    public IRepository<LessonComment> LessonComments {  get; }
+
     private IDbContextTransaction transaction;
     public UnitOfWork(AppDbContext context)
     {
@@ -30,6 +33,7 @@ public class UnitOfWork : IUnitOfWork
         Instructors = new Repository<Instructor>(this.context);
         Permissions = new Repository<Permission>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
+        Lessons = new Repository<Lesson>(this.context);
     }
 
     public void Dispose()
