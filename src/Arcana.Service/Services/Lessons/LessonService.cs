@@ -8,8 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.Lessons;
 
-public class LessonService(
-    IUnitOfWork unitOfWork) : ILessonService
+public class LessonService(IUnitOfWork unitOfWork) : ILessonService
 {
     public async ValueTask<Lesson> CreateAsync(Lesson lesson)
     {
@@ -69,6 +68,7 @@ public class LessonService(
         var existLesson = await unitOfWork.Lessons.SelectAsync(lesson => lesson.Id == id && !lesson.IsDeleted)
             ?? throw new NotFoundException($"Lesson is not found with this ID = {id}");
 
+        existLesson.DeletedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Lessons.DeleteAsync(existLesson);
         await unitOfWork.SaveAsync();
 
