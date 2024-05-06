@@ -1,5 +1,6 @@
 ﻿using Arcana.Domain.Entities.CourseCategories;
 using Arcana.Service.Configurations;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Arcana.Service.Services.CourseCategories;
 
