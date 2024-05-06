@@ -17,8 +17,6 @@ public interface IUnitOfWork : IDisposable
     IRepository<Instructor> Instructors { get; }
     IRepository<Permission> Permissions { get; }
     IRepository<RolePermission> RolePermissions { get; }
-    IRepository<Lesson> Lessons { get; }
-    IRepository<LessonComment> LessonComments { get; }
     ValueTask<bool> SaveAsync();
     ValueTask BeginTransactionAsync();
     ValueTask CommitTransactionAsync();
