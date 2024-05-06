@@ -15,7 +15,6 @@ using Arcana.Domain.Entities.Quizzes;
 using Arcana.Domain.Entities.StudentCourses;
 using Arcana.Domain.Entities.Students;
 using Arcana.Domain.Entities.Users;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Arcana.DataAccess.UnitOfWorks;
@@ -30,42 +29,51 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Instructor> Instructors { get; }
     public IRepository<Permission> Permissions { get; }
     public IRepository<RolePermission> RolePermissions { get; }
+    public IRepository<Quiz> Quizzes { get; }
+    public IRepository<Lesson> Lessons { get; }
+    public IRepository<Course> Courses { get; }
+    public IRepository<Language> Languages { get; }
+    public IRepository<Question> Questions { get; }
+    public IRepository<CourseStars> CourseStars { get; }
+    public IRepository<CourseModul> CourseModules { get; }
+    public IRepository<QuizQuestion> QuizQuestions { get; }
+    public IRepository<CourseComment> CourseComments { get; }
+    public IRepository<LessonComment> LessonComments { get; }
+    public IRepository<StudentCourses> StudentCourses { get; }
+    public IRepository<QuestionAnswer> QuestionAnswers { get; }
+    public IRepository<CourseCategory> CourseCategories { get; }
+    public IRepository<InstructorStars> InstructorStars { get; }
+    public IRepository<QuizApplication> QuizApplications { get; }
+    public IRepository<InstructorComment> InstructorComments { get; }
     private IDbContextTransaction transaction;
+
     public UnitOfWork(AppDbContext context)
     {
         this.context = context;
         Users = new Repository<User>(this.context);
         Assets = new Repository<Asset>(this.context);
-        Students = new Repository<Student>(this.context);
+        Quizzes = new Repository<Quiz>(this.context);
+        Lessons = new Repository<Lesson>(this.context);
+        Courses = new Repository<Course>(this.context);
         UserRoles = new Repository<UserRole>(this.context);
+        Students = new Repository<Student>(this.context);
+        Languages = new Repository<Language>(this.context);
+        Questions = new Repository<Question>(this.context);
         Instructors = new Repository<Instructor>(this.context);
         Permissions = new Repository<Permission>(this.context);
+        CourseStars = new Repository<CourseStars>(this.context);
+        CourseModules = new Repository<CourseModul>(this.context);
+        QuizQuestions = new Repository<QuizQuestion>(this.context);
+        CourseComments = new Repository<CourseComment>(this.context);
+        LessonComments = new Repository<LessonComment>(this.context);
+        StudentCourses = new Repository<StudentCourses>(this.context);
+        QuestionAnswers = new Repository<QuestionAnswer>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
+        CourseCategories = new Repository<CourseCategory>(this.context);
+        InstructorStars = new Repository<InstructorStars>(this.context);
+        QuizApplications = new Repository<QuizApplication>(this.context);
+        InstructorComments = new Repository<InstructorComment>(this.context);
 
-
-        Users = new Repository<User> Users(this.context);
-        Assets = new Repository<Asset> Assets(this.context);
-        Quizzes = new Repository<Quiz> Quizzes(this.context);
-        Lessons = new Repository<Lesson> Lessons(this.context);
-        Courses = new Repository<Course> Courses(this.context);
-        UserRoles = new Repository<UserRole> UserRoles(this.context);
-        Students = new Repository<Student> Students(this.context);
-        Languages = new Repository<Language> Languages(this.context);
-        Questions = new Repository<Question> Questions(this.context);
-        Instructors = new Repository<Instructor> Instructors(this.context);
-        Permissions = new Repository<Permission> Permissions(this.context);
-        CourseStars = new Repository<CourseStars> CourseStars(this.context);
-        CourseModules = new Repository<CourseModul> CourseModules(this.context);
-        QuizQuestions = new Repository<QuizQuestion> QuizQuestions(this.context);
-        CourseComments = new Repository<CourseComment> CourseComments(this.context);
-        LessonComments = new Repository<LessonComment> LessonComments(this.context);
-        StudentCourses = new Repository<StudentCourses> StudentCourses(this.context);
-        QuestionAnswers = new Repository<QuestionAnswer> QuestionAnswers(this.context);
-        RolePermissions = new Repository<RolePermission> RolePermissions(this.context);
-        CourseCategories = new Repository<CourseCategory> CourseCategories(this.context);
-        InstructorStars = new Repository<InstructorStars> InstructorStars(this.context);
-        QuizApplications = new Repository<QuizApplication> QuizApplications(this.context);
-        InstructorComments = new Repository<InstructorComment> InstructorComments(this.context);
     }
 
     public void Dispose()
