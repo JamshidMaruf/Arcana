@@ -16,14 +16,14 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
         if (existCourse is not null)
             throw new AlreadyExistException("This course already exists");
 
-        //var existLanguage = await unitOfWork.Language.SelectAsync(c => c.LanguageId == course.LanguageId)
-        //    ?? throw new NotFoundException($"Language is not found with this ID = {id}");
+        var existLanguage = await unitOfWork.Languages.SelectAsync(l => l.Id == course.LanguageId)
+            ?? throw new NotFoundException($"Language is not found with this ID = {course.LanguageId}");
 
-        //var existCategory = await unitOfWork.Category.SelectAsync(c => c.CategoryId == course.CategoryId)
-        //     ?? throw new NotFoundException($"Category is not found with this ID = {id}");
+        var existCategory = await unitOfWork.CourseCategories.SelectAsync(c => c.Id == course.CategoryId)
+             ?? throw new NotFoundException($"Category is not found with this ID = {course.CategoryId}");
 
-        //var existInstructor = await unitOfWork.Instructor.SelectAsync(c => c.InstructorId == course.InstructorId)
-        //     ?? throw new NotFoundException($"Instructor is not found with this ID = {id}");
+        var existInstructor = await unitOfWork.Instructors.SelectAsync(i => i.Id == course.InstructorId)
+             ?? throw new NotFoundException($"Instructor is not found with this ID = {course.InstructorId}");
 
         course.CreatedByUserId = HttpContextHelper.UserId;
         var createdCourse = await unitOfWork.Courses.InsertAsync(course);
@@ -34,17 +34,17 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
 
     public async ValueTask<Course> UpdateAsync(long id, Course course)
     {
-        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id)
+        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id && !c.IsDeleted)
              ?? throw new NotFoundException($"Course is not found with this ID = {id}");
 
-        //var existLanguage = await unitOfWork.Language.SelectAsync(c => c.LanguageId == course.LanguageId)
-        //     ?? throw new NotFoundException($"Language is not found with this ID = {id}");
+        var existLanguage = await unitOfWork.Languages.SelectAsync(l => l.Id == course.LanguageId)
+             ?? throw new NotFoundException($"Language is not found with this ID = {course.LanguageId}");
 
-        //var existCategory = await unitOfWork.Category.SelectAsync(c => c.CategoryId == course.CategoryId)
-        //     ?? throw new NotFoundException($"Category is not found with this ID = {id}");
+        var existCategory = await unitOfWork.CourseCategories.SelectAsync(c => c.Id == course.CategoryId)
+             ?? throw new NotFoundException($"Category is not found with this ID = {course.CategoryId}");
 
-        //var existInstructor = await unitOfWork.Instructor.SelectAsync(c => c.InstructorId == course.InstructorId)
-        //     ?? throw new NotFoundException($"Instructor is not found with this ID = {id}");
+        var existInstructor = await unitOfWork.Instructors.SelectAsync(i => i.Id == course.InstructorId)
+             ?? throw new NotFoundException($"Instructor is not found with this ID = {course.InstructorId}");
 
         existCourse.Name = course.Name;
         existCourse.Level = course.Level;
@@ -66,16 +66,17 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
 
     public async ValueTask<bool> DeleteAsync(long id)
     {
-        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id)
+        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id && !c.IsDeleted)
            ?? throw new NotFoundException($"Course is not found with this ID = {id}");
 
-        await unitOfWork.Courses.DropAsync(existCourse);
+        await unitOfWork.Courses.DeleteAsync(existCourse);
         return true;
     }
 
     public async ValueTask<Course> GetByIdAsync(long id)
     {
-        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id)
+        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id && !c.IsDeleted,
+            ["Category", "Intructor", "File", "Language"])
            ?? throw new NotFoundException($"Course is not found with this ID={id}");
 
         return existCourse;
@@ -89,8 +90,8 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
 
         if (!string.IsNullOrEmpty(search))
             courses = courses.Where(user =>
-                user.Name.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                user.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                user.Name.ToLower().Contains(search.ToLower()) ||
+                user.Description.ToLower().Contains(search.ToLower()));
 
         return await courses.ToPaginateAsQueryable(@params).ToListAsync();
     }
