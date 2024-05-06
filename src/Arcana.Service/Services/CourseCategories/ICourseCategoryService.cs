@@ -2,7 +2,7 @@
 
 namespace Arcana.Service.Services.CourseCategories;
 
-public interface ICourseCategory
+public interface ICourseCategoryService
 {
     ValueTask<CourseCategory> CreateAsync(CourseCategory courseCategory);
     ValueTask<CourseCategory> UpdateAsync(long id, CourseCategory courseCategory);
