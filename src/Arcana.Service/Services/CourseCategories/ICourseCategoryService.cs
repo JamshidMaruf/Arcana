@@ -7,7 +7,7 @@ public interface ICourseCategoryService
 {
     ValueTask<CourseCategory> CreateAsync(CourseCategory courseCategory);
     ValueTask<CourseCategory> UpdateAsync(long id, CourseCategory courseCategory);
-    ValueTask<CourseCategory> DeleteAsync(long id);
+    ValueTask<bool> DeleteAsync(long id);
     ValueTask<CourseCategory> GetByIdAsync(long id);
     ValueTask<IEnumerable<CourseCategory>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
 }
