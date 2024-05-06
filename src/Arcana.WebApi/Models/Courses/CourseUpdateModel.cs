@@ -1,4 +1,5 @@
-﻿using Arcana.Domain.Enums.Levels;
+﻿using Arcana.Domain.Entities.Levels;
+using Arcana.Domain.Enums.Levels;
 
 namespace Arcana.WebApi.Models.Courses;
 
