@@ -35,11 +35,11 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Language> Languages { get; }
     public IRepository<Question> Questions { get; }
     public IRepository<CourseStars> CourseStars { get; }
-    public IRepository<CourseModul> CourseModules { get; }
+    public IRepository<CourseModule> CourseModules { get; }
     public IRepository<QuizQuestion> QuizQuestions { get; }
     public IRepository<CourseComment> CourseComments { get; }
     public IRepository<LessonComment> LessonComments { get; }
-    public IRepository<StudentCourses> StudentCourses { get; }
+    public IRepository<StudentCourse> StudentCourses { get; }
     public IRepository<QuestionAnswer> QuestionAnswers { get; }
     public IRepository<CourseCategory> CourseCategories { get; }
     public IRepository<InstructorStars> InstructorStars { get; }
@@ -62,11 +62,11 @@ public class UnitOfWork : IUnitOfWork
         Instructors = new Repository<Instructor>(this.context);
         Permissions = new Repository<Permission>(this.context);
         CourseStars = new Repository<CourseStars>(this.context);
-        CourseModules = new Repository<CourseModul>(this.context);
+        CourseModules = new Repository<CourseModule>(this.context);
         QuizQuestions = new Repository<QuizQuestion>(this.context);
         CourseComments = new Repository<CourseComment>(this.context);
         LessonComments = new Repository<LessonComment>(this.context);
-        StudentCourses = new Repository<StudentCourses>(this.context);
+        StudentCourses = new Repository<StudentCourse>(this.context);
         QuestionAnswers = new Repository<QuestionAnswer>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
         CourseCategories = new Repository<CourseCategory>(this.context);

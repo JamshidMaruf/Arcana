@@ -31,11 +31,11 @@ public interface IUnitOfWork : IDisposable
     IRepository<Instructor> Instructors { get; }
     IRepository<Permission> Permissions { get; }
     IRepository<CourseStars> CourseStars { get; }
-    IRepository<CourseModul> CourseModules { get; }
+    IRepository<CourseModule> CourseModules { get; }
     IRepository<QuizQuestion> QuizQuestions { get; }
     IRepository<CourseComment> CourseComments { get; }
     IRepository<LessonComment> LessonComments { get; }
-    IRepository<StudentCourses> StudentCourses { get; }
+    IRepository<StudentCourse> StudentCourses { get; }
     IRepository<QuestionAnswer> QuestionAnswers { get; }
     IRepository<RolePermission> RolePermissions { get; }
     IRepository<CourseCategory> CourseCategories { get; }

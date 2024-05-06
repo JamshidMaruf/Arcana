@@ -33,11 +33,11 @@ public class AppDbContext : DbContext
     public DbSet<Instructor> Instructors { get; set; }
     public DbSet<Permission> Permissions { get; set; }
     public DbSet<CourseStars> CourseStars { get; set; }
-    public DbSet<CourseModul> CourseModules { get; set; }
+    public DbSet<CourseModule> CourseModules { get; set; }
     public DbSet<QuizQuestion> QuizQuestions { get; set; }
     public DbSet<CourseComment> CourseComments { get; set; }
     public DbSet<LessonComment> LessonComments { get; set; }
-    public DbSet<StudentCourses> StudentCourses { get; set; }
+    public DbSet<StudentCourse> StudentCourses { get; set; }
     public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
     public DbSet<CourseCategory> CourseCategories { get; set; }

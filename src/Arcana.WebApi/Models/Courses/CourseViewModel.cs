@@ -1,4 +1,8 @@
 ﻿using Arcana.Domain.Enums.Levels;
+using Arcana.WebApi.Models.Assets;
+using Arcana.WebApi.Models.Languages;
+using Arcana.WebApi.Models.Instructors;
+using Arcana.WebApi.Models.CourseCategories;
 
 namespace Arcana.WebApi.Models.Courses;
 
@@ -11,8 +15,8 @@ public class CourseViewModel
     public int Duration { get; set; }
     public int CountOfLessons { get; set; }
     public Level Level { get; set; }
-    // public CourseCategoryViewModel Category { get; set; }
-    // public InstructorViewModel Instructor { get; set; }
-    // public AssetViewModel File { get; set; }
-    //public LanguageViewModel Language {  get; set; }
+    public CourseCategoryViewModel Category { get; set; }
+    public InstructorViewModel Instructor { get; set; }
+    public AssetViewModel File { get; set; }
+    public LanguageViewModel Language { get; set; }
 }
