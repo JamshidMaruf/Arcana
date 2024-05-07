@@ -9,6 +9,6 @@ public class CourseCategoryCreateModelValidator : AbstractValidator<CourseCatego
     {
         RuleFor(CourseCategory => CourseCategory.Name)
             .NotNull()
-             .WithMessage(CourseCategory => $"{nameof(CourseCategory.Name)} is not specified");
+            .WithMessage(CourseCategory => $"{nameof(CourseCategory.Name)} is not specified");
     }
 }
