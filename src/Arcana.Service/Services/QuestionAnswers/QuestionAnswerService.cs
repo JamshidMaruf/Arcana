@@ -25,7 +25,6 @@ public class QuestionAnswerService(IUnitOfWork unitOfWork,
 
     public async ValueTask<bool> DeleteAsync(long id)
     {
-
         var existAnswer = await unitOfWork.QuestionAnswers.SelectAsync(c => c.Id == id && !c.IsDeleted)
           ?? throw new NotFoundException($"Question Answer is not found with this ID = {id}");
 

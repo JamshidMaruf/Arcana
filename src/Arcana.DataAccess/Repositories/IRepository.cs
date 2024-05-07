@@ -19,5 +19,4 @@ public interface IRepository<T> where T : Auditable
         Expression<Func<T, bool>> expression = null,
         string[] includes = null,
         bool isTracked = true);
-    Task DeleteAsync(QuestionAnswer existAnswer);
 }
