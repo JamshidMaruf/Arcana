@@ -94,9 +94,6 @@ public static class ServicesCollection
     public static void AddInjectHelper(this WebApplication serviceProvider)
     {
         var scope = serviceProvider.Services.CreateScope();
-        InjectHelper.UserService = scope.ServiceProvider.GetRequiredService<IUserService>();
-        InjectHelper.UserRoleService = scope.ServiceProvider.GetRequiredService<IUserRoleService>();
-        InjectHelper.PermissionService = scope.ServiceProvider.GetRequiredService<IPermissionService>();
         InjectHelper.RolePermissionService = scope.ServiceProvider.GetRequiredService<IRolePermissionService>();
     }
 
@@ -110,6 +107,8 @@ public static class ServicesCollection
         EnvironmentHelper.EmailPassword = app.Configuration.GetSection("Email:Password").Value;
         EnvironmentHelper.SmtpPort = app.Configuration.GetSection("Email:Port").Value;
         EnvironmentHelper.SmtpHost = app.Configuration.GetSection("Email:Host").Value;
+        EnvironmentHelper.PageSize = Convert.ToInt32(app.Configuration.GetSection("PaginationParams:PageSize").Value);
+        EnvironmentHelper.PageIndex = Convert.ToInt32(app.Configuration.GetSection("PaginationParams:PageIndex").Value);
     }
 
     public static void AddJwtService(this IServiceCollection services, IConfiguration configuration)
