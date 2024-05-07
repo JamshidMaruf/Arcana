@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Arcana.WebApi.Validators.CourseComments;
 
-public class CourseCommentUpdateModelValidator : AbstractValidator<CourseCommentCreateModel>
+public class CourseCommentUpdateModelValidator : AbstractValidator<CourseCommentUpdateModel>
 {
     public CourseCommentUpdateModelValidator()
     {
