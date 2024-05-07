@@ -28,11 +28,7 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
 
         if (existStudentCourse is not null)
             throw new AlreadyExistException($"Course is already exists" +
-                $"CourseId={studentCourse.CourseId}" +
-                $"Student is already exists" +
-                $"StudentId={studentCourse.StudentId}" +
-                $"Instructor is already exists" +
-                $"InstructorId={studentCourse.InstructorId}");
+                $"CourseId={studentCourse.CourseId}");
 
         studentCourse.CreatedByUserId = HttpContextHelper.UserId;
 
