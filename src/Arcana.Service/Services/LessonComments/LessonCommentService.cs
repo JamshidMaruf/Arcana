@@ -25,19 +25,19 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
 
     public async ValueTask<LessonComment> UpdateAsync(long id, LessonComment lessonComment)
     {
-        var existLesson = await unitOfWork.LessonComments.SelectAsync(lesson => lesson.Id == lessonComment.LessonId && !lesson.IsDeleted)
+        var existLesson = await unitOfWork.Lessons.SelectAsync(lesson => lesson.Id == lessonComment.LessonId && !lesson.IsDeleted)
              ?? throw new NotFoundException($"Lesson is not found with this ID = {lessonComment.LessonId}");
 
         var existLessonComment = await unitOfWork.LessonComments.SelectAsync(lc => lc.Id == id && !lc.IsDeleted, ["Lesson", "Student", "Instructor", "Parent"])
             ?? throw new NotFoundException($"Lesson comment is not found with this Id = {id}");
 
-        existLesson.Content = lessonComment.Content;
+        existLessonComment.Content = lessonComment.Content;
         existLesson.UpdatedByUserId = HttpContextHelper.UserId;
 
-        await unitOfWork.LessonComments.UpdateAsync(existLesson);
+        await unitOfWork.LessonComments.UpdateAsync(existLessonComment);
         await unitOfWork.SaveAsync();
 
-        return existLesson;
+        return existLessonComment;
     }
 
     public async ValueTask<bool> DeleteAsync(long id)
