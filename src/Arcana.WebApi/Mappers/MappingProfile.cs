@@ -1,12 +1,10 @@
 ﻿using Arcana.Domain.Entities.Commons;
 using Arcana.Domain.Entities.Instructors;
-using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Domain.Entities.Students;
 using Arcana.Domain.Entities.Users;
 using Arcana.WebApi.Models.Assets;
 using Arcana.WebApi.Models.Instructors;
 using Arcana.WebApi.Models.Permissions;
-using Arcana.WebApi.Models.QuestionAnswers;
 using Arcana.WebApi.Models.RolePermissions;
 using Arcana.WebApi.Models.Students;
 using Arcana.WebApi.Models.UserRoles;
@@ -44,9 +42,5 @@ public class MappingProfile : Profile
         CreateMap<UserLoginViewModel, User>().ReverseMap();
         CreateMap<User, UserCreateModel>().ReverseMap();
         CreateMap<User, UserUpdateModel>().ReverseMap();
-
-        CreateMap<QuestionAnswerViewModel, QuestionAnswer>().ReverseMap();
-        CreateMap<QuestionAnswer, QuestionAnswerCreateModel>().ReverseMap();
-        CreateMap<QuestionAnswer, QuestionAnswerUpdateModel>().ReverseMap();
     }
 }
