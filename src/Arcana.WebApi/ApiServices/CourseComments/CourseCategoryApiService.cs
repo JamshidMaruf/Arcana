@@ -7,7 +7,7 @@ using Arcana.WebApi.Models.CourseComments;
 using Arcana.WebApi.Validators.CourseComments;
 using AutoMapper;
 
-namespace Arcana.WebApi.ApiServices.CourseCategories;
+namespace Arcana.WebApi.ApiServices.CourseComments;
 
 public class CourseCommentApiService(
     IMapper mapper,
