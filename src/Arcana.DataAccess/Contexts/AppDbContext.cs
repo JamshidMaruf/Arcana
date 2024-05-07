@@ -51,5 +51,106 @@ public class AppDbContext : DbContext
             .Property(c => c.Price)
             .HasColumnType("decimal(18,3)");
 
+        modelBuilder.Entity<InstructorComment>()
+            .HasOne(i => i.Student)
+            .WithMany()
+            .HasForeignKey(i => i.StudentId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<InstructorComment>()
+            .HasOne(i => i.Instructor)
+            .WithMany()
+            .HasForeignKey(i => i.InstructorId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<InstructorStars>()
+           .HasOne(i => i.Student)
+           .WithMany()
+           .HasForeignKey(i => i.StudentId)
+           .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<InstructorStars>()
+            .HasOne(i => i.Instructor)
+            .WithMany()
+            .HasForeignKey(i => i.InstructorId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<CourseComment>()
+         .HasOne(i => i.Student)
+         .WithMany()
+         .HasForeignKey(i => i.StudentId)
+         .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<CourseComment>()
+            .HasOne(i => i.Course)
+            .WithMany()
+            .HasForeignKey(i => i.CourseId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<LessonComment>()
+            .HasOne(i => i.User)
+            .WithMany()
+            .HasForeignKey(i => i.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<LessonComment>()
+            .HasOne(i => i.Lesson)
+            .WithMany()
+            .HasForeignKey(i => i.LessonId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<CourseStars>()
+           .HasOne(i => i.Student)
+           .WithMany()
+           .HasForeignKey(i => i.StudentId)
+           .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<CourseStars>()
+            .HasOne(i => i.Course)
+            .WithMany()
+            .HasForeignKey(i => i.CourseId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<StudentCourse>()
+          .HasOne(i => i.Student)
+          .WithMany()
+          .HasForeignKey(i => i.StudentId)
+          .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<StudentCourse>()
+            .HasOne(i => i.Course)
+            .WithMany()
+            .HasForeignKey(i => i.CourseId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<QuizApplication>()
+             .HasOne(i => i.Student)
+             .WithMany()
+             .HasForeignKey(i => i.StudentId)
+             .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<QuizApplication>()
+            .HasOne(i => i.Quiz)
+            .WithMany()
+            .HasForeignKey(i => i.QuizId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<QuizQuestion>()
+            .HasOne(i => i.Quiz)
+            .WithMany()
+            .HasForeignKey(i => i.QuizId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<QuizQuestion>()
+            .HasOne(i => i.Question)
+            .WithMany()
+            .HasForeignKey(i => i.QuestionId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Lesson>()
+            .HasOne(l => l.Module)
+            .WithMany()
+            .HasForeignKey(l => l.ModuleId)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }
