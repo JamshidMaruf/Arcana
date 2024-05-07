@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Arcana.WebApi.Models.Users;
 using Arcana.WebApi.Models.Assets;
 using Arcana.Domain.Entities.Users;
