@@ -1,7 +1,6 @@
 ﻿using Arcana.Domain.Entities.CourseComments;
 using Arcana.Service.Configurations;
 using Arcana.Service.Services.CourseComments;
-using Arcana.WebApi.ApiServices.CourseComments;
 using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Models.CourseComments;
 using Arcana.WebApi.Validators.CourseComments;

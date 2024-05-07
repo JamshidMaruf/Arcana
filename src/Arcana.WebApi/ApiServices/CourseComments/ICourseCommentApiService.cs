@@ -1,5 +1,4 @@
 ﻿using Arcana.Service.Configurations;
-using Arcana.WebApi.Models.CourseCategories;
 using Arcana.WebApi.Models.CourseComments;
 
 namespace Arcana.WebApi.ApiServices.CourseComments;
