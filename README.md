@@ -1,8 +1,8 @@
 # Arcana - Empowering Knowledge Exchange
-
+                       
 ## Overview
 Arcana is an open-source educational platform aimed at facilitating knowledge exchange among students in any field and empowering experts to share their skills. With its diverse range of tutorials, lessons, and skill-sharing features, Arcana strives to make learning accessible and collaborative for users of all levels and backgrounds.
-
+     
 ## Key Features
 - **Comprehensive Learning Resources:** Access a wide variety of tutorials, lessons, and educational materials covering various subjects and skill levels.
 - **Expert Skill Sharing:** Experts can share their expertise through tutorials, articles, and interactive sessions, fostering a culture of knowledge sharing and mentorship.
@@ -10,11 +10,11 @@ Arcana is an open-source educational platform aimed at facilitating knowledge ex
 - **Interactive Learning Tools:** Engage with interactive quizzes, exercises, and projects to reinforce learning and practical application of knowledge.
 - **Community Collaboration:** Join communities, participate in discussions, and collaborate with peers and experts to enhance learning outcomes and collective knowledge.
 
-## Why Arcana?
+## Why Arcana? 
 - **Empowerment Through Knowledge:** Arcana empowers users to expand their knowledge, skills, and expertise, fostering personal and professional growth.
 - **Collaborative Learning Environment:** Arcana creates a collaborative learning environment where users can learn from each other, share experiences, and support one another's learning journey.
 - **Accessible Learning Resources:** Arcana's commitment to accessibility ensures that educational resources are available to users worldwide, regardless of geographic location or socioeconomic background.
-
+      
 ## How to Use
 1. **Clone the repository:**
 ```
@@ -26,7 +26,7 @@ https://github.com/JamshidMaruf/Arcana
 - Configure the database connection details and execute database migrations to set up the necessary database structure.
 
 3. **Build and Launch:**
-- Build the application using your preferred development environment or build tools.
+- Build the    application using your preferred development environment or build tools.
 - Launch the application to start exploring and utilizing its features.
 
 ## Contributions Welcome
