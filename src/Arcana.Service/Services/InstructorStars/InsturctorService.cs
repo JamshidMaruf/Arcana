@@ -4,7 +4,7 @@ using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
 using Arcana.Service.Helpers;
-using Arcana.Service.Services.Instructors;
+using Arcana.Service.Services.InstructorStarsService;
 using Microsoft.EntityFrameworkCore;
 
 public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsService

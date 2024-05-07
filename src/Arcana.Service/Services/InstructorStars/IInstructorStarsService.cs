@@ -1,7 +1,7 @@
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Configurations;
 
-namespace Arcana.Service.Services.Instructors;
+namespace Arcana.Service.Services.InstructorStarsService;
 
 public interface IInstructorStarsService
 {
