@@ -20,7 +20,7 @@ public class InstructorService(IUnitOfWork unitOfWork, IAssetService assetServic
         instructor.Detail.RoleId = await GetRoleId();
         await userService.CreateAsync(instructor.Detail);
 
-        instructor.CreatedByUserId = HttpContextHelper.UserId;
+        instructor.CreatedByQuestionId = HttpContextHelper.QuestionId;
         var createdInstructor = await unitOfWork.Instructors.InsertAsync(instructor);
         
         await unitOfWork.SaveAsync();
@@ -40,7 +40,7 @@ public class InstructorService(IUnitOfWork unitOfWork, IAssetService assetServic
 
         existInstructor.About = instructor.About;
         existInstructor.Profession = instructor.Profession;
-        existInstructor.UpdatedByUserId = HttpContextHelper.UserId;
+        existInstructor.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.Instructors.UpdateAsync(existInstructor);
         
         await unitOfWork.SaveAsync();
@@ -57,7 +57,7 @@ public class InstructorService(IUnitOfWork unitOfWork, IAssetService assetServic
             ?? throw new NotFoundException($"Instructor is not found with this ID={id}");
 
         await userService.DeleteAsync(existInstructor.DetailId);
-        existInstructor.DeletedByUserId = HttpContextHelper.UserId;
+        existInstructor.DeletedByUserId = HttpContextHelper.QuestionId;
         await unitOfWork.Instructors.DeleteAsync(existInstructor);
 
         await unitOfWork.SaveAsync();
@@ -99,7 +99,7 @@ public class InstructorService(IUnitOfWork unitOfWork, IAssetService assetServic
 
         existInstructor.Picture = createdPicture;
         existInstructor.PictureId = createdPicture.Id;
-        existInstructor.UpdatedByUserId = HttpContextHelper.UserId;
+        existInstructor.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.Instructors.UpdateAsync(existInstructor);
         await unitOfWork.SaveAsync();
 

@@ -25,7 +25,7 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
         var existInstructor = await unitOfWork.Instructors.SelectAsync(i => i.Id == course.InstructorId)
              ?? throw new NotFoundException($"Instructor is not found with this ID = {course.InstructorId}");
 
-        course.CreatedByUserId = HttpContextHelper.UserId;
+        course.CreatedByQuestionId = HttpContextHelper.QuestionId;
         var createdCourse = await unitOfWork.Courses.InsertAsync(course);
         await unitOfWork.SaveAsync();
 
@@ -57,7 +57,7 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
         existCourse.InstructorId = course.InstructorId;
         existCourse.CountOfLessons = course.CountOfLessons;
 
-        existCourse.UpdatedByUserId = HttpContextHelper.UserId;
+        existCourse.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.Courses.UpdateAsync(existCourse);
         await unitOfWork.SaveAsync();
 

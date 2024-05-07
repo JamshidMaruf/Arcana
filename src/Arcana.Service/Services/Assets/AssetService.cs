@@ -27,7 +27,7 @@ public class AssetService(IUnitOfWork unitOfWork) : IAssetService
         {
             Path = fullPath,
             Name = file.Name,
-            CreatedByUserId = HttpContextHelper.UserId
+            CreatedByQuestionId = HttpContextHelper.QuestionId
         };
 
         var createdAsset = await unitOfWork.Assets.InsertAsync(asset);

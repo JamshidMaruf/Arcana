@@ -1,4 +1,5 @@
 ﻿using Arcana.Domain.Commons;
+using Arcana.Domain.Entities.QuestionAnswers;
 using System.Linq.Expressions;
 
 namespace Arcana.DataAccess.Repositories;
@@ -18,4 +19,5 @@ public interface IRepository<T> where T : Auditable
         Expression<Func<T, bool>> expression = null,
         string[] includes = null,
         bool isTracked = true);
+    Task DeleteAsync(QuestionAnswer existAnswer);
 }

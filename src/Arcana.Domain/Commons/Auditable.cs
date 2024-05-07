@@ -7,7 +7,7 @@ public abstract class Auditable
     public DateTime? DeletedAt { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime? UpdatedAt { get; set; }
-    public long? UpdatedByUserId { get; set; }
-    public long CreatedByUserId { get; set; }
+    public long? UpdatedByQuestionId { get; set; }
+    public long CreatedByQuestionId { get; set; }
     public long? DeletedByUserId { get; set; }
 }

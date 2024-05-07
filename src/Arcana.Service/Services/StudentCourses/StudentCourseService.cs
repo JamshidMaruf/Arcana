@@ -34,7 +34,7 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
                 $"Instructor is already exists" +
                 $"InstructorId={studentCourse.InstructorId}");
 
-        studentCourse.CreatedByUserId = HttpContextHelper.UserId;
+        studentCourse.CreatedByQuestionId = HttpContextHelper.QuestionId;
 
         var createdStudentCourse = await unitOfWork.StudentCourses.InsertAsync(studentCourse);
         createdStudentCourse.Student = existStudent;
@@ -53,7 +53,7 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
         existStudentCourse.StudentId = studentCourse.StudentId;
         existStudentCourse.CourseId = studentCourse.CourseId;
         existStudentCourse.InstructorId = studentCourse.InstructorId;
-        existStudentCourse.UpdatedByUserId = HttpContextHelper.UserId;
+        existStudentCourse.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.StudentCourses.UpdateAsync(existStudentCourse);
         await unitOfWork.SaveAsync();
 
@@ -65,7 +65,7 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
         var existStudentCourse = await unitOfWork.StudentCourses.SelectAsync(s => s.Id == id && !s.IsDeleted)
             ?? throw new NotFoundException($"StudentCourse is not found with this ID={id}");
 
-        existStudentCourse.DeletedByUserId = HttpContextHelper.UserId;
+        existStudentCourse.DeletedByUserId = HttpContextHelper.QuestionId;
         await unitOfWork.StudentCourses.DeleteAsync(existStudentCourse);
         await unitOfWork.SaveAsync();
 

@@ -20,7 +20,7 @@ public class StudentService(IUnitOfWork unitOfWork, IAssetService assetService, 
         student.Detail.RoleId = await GetRoleId();
         await userService.CreateAsync(student.Detail);
 
-        student.CreatedByUserId = HttpContextHelper.UserId;
+        student.CreatedByQuestionId = HttpContextHelper.QuestionId;
         var createdStudent = await unitOfWork.Students.InsertAsync(student);
         
         await unitOfWork.SaveAsync();
@@ -46,7 +46,7 @@ public class StudentService(IUnitOfWork unitOfWork, IAssetService assetService, 
             ?? throw new NotFoundException($"Student is not found with this ID={id}");
 
         await userService.DeleteAsync(existStudent.DetailId);
-        existStudent.DeletedByUserId = HttpContextHelper.UserId;
+        existStudent.DeletedByUserId = HttpContextHelper.QuestionId;
         await unitOfWork.Students.DeleteAsync(existStudent);
         
         await unitOfWork.SaveAsync();
@@ -88,7 +88,7 @@ public class StudentService(IUnitOfWork unitOfWork, IAssetService assetService, 
 
         existStudent.Picture = createdPicture;
         existStudent.PictureId = createdPicture.Id;
-        existStudent.UpdatedByUserId = HttpContextHelper.UserId;
+        existStudent.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.Students.UpdateAsync(existStudent);
         await unitOfWork.SaveAsync();
 

@@ -16,7 +16,7 @@ public class UserRoleService(IUnitOfWork unitOfWork) : IUserRoleService
         if (existRole is not null)
             throw new AlreadyExistException("This role already exists");
 
-        userRole.CreatedByUserId = HttpContextHelper.UserId;
+        userRole.CreatedByQuestionId = HttpContextHelper.QuestionId;
         var createdUserRole = await unitOfWork.UserRoles.InsertAsync(userRole);
         await unitOfWork.SaveAsync();
 
@@ -33,7 +33,7 @@ public class UserRoleService(IUnitOfWork unitOfWork) : IUserRoleService
             throw new AlreadyExistException("This role already exists");
 
         existRole.Name = userRole.Name;
-        existRole.UpdatedByUserId = HttpContextHelper.UserId;
+        existRole.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.UserRoles.UpdateAsync(userRole);
         await unitOfWork.SaveAsync();
 

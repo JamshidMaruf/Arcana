@@ -24,7 +24,7 @@ public class UserService(IUnitOfWork unitOfWork, IMemoryCache memoryCache) : IUs
 
         user.RoleId = user.RoleId == 0 ? adminRoleId : user.RoleId;
 
-        user.CreatedByUserId = HttpContextHelper.UserId;
+        user.CreatedByQuestionId = HttpContextHelper.QuestionId;
         user.Password = PasswordHasher.Hash(user.Password);
         user.Role = existRole;
         var createdUser = await unitOfWork.Users.InsertAsync(user);
@@ -50,7 +50,7 @@ public class UserService(IUnitOfWork unitOfWork, IMemoryCache memoryCache) : IUs
         existUser.LastName = user.LastName;
         existUser.FirstName = user.FirstName;
         existUser.DateOfBirth = user.DateOfBirth;
-        existUser.UpdatedByUserId = HttpContextHelper.UserId;
+        existUser.UpdatedByQuestionId = HttpContextHelper.QuestionId;
 
         await unitOfWork.Users.UpdateAsync(existUser);
         await unitOfWork.SaveAsync();
@@ -63,7 +63,7 @@ public class UserService(IUnitOfWork unitOfWork, IMemoryCache memoryCache) : IUs
         var existUser = await unitOfWork.Users.SelectAsync(u => u.Id == id && !u.IsDeleted)
             ?? throw new NotFoundException($"User is not found with this ID={id}");
 
-        existUser.DeletedByUserId = HttpContextHelper.UserId;
+        existUser.DeletedByUserId = HttpContextHelper.QuestionId;
         await unitOfWork.Users.DeleteAsync(existUser);
         await unitOfWork.SaveAsync();
 

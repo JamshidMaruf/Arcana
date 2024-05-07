@@ -19,7 +19,7 @@ public class PermissionService(IUnitOfWork unitOfWork) : IPermissionService
         if (existPermission is not null)
             throw new AlreadyExistException($"This permission already exists | Method={permission.Action} Controller={permission.Controller}");
 
-        permission.CreatedByUserId = HttpContextHelper.UserId;
+        permission.CreatedByQuestionId = HttpContextHelper.QuestionId;
         var createdPermission = await unitOfWork.Permissions.InsertAsync(permission);
         await unitOfWork.SaveAsync();
 
@@ -40,7 +40,7 @@ public class PermissionService(IUnitOfWork unitOfWork) : IPermissionService
 
         existPermission.Action = permission.Action;
         existPermission.Controller = permission.Controller;
-        existPermission.UpdatedByUserId = HttpContextHelper.UserId;
+        existPermission.UpdatedByQuestionId = HttpContextHelper.QuestionId;
         await unitOfWork.Permissions.UpdateAsync(permission);
         await unitOfWork.SaveAsync();
 

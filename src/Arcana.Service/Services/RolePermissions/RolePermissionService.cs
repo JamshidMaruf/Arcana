@@ -26,7 +26,7 @@ public class RolePermissionService(IUnitOfWork unitOfWork) : IRolePermissionServ
             throw new AlreadyExistException($"Role permission is already exists" +
                 $"RoleId={rolePermission.RoleId}, PermissionId={rolePermission.PermissionId}");
 
-        rolePermission.CreatedByUserId = HttpContextHelper.UserId;
+        rolePermission.CreatedByQuestionId = HttpContextHelper.QuestionId;
         
         var createdRolePermission = await unitOfWork.RolePermissions.InsertAsync(rolePermission);
         createdRolePermission.Permission = existPermission;
@@ -41,7 +41,7 @@ public class RolePermissionService(IUnitOfWork unitOfWork) : IRolePermissionServ
         var existRolePermission = await unitOfWork.RolePermissions.SelectAsync(rp => rp.Id == id && !rp.IsDeleted)
             ?? throw new NotFoundException($"Role permission is not found with this ID={id}");
 
-        existRolePermission.DeletedByUserId = HttpContextHelper.UserId;
+        existRolePermission.DeletedByUserId = HttpContextHelper.QuestionId;
         await unitOfWork.RolePermissions.DeleteAsync(existRolePermission);
         await unitOfWork.SaveAsync();
 
