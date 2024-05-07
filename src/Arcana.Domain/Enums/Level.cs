@@ -1,4 +1,5 @@
-﻿namespace Arcana.Domain.Enums.Levels;
+﻿namespace Arcana.Domain.Enums;
+
 public enum Level
 {
     Beginner,

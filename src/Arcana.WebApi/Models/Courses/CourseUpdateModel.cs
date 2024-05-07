@@ -1,4 +1,4 @@
-﻿using Arcana.Domain.Enums.Levels;
+﻿using Arcana.Domain.Enums;
 
 namespace Arcana.WebApi.Models.Courses;
 
