@@ -1,5 +1,6 @@
 ﻿using Arcana.Domain.Commons;
 using Arcana.Domain.Entities.Commons;
+using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Users;
 
 namespace Arcana.Domain.Entities.Students;

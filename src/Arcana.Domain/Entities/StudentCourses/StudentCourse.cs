@@ -11,6 +11,4 @@ public class StudentCourse : Auditable
     public Student Student { get; set; }
     public long CourseId { get; set; }  
     public Course Course { get; set; }
-    public long InstructorId {  get; set; }
-    public Instructor Instructor { get; set; }
 }

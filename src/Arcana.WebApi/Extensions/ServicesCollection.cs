@@ -6,6 +6,7 @@ using Arcana.Service.Services.Instructors;
 using Arcana.Service.Services.LessonComments;
 using Arcana.Service.Services.Lessons;
 using Arcana.Service.Services.Permissions;
+using Arcana.Service.Services.QuestionAnswers;
 using Arcana.Service.Services.Questions;
 using Arcana.Service.Services.QuizApplications;
 using Arcana.Service.Services.QuizQuestions;
@@ -65,6 +66,7 @@ public static class ServicesCollection
         services.AddScoped<ILessonCommentService, LessonCommentService>();
         services.AddScoped<ILessonService, LessonService>();
         services.AddScoped<IQuestionService, QuestionService>();
+        services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
         services.AddScoped<IQuizApplicationService, QuizApplicationService>();
         services.AddScoped<IQuizQuestionService, QuizQuestionService>();
         services.AddScoped<IStudentCourseService, StudentCourseService>();
