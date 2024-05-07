@@ -1,7 +1,14 @@
-﻿namespace Arcana.Service.Configurations;
+﻿using Arcana.Service.Helpers;
+
+namespace Arcana.Service.Configurations;
 
 public class PaginationParams
 {
-    public int PageIndex { get; set; } = 1;
-    public int PageSize { get; set; } = 20;
+    public PaginationParams()
+    {
+        PageIndex = EnvironmentHelper.PageIndex;
+        PageSize = EnvironmentHelper.PageSize;
+    }
+    public int PageIndex { get; set; } 
+    public int PageSize { get; set; }
 }
