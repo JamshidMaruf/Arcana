@@ -60,20 +60,4 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
         return true;
     }
 
-    public async ValueTask<IEnumerable<Language>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
-    {
-        var languages = unitOfWork.Languages
-            .SelectAsQueryable(expression: lan => !lan.IsDeleted,isTracked: false)
-            .OrderBy(filter);
-        
-        return await languages.ToPaginateAsQueryable(@params).ToListAsync();
-    }
-
-    public async ValueTask<Language> GetByIdAsync(long id)
-    {
-        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id)
-            ??throw new NotFoundException($"Language is not found with Id:{id}");
-
-        return existLanguage;
-    }
 }
