@@ -24,7 +24,7 @@ public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsSe
 
     public async ValueTask<bool> DeleteAsync(long id)
     {
-        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.Id == id)
+        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.Id == id && !i.IsDeleted)
             ??throw new NotFoundException($"InstructorStars is not found with this ID={id}");
         
         existInstructorStars.DeletedByUserId = HttpContextHelper.UserId;
