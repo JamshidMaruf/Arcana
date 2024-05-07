@@ -11,4 +11,3 @@ public interface ICourseModuleService
     ValueTask<CourseModule> GetByIdAsync(long id);
     ValueTask<IEnumerable<CourseModule>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
 }
-
