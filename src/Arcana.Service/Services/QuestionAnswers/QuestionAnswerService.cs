@@ -16,7 +16,7 @@ public class QuestionAnswerService(IUnitOfWork unitOfWork,
         if (existAnswer is not null)
             throw new AlreadyExistException("Question Answer already exists");
 
-        questionAnswer.CreatedByQuestionId = HttpContextHelper.QuestionId;
+        questionAnswer.CreatedByUserId = HttpContextHelper.QuestionId;
         var createdQuestionAnswer = await unitOfWork.QuestionAnswers.InsertAsync(questionAnswer);
         await unitOfWork.SaveAsync();
 
@@ -62,7 +62,7 @@ public class QuestionAnswerService(IUnitOfWork unitOfWork,
             throw new AlreadyExistException("This question Answer already exists");
 
         existAnswer.Content = questionAnswer.Content;
-        existAnswer.UpdatedByQuestionId = HttpContextHelper.QuestionId;
+        existAnswer.UpdatedByUserId = HttpContextHelper.QuestionId;
         await unitOfWork.QuestionAnswers.UpdateAsync(questionAnswer);
         await unitOfWork.SaveAsync();
 
