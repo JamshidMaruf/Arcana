@@ -18,6 +18,7 @@ public class CourseModuleService(IUnitOfWork unitOfWork) : ICourseModuleService
         var existCourseModule = await unitOfWork.CourseModules.SelectAsync(module => 
             module.Name.ToLower() == courseModule.Name.ToLower() && 
             module.CourseId == courseModule.CourseId);
+
         if (existCourseModule is not null)
             throw new AlreadyExistException("This course module already exists");
 
