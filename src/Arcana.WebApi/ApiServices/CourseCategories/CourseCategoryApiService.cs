@@ -1,32 +1,49 @@
-﻿using Arcana.Service.Configurations;
+﻿using Arcana.Domain.Entities.CourseCategories;
+using Arcana.Service.Configurations;
+using Arcana.Service.Services.CourseCategories;
+using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Models.CourseCategories;
+using Arcana.WebApi.Validators.CourseCategories;
+using AutoMapper;
 
 namespace Arcana.WebApi.ApiServices.CourseCategories;
 
-public class CourseCategoryApiService : ICourseCategoryApiService
+public class CourseCategoryApiService(
+    IMapper mapper,
+    ICourseCategoryService courseCategoryService,
+    CourseCategoryCreateModelValidator createModelValidator,
+    CourseCategoryUpdateModelValidator updateModelValidator) : ICourseCategoryApiService
 {
-    public ValueTask<bool> DeleteAsync(long id)
+    public async ValueTask<bool> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        return await courseCategoryService.DeleteAsync(id);
     }
 
-    public ValueTask<CourseCategoryViewModel> GetAsync(long id)
+    public async ValueTask<CourseCategoryViewModel> GetAsync(long id)
     {
-        throw new NotImplementedException();
+        var courseCategory = await courseCategoryService.GetByIdAsync(id);
+        return mapper.Map<CourseCategoryViewModel>(courseCategory);
     }
 
-    public ValueTask<IEnumerable<CourseCategoryViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
+    public async ValueTask<IEnumerable<CourseCategoryViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
     {
-        throw new NotImplementedException();
+        var courseCategory = await courseCategoryService.GetAllAsync(@params, filter, search);
+        return mapper.Map<IEnumerable<CourseCategoryViewModel>>(courseCategory);
     }
 
-    public ValueTask<CourseCategoryViewModel> PostAsync(CourseCategoryCreateModel createModel)
+    public async ValueTask<CourseCategoryViewModel> PostAsync(CourseCategoryCreateModel createModel)
     {
-        throw new NotImplementedException();
+        await createModelValidator.EnsureValidatedAsync(createModel);
+        var mappedCourseCategory = mapper.Map<CourseCategory>(createModel);
+        var createdCourseCategory = await courseCategoryService.CreateAsync(mappedCourseCategory);
+        return mapper.Map<CourseCategoryViewModel>(createdCourseCategory);
     }
 
-    public ValueTask<CourseCategoryViewModel> PutAsync(long id, CourseCategoryUpdateModel updateModel)
+    public async ValueTask<CourseCategoryViewModel> PutAsync(long id, CourseCategoryUpdateModel updateModel)
     {
-        throw new NotImplementedException();
+        await updateModelValidator.EnsureValidatedAsync(updateModel);
+        var mappedCourseCategory = mapper.Map<CourseCategory>(updateModel);
+        var createdCourseCategory = await courseCategoryService.UpdateAsync(id, mappedCourseCategory);
+        return mapper.Map<CourseCategoryViewModel>(createdCourseCategory);
     }
 }
