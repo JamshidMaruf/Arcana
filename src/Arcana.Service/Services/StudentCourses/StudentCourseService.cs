@@ -18,13 +18,9 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
         var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == studentCourse.StudentId)
             ?? throw new NotFoundException($"Student is not found with this ID = {studentCourse.StudentId}");
 
-        var existInstructor = await unitOfWork.Instructors.SelectAsync(i => i.Id == studentCourse.InstructorId)
-            ?? throw new NotFoundException($"Instructor is not found with this ID = {studentCourse.InstructorId}");
-
         var existStudentCourse = await unitOfWork.StudentCourses.SelectAsync(
             c => c.CourseId == studentCourse.CourseId
-            && c.StudentId == studentCourse.StudentId
-            && c.InstructorId == studentCourse.InstructorId);
+            && c.StudentId == studentCourse.StudentId);
 
         if (existStudentCourse is not null)
             throw new AlreadyExistException($"Course is already exists" +
@@ -35,7 +31,6 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
         var createdStudentCourse = await unitOfWork.StudentCourses.InsertAsync(studentCourse);
         createdStudentCourse.Student = existStudent;
         createdStudentCourse.Course = existCourse;
-        createdStudentCourse.Instructor = existInstructor;
         await unitOfWork.SaveAsync();
 
         return createdStudentCourse;
@@ -48,7 +43,6 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
 
         existStudentCourse.StudentId = studentCourse.StudentId;
         existStudentCourse.CourseId = studentCourse.CourseId;
-        existStudentCourse.InstructorId = studentCourse.InstructorId;
         existStudentCourse.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.StudentCourses.UpdateAsync(existStudentCourse);
         await unitOfWork.SaveAsync();
@@ -85,8 +79,6 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
 
         if (!string.IsNullOrWhiteSpace(search))
             studentCourse = studentCourse.Where(s =>
-                s.Instructor.Profession.ToLower().Contains(search.ToLower()) ||
-                s.Instructor.About.ToLower().Contains(search.ToLower()) ||
                 s.Course.Name.ToLower().Contains(search.ToLower()) ||
                 s.Course.Description.ToLower().Contains(search.ToLower()) ||
                 s.Student.Detail.FirstName.Contains(search.ToLower()) ||
