@@ -27,9 +27,6 @@ public class LessonService(
         if (existLesson is not null && !existLesson.IsDeleted)
             throw new AlreadyExistException($"This lesson is already exist with this moduleId = {lesson.ModuleId} and title = {lesson.Title}");
 
-        if (existLesson is not null)
-            return await UpdateAsync(existLesson.Id, lesson, true);
-
         var asset = await assetService.UploadAsync(file, fileType);
         lesson.FileId = asset.Id;
         lesson.CreatedByUserId = HttpContextHelper.UserId;
@@ -41,14 +38,12 @@ public class LessonService(
         return createdLesson;
     }
 
-    public async ValueTask<Lesson> UpdateAsync(long id, Lesson lesson, bool isLessonDeleted = false)
+    public async ValueTask<Lesson> UpdateAsync(long id, Lesson lesson)
     {
         var existModule = await unitOfWork.CourseModules.SelectAsync(module => module.Id == lesson.ModuleId && !module.IsDeleted)
             ?? throw new NotFoundException($"Module is not found with this ID = {lesson.ModuleId}");
 
-        var existLesson = new Lesson();
-        if (!isLessonDeleted)
-            existLesson = await unitOfWork.Lessons.SelectAsync(expression: l => l.Id == id && !l.IsDeleted, includes: ["Module", "File"])
+        var existLesson = await unitOfWork.Lessons.SelectAsync(expression: l => l.Id == id && !l.IsDeleted, includes: ["Module", "File"])
                 ?? throw new NotFoundException($"Lesson is not found with this ID = {id}");
 
         var alreadyExitsLesson = await unitOfWork.Lessons
@@ -58,7 +53,6 @@ public class LessonService(
             throw new AlreadyExistException($"This lesson is already exist with this moduleId = {lesson.ModuleId} and title = {lesson.Title}");
 
         existLesson.Id = id;
-        existLesson.IsDeleted = false;
         existLesson.Title = lesson.Title;
         existLesson.ModuleId = lesson.ModuleId;
         existLesson.Description = lesson.Description;
