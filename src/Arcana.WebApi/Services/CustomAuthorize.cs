@@ -1,62 +1,58 @@
-﻿using Arcana.Service.Exceptions;
-using Arcana.Service.Services.Permissions;
-using Arcana.Service.Services.RolePermissions;
-using Arcana.Service.Services.UserRoles;
-using Arcana.Service.Services.Users;
-using Arcana.WebApi.Helpers;
-using Microsoft.AspNetCore.Http;
+﻿using Arcana.WebApi.Helpers;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Arcana.Service.Exceptions;
+using Arcana.WebApi.Models.Commons;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Net;
+using Microsoft.AspNetCore.Authorization;
+using Arcana.Service.Services.RolePermissions;
 
 namespace Arcana.WebApi.Services;
 
 public class CustomAuthorize : Attribute, IAuthorizationFilter
 {
-    private readonly IUserService userService;
-    private readonly IUserRoleService userRoleService;
-    private readonly IPermissionService permissionService;
     private readonly IRolePermissionService rolePermissionService;
     public CustomAuthorize()
     {
-        userService = InjectHelper.UserService;
-        userRoleService = InjectHelper.UserRoleService;
-        permissionService = InjectHelper.PermissionService;
         rolePermissionService = InjectHelper.RolePermissionService;
     }
 
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-        string authorizationHeader = context.HttpContext.Request.Headers["Authorization"];
+        var actionDescriptor = context.ActionDescriptor as Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor;
 
+        var allowAnonymous = actionDescriptor?.MethodInfo.GetCustomAttributes(inherit: true)
+                .OfType<AllowAnonymousAttribute>().Any() ?? false;
+        if (allowAnonymous) return;
+        
+        string authorizationHeader = context.HttpContext.Request.Headers["Authorization"];
         if (string.IsNullOrEmpty(authorizationHeader))
         {
-            context.Result = new StatusCodeResult(StatusCodes.Status403Forbidden);
+            SetStatusCodeResult(context);
             return;
         }
             
-        var actionDescriptor = context.ActionDescriptor as Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor;
         var action = actionDescriptor.ActionName;
         var controller = actionDescriptor.ControllerName;
-        var userId = Convert.ToInt64(context.HttpContext?.User?.FindFirst("Id")?.Value);
+        var role = context.HttpContext?.User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
-        var user = userService.GetByIdAsync(Convert.ToInt64(userId))
-            .ConfigureAwait(true)
-            .GetAwaiter()
-            .GetResult();
-
-        var rolePermissions = rolePermissionService.GetAllByRoleIdAsync(user.RoleId)
-            .ConfigureAwait(true)
-            .GetAwaiter()
-            .GetResult();
-
-        foreach (var rolePermission in rolePermissions)
+        if (!rolePermissionService.CheckRolePermission(role, action, controller))
         {
-            if (!(rolePermission.Permission.Action == action && rolePermission.Permission.Controller == controller))
-            {
-                context.Result = new StatusCodeResult(StatusCodes.Status403Forbidden);
-                return;
-            }
+            SetStatusCodeResult(context);
+            return;
         }
+    }
+
+    private void SetStatusCodeResult(AuthorizationFilterContext context)
+    {
+        var exception = new CustomException("You do not have permission for this method", 403);
+        context.Result = new ObjectResult(new Response
+        {
+            StatusCode = exception.StatusCode,
+            Message = exception.Message
+        })
+        {
+            StatusCode = StatusCodes.Status403Forbidden
+        };
     }
 }
