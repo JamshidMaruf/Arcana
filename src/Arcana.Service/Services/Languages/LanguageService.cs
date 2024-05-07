@@ -12,7 +12,7 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
 {
     public async ValueTask<Language> CreateAsync(Language language)
     {
-        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Name == language.Name);
+        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Name == language.Name && !lan.IsDeleted);
         if (existLanguage is not null)
             throw new AlreadyExistException($"This language already exist Name: {language.Name}");
         
@@ -25,7 +25,7 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
     }
     public async ValueTask<Language> UpdateAsync(long id, Language language)
     {
-        var existLanguage = await unitOfWork.Languages.SelectAsync(lan =>lan.Id == id)
+        var existLanguage = await unitOfWork.Languages.SelectAsync(lan =>lan.Id == id && !lan.IsDeleted)
             ??throw new NotFoundException($"Language is not found with Id: {id}");
 
         existLanguage.Name = language.Name;
@@ -40,7 +40,7 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
 
     public async ValueTask<bool> DeleteAsync(long id)
     {
-        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id)
+        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id && !lan.IsDeleted)
             ??throw new NotFoundException($"Language is not found with Id: {id}");
         
         existLanguage.DeletedByUserId = HttpContextHelper.UserId;
@@ -62,7 +62,7 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
 
     public async ValueTask<Language> GetByIdAsync(long id)
     {
-        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id)
+        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id && !lan.IsDeleted)
             ??throw new NotFoundException($"Language is not found with Id:{id}");
 
         return existLanguage;

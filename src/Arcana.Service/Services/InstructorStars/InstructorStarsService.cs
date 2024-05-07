@@ -11,7 +11,7 @@ public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsSe
 {
     public async ValueTask<InstructorStars> CreateAsync(InstructorStars instructorStars)
     {
-        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId);
+        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId && i.IsDeleted);
         if(existInstructorStars is not null)
            throw new AlreadyExistException($"This instuctorStars already exists with this id={instructorStars.Id}");
         instructorStars.CreatedByUserId = HttpContextHelper.UserId;
@@ -52,7 +52,7 @@ public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsSe
 
     public async ValueTask<InstructorStars> UpdateAsync(long id, InstructorStars instructorStars)
     {
-        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => id == i.Id)
+        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => id == i.Id && i.IsDeleted)
             ??throw new NotFoundException($"InstructorStars is not found with this ID={id}");
         existInstructorStars.InstructorId = instructorStars.Id;
         existInstructorStars.StudentId = instructorStars.StudentId;
