@@ -44,4 +44,12 @@ public class AppDbContext : DbContext
     public DbSet<InstructorStars> InstructorStars { get; set; }
     public DbSet<QuizApplication> QuizApplications { get; set; }
     public DbSet<InstructorComment> InstructorComments { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Course>()
+            .Property(c => c.Price)
+            .HasColumnType("decimal(18,3)");
+
+    }
 }
