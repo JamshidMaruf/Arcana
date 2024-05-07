@@ -30,6 +30,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
         existQuestion.Content = question.Content;
 
         existQuestion.UpdatedByUserId = HttpContextHelper.UserId;
+        await unitOfWork.Questions.UpdateAsync(existQuestion);
         await unitOfWork.SaveAsync();
 
         return existQuestion;
@@ -41,7 +42,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
 
         existQuestion.DeletedByUserId = HttpContextHelper.UserId;
-
+        await unitOfWork.Questions.DeleteAsync(existQuestion);
         await unitOfWork.SaveAsync();
 
         return true;
