@@ -13,3 +13,4 @@ public class Lesson : Auditable
     public Asset File { get; set; }
     public CourseModule Module { get; set; }
 }
+
