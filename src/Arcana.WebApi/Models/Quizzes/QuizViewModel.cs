@@ -1,4 +1,6 @@
-﻿namespace Arcana.WebApi.Models.Quizzes;
+﻿using Arcana.WebApi.Models.CourseModules;
+
+namespace Arcana.WebApi.Models.Quizzes;
 
 public class QuizViewModel
 {
@@ -7,5 +9,5 @@ public class QuizViewModel
     public int QuestionCount { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
-    //public CourseModuleViewModel Module { get; set; }
+    public CourseModuleViewModel Module { get; set; }
 }

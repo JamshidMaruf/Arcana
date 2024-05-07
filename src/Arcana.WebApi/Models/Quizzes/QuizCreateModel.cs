@@ -1,5 +1,4 @@
 ﻿namespace Arcana.WebApi.Models.Quizzes;
-
 public class QuizCreateModel
 {
     public string Name { get; set; }

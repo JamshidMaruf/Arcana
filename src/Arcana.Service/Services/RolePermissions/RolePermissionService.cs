@@ -77,4 +77,16 @@ public class RolePermissionService(IUnitOfWork unitOfWork) : IRolePermissionServ
         return await unitOfWork.RolePermissions
             .SelectAsEnumerableAsync(expression: rp => rp.RoleId == roleId, includes: ["Role", "Permission"]);
     }
+
+    public bool CheckRolePermission(string role, string action, string controller)
+    {
+        var rolePermissions = unitOfWork.RolePermissions.SelectAsQueryable(expression: rp =>
+            rp.Role.Name.ToLower() == role.ToLower() &&
+            rp.Permission.Action.ToLower() == action.ToLower() &&
+            rp.Permission.Controller.ToLower() == controller.ToLower(), isTracked: false);
+
+        if (rolePermissions.Any()) return true;
+
+        return false;
+    }
 }
