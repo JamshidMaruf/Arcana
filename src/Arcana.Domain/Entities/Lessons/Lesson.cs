@@ -1,5 +1,6 @@
 ﻿using Arcana.Domain.Commons;
 using Arcana.Domain.Entities.Commons;
+using Arcana.Domain.Entities.Courses;
 
 namespace Arcana.Domain.Entities.Lessons;
 
@@ -10,5 +11,5 @@ public class Lesson : Auditable
     public long FileId { get; set; }
     public long ModuleId { get; set; }
     public Asset File { get; set; }
-    //public Module Module { get; set; }
+    public CourseModule Module { get; set; }
 }
