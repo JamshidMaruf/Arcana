@@ -76,7 +76,7 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
     public async ValueTask<Course> GetByIdAsync(long id)
     {
         var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == id && !c.IsDeleted,
-            ["Category", "Intructor", "File", "Language"])
+            ["Category", "Instructor", "File", "Language"])
            ?? throw new NotFoundException($"Course is not found with this ID={id}");
 
         return existCourse;
@@ -85,7 +85,7 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
     public async ValueTask<IEnumerable<Course>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var courses = unitOfWork.Courses
-             .SelectAsQueryable(expression: course => !course.IsDeleted, includes: ["Category", "Intructor", "File", "Language"], isTracked: false)
+             .SelectAsQueryable(expression: course => !course.IsDeleted, includes: ["Category", "Instructor", "File", "Language"], isTracked: false)
              .OrderBy(filter);
 
         if (!string.IsNullOrEmpty(search))

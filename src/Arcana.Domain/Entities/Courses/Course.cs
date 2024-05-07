@@ -3,7 +3,7 @@ using Arcana.Domain.Entities.Commons;
 using Arcana.Domain.Entities.CourseCategories;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
-using Arcana.Domain.Enums.Levels;
+using Arcana.Domain.Enums;
 
 namespace Arcana.Domain.Entities.Courses;
 
