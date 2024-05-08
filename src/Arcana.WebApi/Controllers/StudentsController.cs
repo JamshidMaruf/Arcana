@@ -1,5 +1,5 @@
 ﻿using Arcana.Service.Configurations;
-using Arcana.WebApi.ApiServices.Instructors;
+using Arcana.WebApi.ApiServices.Students;
 using Arcana.WebApi.Models.Commons;
 using Arcana.WebApi.Models.Students;
 using Microsoft.AspNetCore.Mvc;

@@ -1,13 +1,12 @@
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Configurations;
 
-namespace Arcana.Service.Services.InstructorStarsService;
 
 public interface IInstructorStarsService
 {
-    ValueTask<InstructorStars> CreateAsync(InstructorStars instructorStars);
-    ValueTask<InstructorStars> UpdateAsync(long id, InstructorStars instructorStars);
+    ValueTask<InstructorStar> CreateAsync(InstructorStar instructorStars);
+    ValueTask<InstructorStar> UpdateAsync(long id, InstructorStar instructorStars);
     ValueTask<bool> DeleteAsync(long id);
-    ValueTask<InstructorStars> GetByIdAsync(long id);
-    ValueTask<IEnumerable<InstructorStars>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
+    ValueTask<InstructorStar> GetByIdAsync(long id);
+    ValueTask<IEnumerable<InstructorStar>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
 }

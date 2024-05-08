@@ -1,9 +1,9 @@
 ﻿using Arcana.Domain.Commons;
 using Arcana.Domain.Entities.Questions;
 
-namespace Arcana.Domain.Entities.QuestionAnswers;
+namespace Arcana.Domain.Entities.QuestionOptions;
 
-public class QuestionAnswer : Auditable
+public class QuestionOption : Auditable
 {
     public string Content { get; set; }
     public long QuestionId { get; set; }

@@ -3,7 +3,7 @@ using Arcana.Domain.Entities.Students;
 
 namespace Arcana.Domain.Entities.Instructors;
 
-public class InstructorStars : Auditable
+public class InstructorStar : Auditable
 {
     public byte Stars { get; set; }
     public long StudentId { get; set; }
