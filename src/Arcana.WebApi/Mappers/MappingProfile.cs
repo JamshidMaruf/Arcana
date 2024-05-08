@@ -94,9 +94,9 @@ public class MappingProfile : Profile
         CreateMap<InstructorComment, InstructorCommentCreateModel>().ReverseMap();
         CreateMap<InstructorComment, InstructorCommentUpdateModel>().ReverseMap();
 
-        CreateMap<InstructorStarsViewModel, InstructorStars>().ReverseMap();
-        CreateMap<InstructorStars, InstructorStarsCreateModel>().ReverseMap();
-        CreateMap<InstructorStars, InstructorStarsUpdateModel>().ReverseMap();
+        CreateMap<InstructorStarViewModel, InstructorStar>().ReverseMap();
+        CreateMap<InstructorStar, InstructorStarCreateModel>().ReverseMap();
+        CreateMap<InstructorStar, InstructorStarUpdateModel>().ReverseMap();
 
         CreateMap<LanguageViewModel, Language>().ReverseMap();
         CreateMap<Language, LanguageCreateModel>().ReverseMap();

@@ -39,7 +39,7 @@ public interface IUnitOfWork : IDisposable
     IRepository<QuestionAnswer> QuestionAnswers { get; }
     IRepository<RolePermission> RolePermissions { get; }
     IRepository<CourseCategory> CourseCategories { get; }
-    IRepository<InstructorStars> InstructorStars { get; }
+    IRepository<InstructorStar> InstructorStars { get; }
     IRepository<QuizApplication> QuizApplications { get; }
     IRepository<InstructorComment> InstructorComments { get; }
     ValueTask<bool> SaveAsync();

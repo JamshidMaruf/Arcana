@@ -7,13 +7,13 @@ using Arcana.Service.Helpers;
 using Arcana.Service.Services.InstructorStarsService;
 using Microsoft.EntityFrameworkCore;
 
-public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsService
+public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarService
 {
-    public async ValueTask<InstructorStars> CreateAsync(InstructorStars instructorStars)
+    public async ValueTask<InstructorStar> CreateAsync(InstructorStar instructorStars)
     {
         var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId);
         if(existInstructorStars is not null)
-           throw new AlreadyExistException($"This instuctorStars already exists with this id={instructorStars.Id}");
+           throw new AlreadyExistException($"This instructorStars already exists with this id={instructorStars.Id}");
         instructorStars.CreatedByUserId = HttpContextHelper.UserId;
         var createdInstructorStars =  await unitOfWork.InstructorStars.InsertAsync(instructorStars);
 
@@ -35,7 +35,7 @@ public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsSe
         return true;
     }
 
-    public async ValueTask<IEnumerable<InstructorStars>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
+    public async ValueTask<IEnumerable<InstructorStar>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var instructorStars = unitOfWork.InstructorStars
             .SelectAsQueryable(expression: InstructorStars => !InstructorStars.IsDeleted,  isTracked: false)
@@ -43,14 +43,14 @@ public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsSe
         return await instructorStars.ToPaginateAsQueryable(@params).ToListAsync();
     }
 
-    public async ValueTask<InstructorStars> GetByIdAsync(long id)
+    public async ValueTask<InstructorStar> GetByIdAsync(long id)
     {
         var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.Id == id)
             ??throw new NotFoundException($"InstructorStars is not found with this ID={id}");
         return existInstructorStars;
     }
 
-    public async ValueTask<InstructorStars> UpdateAsync(long id, InstructorStars instructorStars)
+    public async ValueTask<InstructorStar> UpdateAsync(long id, InstructorStar instructorStars)
     {
         var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => id == i.Id)
             ??throw new NotFoundException($"InstructorStars is not found with this ID={id}");
