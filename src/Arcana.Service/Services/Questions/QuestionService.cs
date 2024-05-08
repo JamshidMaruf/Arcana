@@ -101,4 +101,29 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
 
         return existQuestion;
     }
+
+    public async ValueTask<List<Question>> GetShuffledListAsync(long moduleId, int questionCount)
+    {
+        var questions = await unitOfWork.Questions
+            .SelectAsQueryable(question => question.ModuleId == moduleId && !question.IsDeleted)
+            .ToListAsync();
+
+        return Shuffle(questions).Take(questionCount).ToList();
+    }
+
+    private List<Question> Shuffle(List<Question> questions)
+    {
+        int n = questions.Count();
+        Random rnd = new Random();
+        while (n > 1)
+        {
+            int k = (rnd.Next(0, n) % n);
+            n--;
+            Question value = questions[k];
+            questions[k] = questions[n];
+            questions[n] = value;
+        }
+
+        return questions;
+    }
 }

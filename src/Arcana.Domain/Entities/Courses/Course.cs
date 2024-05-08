@@ -18,7 +18,7 @@ public class Course : Auditable
     public long CategoryId { get; set; }
     public CourseCategory Category { get; set; } 
     public long InstructorId { get; set; }
-    public Instructor Intructor { get; set; }
+    public Instructor Instructor { get; set; }
     public long FileId { get; set; }
     public Asset File { get; set; }
     public long LanguageId {  get; set; }
