@@ -1,42 +1,42 @@
-using AutoMapper;
-using Arcana.WebApi.Models.Users;
-using Arcana.WebApi.Models.Assets;
-using Arcana.Domain.Entities.Users;
-using Arcana.WebApi.Models.Students;
 using Arcana.Domain.Entities.Commons;
-using Arcana.WebApi.Models.UserRoles;
-using Arcana.Domain.Entities.Students;
-using Arcana.WebApi.Models.Permissions;
-using Arcana.WebApi.Models.Instructors;
-using Arcana.Domain.Entities.Instructors;
-using Arcana.WebApi.Models.RolePermissions;
-using Arcana.WebApi.Models.CourseCategories;
 using Arcana.Domain.Entities.CourseCategories;
-using Arcana.WebApi.Models.CourseComments;
 using Arcana.Domain.Entities.CourseComments;
-using Arcana.WebApi.Models.CourseModules;
 using Arcana.Domain.Entities.Courses;
+using Arcana.Domain.Entities.Instructors;
+using Arcana.Domain.Entities.Languages;
+using Arcana.Domain.Entities.Lessons;
+using Arcana.Domain.Entities.QuestionAnswers;
+using Arcana.Domain.Entities.Questions;
+using Arcana.Domain.Entities.QuizApplications;
+using Arcana.Domain.Entities.QuizQuestions;
+using Arcana.Domain.Entities.Quizzes;
+using Arcana.Domain.Entities.StudentCourses;
+using Arcana.Domain.Entities.Students;
+using Arcana.Domain.Entities.Users;
+using Arcana.WebApi.Models.Assets;
+using Arcana.WebApi.Models.CourseCategories;
+using Arcana.WebApi.Models.CourseComments;
+using Arcana.WebApi.Models.CourseModules;
 using Arcana.WebApi.Models.Courses;
 using Arcana.WebApi.Models.CourseStars;
 using Arcana.WebApi.Models.InstructorComments;
+using Arcana.WebApi.Models.Instructors;
 using Arcana.WebApi.Models.InstructorStars;
 using Arcana.WebApi.Models.Languages;
-using Arcana.Domain.Entities.Languages;
-using Arcana.WebApi.Models.Lessons;
-using Arcana.Domain.Entities.Lessons;
 using Arcana.WebApi.Models.LessonComments;
+using Arcana.WebApi.Models.Lessons;
+using Arcana.WebApi.Models.Permissions;
 using Arcana.WebApi.Models.QuestionAnswers;
-using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.WebApi.Models.Questions;
-using Arcana.Domain.Entities.Questions;
-using Arcana.WebApi.Models.Quizzes;
-using Arcana.Domain.Entities.Quizzes;
 using Arcana.WebApi.Models.QuizApplications;
-using Arcana.Domain.Entities.QuizApplications;
 using Arcana.WebApi.Models.QuizQuestions;
-using Arcana.Domain.Entities.QuizQuestions;
+using Arcana.WebApi.Models.Quizzes;
+using Arcana.WebApi.Models.RolePermissions;
 using Arcana.WebApi.Models.StudentCourses;
-using Arcana.Domain.Entities.StudentCourses;
+using Arcana.WebApi.Models.Students;
+using Arcana.WebApi.Models.UserRoles;
+using Arcana.WebApi.Models.Users;
+using AutoMapper;
 
 namespace Arcana.WebApi.Mappers;
 
@@ -45,7 +45,7 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<AssetViewModel, Asset>().ReverseMap();
-        
+
         CreateMap<InstructorViewModel, Instructor>().ReverseMap();
         CreateMap<Instructor, InstructorCreateModel>().ReverseMap();
         CreateMap<Instructor, InstructorUpdateModel>().ReverseMap();

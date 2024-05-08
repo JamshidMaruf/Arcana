@@ -1,15 +1,15 @@
-﻿using AutoMapper;
-using Arcana.WebApi.Extensions;
+﻿using Arcana.Domain.Entities.Lessons;
 using Arcana.Service.Configurations;
-using Arcana.Domain.Entities.Lessons;
-using Arcana.WebApi.Models.LessonComments;
 using Arcana.Service.Services.LessonComments;
+using Arcana.WebApi.Extensions;
+using Arcana.WebApi.Models.LessonComments;
 using Arcana.WebApi.Validators.LessonComments;
+using AutoMapper;
 
 namespace Arcana.WebApi.ApiServices.LessonComments;
 
 public class LessonCommentApiService(
-    IMapper mapper, 
+    IMapper mapper,
     ILessonCommentService lessonCommentService,
     LessonCommentCreateModelValidator createModelValidator,
     LessonCommentUpdateModelValidator updateModelValidator) : ILessonCommentApiService

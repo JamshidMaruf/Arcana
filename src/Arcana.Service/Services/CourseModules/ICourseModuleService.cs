@@ -1,5 +1,5 @@
-﻿using Arcana.Service.Configurations;
-using Arcana.Domain.Entities.Courses;
+﻿using Arcana.Domain.Entities.Courses;
+using Arcana.Service.Configurations;
 
 namespace Arcana.Service.Services.CourseModules;
 

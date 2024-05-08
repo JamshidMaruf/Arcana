@@ -1,10 +1,10 @@
-﻿using AutoMapper;
-using Arcana.WebApi.Extensions;
+﻿using Arcana.Domain.Entities.StudentCourses;
 using Arcana.Service.Configurations;
-using Arcana.WebApi.Models.StudentCourses;
-using Arcana.Domain.Entities.StudentCourses;
 using Arcana.Service.Services.StudentCourses;
+using Arcana.WebApi.Extensions;
+using Arcana.WebApi.Models.StudentCourses;
 using Arcana.WebApi.Validators.StudentCourses;
+using AutoMapper;
 
 namespace Arcana.WebApi.ApiServices.StudentCourses;
 

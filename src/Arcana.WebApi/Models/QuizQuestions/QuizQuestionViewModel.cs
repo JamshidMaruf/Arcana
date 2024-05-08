@@ -1,5 +1,4 @@
-﻿using Arcana.Domain.Entities.Questions;
-using Arcana.WebApi.Models.Questions;
+﻿using Arcana.WebApi.Models.Questions;
 using Arcana.WebApi.Models.Quizzes;
 
 namespace Arcana.WebApi.Models.QuizQuestions;

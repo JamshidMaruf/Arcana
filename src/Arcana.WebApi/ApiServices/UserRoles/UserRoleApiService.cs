@@ -9,8 +9,8 @@ using AutoMapper;
 namespace Arcana.WebApi.ApiServices.UserRoles;
 
 public class UserRoleApiService(
-    IMapper mapper, 
-    IUserRoleService userRoleService, 
+    IMapper mapper,
+    IUserRoleService userRoleService,
     UserRoleCreateModelValidator createValidator,
     UserRoleUpdateModelValidator updateValidator) : IUserRoleApiService
 {

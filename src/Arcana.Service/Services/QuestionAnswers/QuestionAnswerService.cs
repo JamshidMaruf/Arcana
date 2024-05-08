@@ -1,43 +1,70 @@
-﻿using Arcana.Domain.Entities.QuestionAnswers;
+using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Service.Configurations;
-using Microsoft.AspNetCore.Http;
+using Arcana.Service.Exceptions;
+using Arcana.Service.Extensions;
+using Arcana.Service.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.QuestionAnswers;
 
-public class QuestionAnswerService : IQuestionAnswerService
+public class QuestionAnswerService(IUnitOfWork unitOfWork) : IQuestionAnswerService
 {
-    public ValueTask<QuestionAnswer> CreateAsync(QuestionAnswer questionAnswer)
+    public async ValueTask<QuestionAnswer> CreateAsync(QuestionAnswer questionAnswer)
     {
-        throw new NotImplementedException();
+        questionAnswer.CreatedByUserId = HttpContextHelper.UserId;
+        var createdQuestionAnswer = await unitOfWork.QuestionAnswers.InsertAsync(questionAnswer);
+
+        await unitOfWork.SaveAsync();
+
+        return createdQuestionAnswer;
     }
 
-    public ValueTask<bool> DeleteAsync(long id)
+    public async ValueTask<bool> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        var existQuestionAnswer = await unitOfWork.QuestionAnswers.SelectAsync(questionAnswer => questionAnswer.Id == id && !questionAnswer.IsDeleted)
+           ?? throw new NotFoundException($"Question Answer is not found with this ID={id}");
+
+        existQuestionAnswer.DeletedByUserId = HttpContextHelper.UserId;
+        await unitOfWork.QuestionAnswers.DeleteAsync(existQuestionAnswer);
+        await unitOfWork.SaveAsync();
+
+        return true;
     }
 
-    public ValueTask<QuestionAnswer> DeleteFileAsync(long id)
+    public async ValueTask<IEnumerable<QuestionAnswer>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
-        throw new NotImplementedException();
+        var questionAnswers = unitOfWork.QuestionAnswers.
+            SelectAsQueryable(expression: questionAnswer => !questionAnswer.IsDeleted, includes: ["Question"], isTracked: false)
+            .OrderBy(filter);
+
+        if (!string.IsNullOrEmpty(search))
+            questionAnswers = questionAnswers.Where(questionAnswer =>
+            questionAnswer.Content.ToLower().Contains(search.ToLower()));
+
+        return await questionAnswers.ToPaginateAsQueryable(@params).ToListAsync();
     }
 
-    public ValueTask<IEnumerable<QuestionAnswer>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
+    public async ValueTask<QuestionAnswer> GetByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        var existQuestionAnswer = await unitOfWork.QuestionAnswers
+           .SelectAsync(questionAnswer => questionAnswer.Id == id && !questionAnswer.IsDeleted, includes: ["Question"])
+           ?? throw new NotFoundException($"Question Answer is not found with this ID={id}");
+
+        return existQuestionAnswer;
     }
 
-    public ValueTask<QuestionAnswer> GetByIdAsync(long id)
+    public async ValueTask<QuestionAnswer> UpdateAsync(long id, QuestionAnswer questionAnswer)
     {
-        throw new NotImplementedException();
-    }
+        var existQuestionAnswer = await unitOfWork.QuestionAnswers.SelectAsync(questionAnswer => questionAnswer.Id == id && !questionAnswer.IsDeleted)
+            ?? throw new NotFoundException($"Question Answer is not found with this ID={id}");
 
-    public ValueTask<QuestionAnswer> UpdateAsync(long id, QuestionAnswer questionAnswer)
-    {
-        throw new NotImplementedException();
-    }
+        existQuestionAnswer.Content = questionAnswer.Content;
 
-    public ValueTask<QuestionAnswer> UploadFileAsync(long id, IFormFile file)
-    {
-        throw new NotImplementedException();
+        existQuestionAnswer.UpdatedByUserId = HttpContextHelper.UserId;
+        await unitOfWork.QuestionAnswers.UpdateAsync(existQuestionAnswer);
+        await unitOfWork.SaveAsync();
+
+        return existQuestionAnswer;
     }
 }

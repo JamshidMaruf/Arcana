@@ -1,13 +1,13 @@
-﻿using Arcana.Service.Helpers;
-using Microsoft.AspNetCore.Http;
+﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Domain.Entities.Instructors;
+using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
-using Arcana.DataAccess.UnitOfWorks;
-using Arcana.Service.Configurations;
-using Microsoft.EntityFrameworkCore;
+using Arcana.Service.Helpers;
 using Arcana.Service.Services.Assets;
-using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Services.Users;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.Instructors;
 
@@ -22,7 +22,7 @@ public class InstructorService(IUnitOfWork unitOfWork, IAssetService assetServic
 
         instructor.CreatedByUserId = HttpContextHelper.UserId;
         var createdInstructor = await unitOfWork.Instructors.InsertAsync(instructor);
-        
+
         await unitOfWork.SaveAsync();
         await unitOfWork.CommitTransactionAsync();
 
@@ -42,10 +42,10 @@ public class InstructorService(IUnitOfWork unitOfWork, IAssetService assetServic
         existInstructor.Profession = instructor.Profession;
         existInstructor.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Instructors.UpdateAsync(existInstructor);
-        
+
         await unitOfWork.SaveAsync();
         await unitOfWork.CommitTransactionAsync();
-        
+
         return existInstructor;
     }
 

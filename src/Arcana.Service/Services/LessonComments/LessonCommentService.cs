@@ -12,6 +12,9 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
 {
     public async ValueTask<LessonComment> CreateAsync(LessonComment lessonComment)
     {
+        var existUser = await unitOfWork.Users.SelectAsync(user => user.Id == lessonComment.UserId && !user.IsDeleted)
+            ?? throw new NotFoundException($"User is not found with this Id = {lessonComment.UserId}");
+
         var existLesson = await unitOfWork.Lessons.SelectAsync(lesson => lesson.Id == lessonComment.LessonId && !lesson.IsDeleted)
              ?? throw new NotFoundException($"Lesson is not found with this ID = {lessonComment.LessonId}");
 
@@ -20,15 +23,19 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
         await unitOfWork.SaveAsync();
 
         createdLessonComment.Lesson = existLesson;
+        createdLessonComment.User = existUser;
         return createdLessonComment;
     }
 
     public async ValueTask<LessonComment> UpdateAsync(long id, LessonComment lessonComment)
     {
+        var existUser = await unitOfWork.Users.SelectAsync(user => user.Id == lessonComment.UserId && !user.IsDeleted)
+            ?? throw new NotFoundException($"User is not found with this Id = {lessonComment.UserId}");
+
         var existLesson = await unitOfWork.Lessons.SelectAsync(lesson => lesson.Id == lessonComment.LessonId && !lesson.IsDeleted)
              ?? throw new NotFoundException($"Lesson is not found with this ID = {lessonComment.LessonId}");
 
-        var existLessonComment = await unitOfWork.LessonComments.SelectAsync(lc => lc.Id == id && !lc.IsDeleted, ["Lesson", "Student", "Instructor", "Parent"])
+        var existLessonComment = await unitOfWork.LessonComments.SelectAsync(lc => lc.Id == id && !lc.IsDeleted)
             ?? throw new NotFoundException($"Lesson comment is not found with this Id = {id}");
 
         existLessonComment.Content = lessonComment.Content;
@@ -36,6 +43,8 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
 
         await unitOfWork.LessonComments.UpdateAsync(existLessonComment);
         await unitOfWork.SaveAsync();
+        existLessonComment.Lesson = existLesson;
+        existLessonComment.User = existUser;
 
         return existLessonComment;
     }
@@ -55,7 +64,7 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
     public async ValueTask<LessonComment> GetByIdAsync(long id)
     {
         var existLessonComment = await unitOfWork.LessonComments
-            .SelectAsync(expression: lc => lc.Id == id && !lc.IsDeleted, includes: ["Lesson", "Student", "Instructor", "Parent"])
+            .SelectAsync(expression: lc => lc.Id == id && !lc.IsDeleted, includes: ["Lesson", "User", "Parent"])
             ?? throw new NotFoundException($"Lesson comment is not found with this Id = {id}");
 
         return existLessonComment;
@@ -64,11 +73,11 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
     public async ValueTask<IEnumerable<LessonComment>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var lessonComments = unitOfWork.LessonComments
-            .SelectAsQueryable(expression: lc => !lc.IsDeleted, includes: ["Lesson", "Student", "Instructor", "Parent"], isTracked: false)
+            .SelectAsQueryable(expression: lc => !lc.IsDeleted, includes: ["Lesson", "User", "Parent"], isTracked: false)
             .OrderBy(filter);
 
-        if(!string.IsNullOrEmpty(search))
-            lessonComments = lessonComments.Where(lc => 
+        if (!string.IsNullOrWhiteSpace(search))
+            lessonComments = lessonComments.Where(lc =>
             lc.Content.ToLower().Contains(search.ToLower()));
 
         return await lessonComments.ToPaginateAsQueryable(@params).ToListAsync();

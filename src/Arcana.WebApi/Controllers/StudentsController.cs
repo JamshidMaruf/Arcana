@@ -2,7 +2,6 @@
 using Arcana.WebApi.ApiServices.Instructors;
 using Arcana.WebApi.Models.Commons;
 using Arcana.WebApi.Models.Students;
-using Arcana.WebApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;

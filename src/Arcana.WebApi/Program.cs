@@ -1,12 +1,10 @@
 using Arcana.DataAccess.Contexts;
-using Arcana.Service.Helpers;
 using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Helpers;
 using Arcana.WebApi.Mappers;
-using Arcana.WebApi.Validators.Users;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +29,10 @@ builder.Services.AddValidators();
 builder.Services.AddApiServices();
 builder.Services.AddServices();
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 var app = builder.Build();
 app.AddInjectHelper();
@@ -43,6 +45,7 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.EnsureCreated();
     dbContext.Database.Migrate();
 }
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,5 +1,5 @@
-﻿using Arcana.WebApi.Models.Students;
-using Arcana.WebApi.Models.Instructors;
+﻿using Arcana.WebApi.Models.Instructors;
+using Arcana.WebApi.Models.Students;
 
 namespace Arcana.WebApi.Models.InstructorStars;
 

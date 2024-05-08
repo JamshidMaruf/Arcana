@@ -1,8 +1,14 @@
 ﻿using Arcana.DataAccess.UnitOfWorks;
 using Arcana.Service.Helpers;
 using Arcana.Service.Services.Assets;
+using Arcana.Service.Services.CourseCategories;
+using Arcana.Service.Services.CourseComments;
+using Arcana.Service.Services.CourseModules;
 using Arcana.Service.Services.Courses;
+using Arcana.Service.Services.InstructorComments;
 using Arcana.Service.Services.Instructors;
+using Arcana.Service.Services.InstructorStarsService;
+using Arcana.Service.Services.Languages;
 using Arcana.Service.Services.LessonComments;
 using Arcana.Service.Services.Lessons;
 using Arcana.Service.Services.Permissions;
@@ -10,19 +16,27 @@ using Arcana.Service.Services.QuestionAnswers;
 using Arcana.Service.Services.Questions;
 using Arcana.Service.Services.QuizApplications;
 using Arcana.Service.Services.QuizQuestions;
+using Arcana.Service.Services.Quizzes;
 using Arcana.Service.Services.RolePermissions;
 using Arcana.Service.Services.StudentCourses;
 using Arcana.Service.Services.Students;
 using Arcana.Service.Services.UserRoles;
 using Arcana.Service.Services.Users;
 using Arcana.WebApi.ApiServices.Accounts;
+using Arcana.WebApi.ApiServices.CourseCategories;
+using Arcana.WebApi.ApiServices.CourseComments;
+using Arcana.WebApi.ApiServices.CourseModules;
 using Arcana.WebApi.ApiServices.Courses;
+using Arcana.WebApi.ApiServices.InstructorComments;
 using Arcana.WebApi.ApiServices.Instructors;
+using Arcana.WebApi.ApiServices.InstructorsStars;
+using Arcana.WebApi.ApiServices.Languages;
 using Arcana.WebApi.ApiServices.LessonComments;
 using Arcana.WebApi.ApiServices.Lessons;
 using Arcana.WebApi.ApiServices.Permissions;
 using Arcana.WebApi.ApiServices.QuestionAnswers;
 using Arcana.WebApi.ApiServices.Questions;
+using Arcana.WebApi.ApiServices.QuizApplications;
 using Arcana.WebApi.ApiServices.QuizQuestions;
 using Arcana.WebApi.ApiServices.RolePermissions;
 using Arcana.WebApi.ApiServices.StudentCourses;
@@ -31,13 +45,22 @@ using Arcana.WebApi.ApiServices.Users;
 using Arcana.WebApi.Helpers;
 using Arcana.WebApi.Middlewares;
 using Arcana.WebApi.Validators.Accounts;
+using Arcana.WebApi.Validators.Assets;
+using Arcana.WebApi.Validators.CourseCategories;
+using Arcana.WebApi.Validators.CourseComments;
+using Arcana.WebApi.Validators.CourseModules;
 using Arcana.WebApi.Validators.Courses;
+using Arcana.WebApi.Validators.InstructorComments;
 using Arcana.WebApi.Validators.Instructors;
+using Arcana.WebApi.Validators.InstructorStars;
+using Arcana.WebApi.Validators.Languages;
 using Arcana.WebApi.Validators.LessonComments;
 using Arcana.WebApi.Validators.Lessons;
 using Arcana.WebApi.Validators.Permissions;
 using Arcana.WebApi.Validators.QuestionAnswers;
 using Arcana.WebApi.Validators.Questions;
+using Arcana.WebApi.Validators.QuizApplications;
+using Arcana.WebApi.Validators.QuizQuestions;
 using Arcana.WebApi.Validators.RolePermissions;
 using Arcana.WebApi.Validators.StudentCourses;
 using Arcana.WebApi.Validators.Students;
@@ -70,12 +93,19 @@ public static class ServicesCollection
         services.AddScoped<IQuizApplicationService, QuizApplicationService>();
         services.AddScoped<IQuizQuestionService, QuizQuestionService>();
         services.AddScoped<IStudentCourseService, StudentCourseService>();
+        services.AddScoped<ICourseCategoryService, CourseCategoryService>();
+        services.AddScoped<ICourseCommentService, CourseCommentService>();
+        services.AddScoped<ICourseModuleService, CourseModuleService>();
+        services.AddScoped<IInstructorCommentService, InstructorCommentService>();
+        services.AddScoped<IInstructorStarsService, InstructorStarService>();
+        services.AddScoped<ILanguageService, LanguageService>();
+        services.AddScoped<IQuizService, QuizService>();
     }
 
     public static void AddApiServices(this IServiceCollection services)
     {
-        services.AddScoped<IStudentApiService, StudentApiService>();
         services.AddScoped<IUserApiService, UserApiService>();
+        services.AddScoped<IStudentApiService, StudentApiService>();
         services.AddScoped<IInstructorApiService, InstructorApiService>();
         services.AddScoped<IPermissionApiService, PermissionApiService>();
         services.AddScoped<IRolePermissionApiService, RolePermissionApiService>();
@@ -87,8 +117,14 @@ public static class ServicesCollection
         services.AddScoped<IQuestionAnswerApiService, QuestionAnswerApiService>();
         services.AddScoped<IQuestionApiService, QuestionApiService>();
         services.AddScoped<IQuizQuestionApiService, QuizQuestionApiService>();
+        services.AddScoped<IQuizApplicationApiService, QuizApplicationApiService>();
         services.AddScoped<IStudentCourseApiService, StudentCourseApiService>();
-
+        services.AddScoped<ICourseCategoryApiService, CourseCategoryApiService>();
+        services.AddScoped<ICourseCommentApiService, CourseCommentApiService>();
+        services.AddScoped<ICourseModuleApiService, CourseModuleApiService>();
+        services.AddScoped<IInstructorCommentApiService, InstructorCommentApiService>();
+        services.AddScoped<IInsturctorStarsApiService, InstructorStarsApiService>();
+        services.AddScoped<ILanguageApiService, LanguageApiService>();
     }
 
     public static void AddValidators(this IServiceCollection services)
@@ -128,12 +164,37 @@ public static class ServicesCollection
         services.AddTransient<StudentCourseUpdateModelValidator>();
 
         services.AddTransient<RolePermissionCreateModelValidator>();
-        
+
         services.AddTransient<LoginModelValidator>();
         services.AddTransient<ResetPasswordModelValidator>();
         services.AddTransient<SendCodeModelValidator>();
         services.AddTransient<ConfirmCodeModelValidator>();
 
+        services.AddTransient<CourseCategoryCreateModelValidator>();
+        services.AddTransient<CourseCategoryUpdateModelValidator>();
+
+        services.AddTransient<CourseCommentCreateModelValidator>();
+        services.AddTransient<CourseCommentUpdateModelValidator>();
+
+        services.AddTransient<CourseModuleCreateModelValidator>();
+        services.AddTransient<CourseModuleUpdateModelValidator>();
+
+        services.AddTransient<InstructorCommentCreateModelValidator>();
+        services.AddTransient<InstructorCommentUpdateModelValidator>();
+
+        services.AddTransient<InstructorStarsCreateModelValidator>();
+        services.AddTransient<InstructorStarsUpdateModelValidator>();
+
+        services.AddTransient<LanguageCreateModelValidator>();
+        services.AddTransient<LanguageUpdateModelValidator>();
+
+        services.AddTransient<QuizApplicationCreateModelValidator>();
+        services.AddTransient<QuizApplicationUpdateModelValidator>();
+
+        services.AddTransient<QuizQuestionCreateModelValidator>();
+        services.AddTransient<QuizQuestionUpdateModelValidator>();
+
+        services.AddTransient<AssetCreateModelValidator>();
     }
 
     public static void AddExceptionHandlers(this IServiceCollection services)

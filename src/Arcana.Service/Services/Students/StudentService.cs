@@ -1,13 +1,13 @@
-﻿using Arcana.Service.Helpers;
+﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Domain.Entities.Students;
+using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
-using Microsoft.AspNetCore.Http;
-using Arcana.Service.Configurations;
-using Arcana.DataAccess.UnitOfWorks;
-using Microsoft.EntityFrameworkCore;
+using Arcana.Service.Helpers;
 using Arcana.Service.Services.Assets;
-using Arcana.Domain.Entities.Students;
 using Arcana.Service.Services.Users;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.Students;
 
@@ -22,7 +22,7 @@ public class StudentService(IUnitOfWork unitOfWork, IAssetService assetService, 
 
         student.CreatedByUserId = HttpContextHelper.UserId;
         var createdStudent = await unitOfWork.Students.InsertAsync(student);
-        
+
         await unitOfWork.SaveAsync();
         await unitOfWork.CommitTransactionAsync();
 
@@ -48,7 +48,7 @@ public class StudentService(IUnitOfWork unitOfWork, IAssetService assetService, 
         await userService.DeleteAsync(existStudent.DetailId);
         existStudent.DeletedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Students.DeleteAsync(existStudent);
-        
+
         await unitOfWork.SaveAsync();
         await unitOfWork.CommitTransactionAsync();
 

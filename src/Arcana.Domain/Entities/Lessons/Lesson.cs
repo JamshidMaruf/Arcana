@@ -8,9 +8,9 @@ public class Lesson : Auditable
 {
     public string Title { get; set; }
     public string Description { get; set; }
-    public long FileId { get; set; }
+    public long? FileId { get; set; }
     public long ModuleId { get; set; }
     public Asset File { get; set; }
     public CourseModule Module { get; set; }
+    public IEnumerable<LessonComment> Comments { get; set; }
 }
-

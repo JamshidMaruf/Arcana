@@ -6,7 +6,6 @@ using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
 using Arcana.Service.Helpers;
 using Arcana.Service.Services.Questions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.Quizzes;
@@ -25,7 +24,7 @@ public class QuizService(IUnitOfWork unitOfWork, IQuestionService questionServic
 
         return createdQuiz;
     }
-    
+
     public async ValueTask<Quiz> UpdateAsync(long id, Quiz quiz)
     {
         var module = await unitOfWork.CourseModules.SelectAsync(module => module.Id == quiz.ModuleId && !module.IsDeleted)
@@ -45,7 +44,7 @@ public class QuizService(IUnitOfWork unitOfWork, IQuestionService questionServic
 
         return existQuiz;
     }
-    
+
     public async ValueTask<bool> DeleteAsync(long id)
     {
         var existQuiz = await unitOfWork.Quizzes.SelectAsync(quiz => quiz.Id == id && !quiz.IsDeleted)
@@ -57,13 +56,13 @@ public class QuizService(IUnitOfWork unitOfWork, IQuestionService questionServic
 
         return true;
     }
- 
+
     public async ValueTask<Quiz> GetByIdAsync(long id)
     {
         var existQuiz = await unitOfWork.Quizzes
             .SelectAsync(expression: quiz => quiz.Id == id && !quiz.IsDeleted, includes: ["Module"])
             ?? throw new NotFoundException($"Quiz is not found with this ID={id}");
-        
+
         return existQuiz;
     }
 
@@ -94,17 +93,18 @@ public class QuizService(IUnitOfWork unitOfWork, IQuestionService questionServic
 
         var questions = await questionService.GetShuffledListAsync(moduleId, quiz.QuestionCount);
 
+        var result = new List<QuizQuestion>();
         questions.ForEach(async question =>
-            await unitOfWork.QuizQuestions.InsertAsync(new QuizQuestion
+            result.Add(await unitOfWork.QuizQuestions.InsertAsync(new QuizQuestion
             {
                 QuestionId = question.Id,
                 QuizId = quizId,
                 CreatedByUserId = HttpContextHelper.UserId
-            }));
+            })));
 
         await unitOfWork.SaveAsync();
 
-        quiz.Questions = questions;
+        quiz.Questions = result;
         return quiz;
     }
 }

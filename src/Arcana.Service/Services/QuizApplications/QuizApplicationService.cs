@@ -1,10 +1,10 @@
-﻿using Arcana.Service.Helpers;
-using Arcana.Service.Extensions;
-using Arcana.Service.Exceptions;
-using Arcana.Service.Configurations;
-using Microsoft.EntityFrameworkCore;
-using Arcana.DataAccess.UnitOfWorks;
+﻿using Arcana.DataAccess.UnitOfWorks;
 using Arcana.Domain.Entities.QuizApplications;
+using Arcana.Service.Configurations;
+using Arcana.Service.Exceptions;
+using Arcana.Service.Extensions;
+using Arcana.Service.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.QuizApplications;
 

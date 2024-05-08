@@ -1,6 +1,4 @@
-﻿using Arcana.Domain.Entities.Courses;
-using Arcana.Domain.Entities.Instructors;
-using Arcana.WebApi.Models.Courses;
+﻿using Arcana.WebApi.Models.Courses;
 using FluentValidation;
 
 namespace Arcana.WebApi.Validators.Courses;

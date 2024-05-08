@@ -1,6 +1,5 @@
 ﻿
 using Arcana.Domain.Entities.StudentCourses;
-using Arcana.Domain.Entities.Users;
 using Arcana.Service.Configurations;
 
 namespace Arcana.Service.Services.StudentCourses;

@@ -1,5 +1,5 @@
-﻿using Arcana.Service.Configurations;
-using Arcana.Domain.Entities.Lessons;
+﻿using Arcana.Domain.Entities.Lessons;
+using Arcana.Service.Configurations;
 
 namespace Arcana.Service.Services.LessonComments;
 
