@@ -4,8 +4,6 @@ using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
 using Arcana.Service.Helpers;
-using Arcana.Service.Services.Assets;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.QuestionAnswers;
