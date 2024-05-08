@@ -29,6 +29,10 @@ builder.Services.AddValidators();
 builder.Services.AddApiServices();
 builder.Services.AddServices();
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 var app = builder.Build();
 app.AddInjectHelper();
@@ -42,10 +46,6 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
