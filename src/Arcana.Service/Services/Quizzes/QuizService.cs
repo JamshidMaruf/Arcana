@@ -93,17 +93,18 @@ public class QuizService(IUnitOfWork unitOfWork, IQuestionService questionServic
 
         var questions = await questionService.GetShuffledListAsync(moduleId, quiz.QuestionCount);
 
+        var result = new List<QuizQuestion>();
         questions.ForEach(async question =>
-            await unitOfWork.QuizQuestions.InsertAsync(new QuizQuestion
+            result.Add(await unitOfWork.QuizQuestions.InsertAsync(new QuizQuestion
             {
                 QuestionId = question.Id,
                 QuizId = quizId,
                 CreatedByUserId = HttpContextHelper.UserId
-            }));
+            })));
 
         await unitOfWork.SaveAsync();
 
-        quiz.Questions = questions;
+        quiz.Questions = result;
         return quiz;
     }
 }
