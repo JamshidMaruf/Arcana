@@ -6,6 +6,7 @@ using Arcana.Domain.Entities.Courses;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
 using Arcana.Domain.Entities.Lessons;
+using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Domain.Entities.QuestionOptions;
 using Arcana.Domain.Entities.Questions;
 using Arcana.Domain.Entities.QuizApplications;
@@ -36,6 +37,7 @@ public interface IUnitOfWork : IDisposable
     IRepository<CourseComment> CourseComments { get; }
     IRepository<LessonComment> LessonComments { get; }
     IRepository<StudentCourse> StudentCourses { get; }
+    IRepository<QuestionAnswer> QuestionAnswers { get; }
     IRepository<QuestionOption> QuestionOptions { get; }
     IRepository<RolePermission> RolePermissions { get; }
     IRepository<CourseCategory> CourseCategories { get; }

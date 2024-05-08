@@ -7,6 +7,7 @@ using Arcana.Domain.Entities.Courses;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
 using Arcana.Domain.Entities.Lessons;
+using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Domain.Entities.QuestionOptions;
 using Arcana.Domain.Entities.Questions;
 using Arcana.Domain.Entities.QuizApplications;
@@ -40,6 +41,7 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<CourseComment> CourseComments { get; }
     public IRepository<LessonComment> LessonComments { get; }
     public IRepository<StudentCourse> StudentCourses { get; }
+    public IRepository<QuestionAnswer> QuestionAnswers { get; }
     public IRepository<QuestionOption> QuestionOptions { get; }
     public IRepository<CourseCategory> CourseCategories { get; }
     public IRepository<InstructorStar> InstructorStars { get; }
