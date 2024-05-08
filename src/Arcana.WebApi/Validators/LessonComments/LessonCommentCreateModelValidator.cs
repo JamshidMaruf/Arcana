@@ -14,5 +14,9 @@ public class LessonCommentCreateModelValidator : AbstractValidator<LessonComment
         RuleFor(lessonComment => lessonComment.Content)
            .NotNull()
            .WithMessage(lessonComment => $"{nameof(lessonComment.Content)} is not specified");
+
+        RuleFor(lessonComment => lessonComment.UserId)
+          .NotNull()
+          .WithMessage(lessonComment => $"{nameof(lessonComment.UserId)} is not specified");
     }
 }

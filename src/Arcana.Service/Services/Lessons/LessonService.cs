@@ -14,10 +14,8 @@ public class LessonService(
     IUnitOfWork unitOfWork,
     IAssetService assetService) : ILessonService
 {
-    public async ValueTask<Lesson> CreateAsync(Lesson lesson, IFormFile file, FileType fileType)
+    public async ValueTask<Lesson> CreateAsync(Lesson lesson)
     {
-        await unitOfWork.BeginTransactionAsync();
-
         var existModule = await unitOfWork.CourseModules.SelectAsync(module => module.Id == lesson.ModuleId && !module.IsDeleted)
             ?? throw new NotFoundException($"Module is not found with this ID = {lesson.ModuleId}");
 
@@ -27,14 +25,11 @@ public class LessonService(
         if (existLesson is not null && !existLesson.IsDeleted)
             throw new AlreadyExistException($"This lesson is already exist with this moduleId = {lesson.ModuleId} and title = {lesson.Title}");
 
-        var asset = await assetService.UploadAsync(file, fileType);
-        lesson.FileId = asset.Id;
         lesson.CreatedByUserId = HttpContextHelper.UserId;
         var createdLesson = await unitOfWork.Lessons.InsertAsync(lesson);
         await unitOfWork.SaveAsync();
-        await unitOfWork.CommitTransactionAsync();
 
-        //createdLesson.Module = existModule;
+        createdLesson.Module = existModule;
         return createdLesson;
     }
 
@@ -43,7 +38,7 @@ public class LessonService(
         var existModule = await unitOfWork.CourseModules.SelectAsync(module => module.Id == lesson.ModuleId && !module.IsDeleted)
             ?? throw new NotFoundException($"Module is not found with this ID = {lesson.ModuleId}");
 
-        var existLesson = await unitOfWork.Lessons.SelectAsync(expression: l => l.Id == id && !l.IsDeleted, includes: ["Module", "File"])
+        var existLesson = await unitOfWork.Lessons.SelectAsync(expression: l => l.Id == id && !l.IsDeleted, includes: ["Module", "File", "Comments"])
                 ?? throw new NotFoundException($"Lesson is not found with this ID = {id}");
 
         var alreadyExitsLesson = await unitOfWork.Lessons
@@ -60,6 +55,7 @@ public class LessonService(
 
         await unitOfWork.Lessons.UpdateAsync(existLesson);
         await unitOfWork.SaveAsync();
+        existLesson.Module = existModule;
 
         return existLesson;
     }
@@ -79,7 +75,7 @@ public class LessonService(
     public async ValueTask<Lesson> GetByIdAsync(long id)
     {
         var existLesson = await unitOfWork.Lessons
-            .SelectAsync(expression: lesson => lesson.Id == id && !lesson.IsDeleted, includes: ["Module", "File"])
+            .SelectAsync(expression: lesson => lesson.Id == id && !lesson.IsDeleted, includes: ["Module", "File", "Comments"])
             ?? throw new NotFoundException($"Lesson is not found with this ID = {id}");
 
         return existLesson;
@@ -88,15 +84,52 @@ public class LessonService(
     public async ValueTask<IEnumerable<Lesson>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var lessons = unitOfWork.Lessons
-            .SelectAsQueryable(expression: lesson => !lesson.IsDeleted, includes: ["Module", "File"])
+            .SelectAsQueryable(expression: lesson => !lesson.IsDeleted, includes: ["Module", "File", "Comments"])
             .OrderBy(filter);
 
-        if (!string.IsNullOrEmpty(search))
+        if (!string.IsNullOrWhiteSpace(search))
             lessons = lessons.Where(lesson =>
             lesson.Title.ToLower().Contains(search.ToLower()) ||
-            lesson.Description.ToLower().Contains(search.ToLower()) /* ||
-            lesson.Module.Name.ToLower().Contains(search.ToLower()) */);
+            lesson.Description.ToLower().Contains(search.ToLower()) ||
+            lesson.Module.Name.ToLower().Contains(search.ToLower()));
 
         return await lessons.ToPaginateAsQueryable(@params).ToListAsync(); ;
+    }
+
+    public async ValueTask<Lesson> UploadFileAsync(long id, IFormFile file, FileType fileType)
+    {
+        await unitOfWork.BeginTransactionAsync();
+
+        var existLesson = await unitOfWork.Lessons
+           .SelectAsync(expression: lesson => lesson.Id == id && !lesson.IsDeleted, includes: ["Module", "File", "Comments"])
+           ?? throw new NotFoundException($"Lesson is not found with this ID = {id}");
+
+        var createdFile = await assetService.UploadAsync(file, fileType);
+
+        existLesson.File = createdFile;
+        existLesson.FileId = createdFile.Id;
+        existLesson.UpdatedByUserId = HttpContextHelper.UserId;
+
+        await unitOfWork.Lessons.UpdateAsync(existLesson);
+        await unitOfWork.SaveAsync();
+        await unitOfWork.CommitTransactionAsync();
+
+        return existLesson;
+    }
+
+    public async ValueTask<Lesson> DeleteFileAsync(long id)
+    {
+        await unitOfWork.BeginTransactionAsync();
+
+        var existLesson = await unitOfWork.Lessons
+           .SelectAsync(expression: lesson => lesson.Id == id && !lesson.IsDeleted, includes: ["Module", "File", "Comments"])
+           ?? throw new NotFoundException($"Lesson is not found with this ID = {id}");
+
+        await assetService.DeleteAsync(Convert.ToInt64(existLesson.FileId));
+        existLesson.FileId = null;
+        await unitOfWork.Lessons .UpdateAsync(existLesson);
+        await unitOfWork.SaveAsync();
+
+        return existLesson;
     }
 }
