@@ -7,7 +7,7 @@ using Arcana.Service.Helpers;
 using Arcana.Service.Services.InstructorStarsService;
 using Microsoft.EntityFrameworkCore;
 
-public class InstructorStarsService(IUnitOfWork unitOfWork) : IInstructorStarsService
+public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarsService
 {
     public async ValueTask<InstructorStars> CreateAsync(InstructorStars instructorStars)
     {
