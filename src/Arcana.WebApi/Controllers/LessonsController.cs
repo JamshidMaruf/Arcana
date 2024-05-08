@@ -1,5 +1,6 @@
 ﻿using Arcana.Service.Configurations;
 using Arcana.WebApi.ApiServices.Lessons;
+using Arcana.WebApi.Models.Assets;
 using Arcana.WebApi.Models.Commons;
 using Arcana.WebApi.Models.Lessons;
 using Microsoft.AspNetCore.Mvc;
@@ -63,6 +64,28 @@ public class LessonsController(ILessonApiService lessonApiService) : BaseControl
             StatusCode = 200,
             Message = "Ok",
             Data = await lessonApiService.GetAsync(@params, filter, search)
+        });
+    }
+
+    [HttpPost("{id:long}/files/upload")]
+    public async Task<IActionResult> PictureUploadAsync(long id, AssetCreateModel asset)
+    {
+        return Ok(new Response
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = await lessonApiService.UploadFileAsync(id, asset)
+        });
+    }
+
+    [HttpPost("{id:long}/files/delete")]
+    public async Task<IActionResult> PictureDeleteAsync(long id)
+    {
+        return Ok(new Response
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = await lessonApiService.DeleteFileAsync(id)
         });
     }
 }

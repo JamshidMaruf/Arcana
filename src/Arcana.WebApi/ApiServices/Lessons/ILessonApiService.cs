@@ -1,4 +1,5 @@
 ﻿using Arcana.Service.Configurations;
+using Arcana.WebApi.Models.Assets;
 using Arcana.WebApi.Models.Lessons;
 
 namespace Arcana.WebApi.ApiServices.Lessons;
@@ -10,4 +11,6 @@ public interface ILessonApiService
     ValueTask<bool> DeleteAsync(long id);
     ValueTask<LessonViewModel> GetAsync(long id);
     ValueTask<IEnumerable<LessonViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null);
+    ValueTask<LessonViewModel> UploadFileAsync(long id, AssetCreateModel assetCreateModel);
+    ValueTask<LessonViewModel> DeleteFileAsync(long id);
 }

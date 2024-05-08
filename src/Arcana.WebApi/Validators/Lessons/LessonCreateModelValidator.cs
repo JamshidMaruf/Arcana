@@ -14,14 +14,5 @@ public class LessonCreateModelValidator : AbstractValidator<LessonCreateModel>
         RuleFor(lesson => lesson.ModuleId)
             .NotNull()
             .WithMessage(lesson => $"{nameof(lesson.ModuleId)} is not specified");
-
-        RuleFor(lesson => lesson.File.File)
-            .NotNull()
-            .WithMessage(lesson => $"{nameof(lesson.ModuleId)} is not specified");
-
-        RuleFor(lesson => lesson.File.FileType)
-            .NotNull()
-            .IsInEnum()
-            .WithMessage(lesson => $"{nameof(lesson.File.FileType)} is not specified");
     }
 }
