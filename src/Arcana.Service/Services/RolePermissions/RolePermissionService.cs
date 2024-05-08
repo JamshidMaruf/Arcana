@@ -12,14 +12,14 @@ public class RolePermissionService(IUnitOfWork unitOfWork) : IRolePermissionServ
 {
     public async ValueTask<RolePermission> CreateAsync(RolePermission rolePermission)
     {
-        var existUserRole = await unitOfWork.UserRoles.SelectAsync(ur => ur.Id ==  rolePermission.RoleId)
+        var existUserRole = await unitOfWork.UserRoles.SelectAsync(ur => ur.Id == rolePermission.RoleId)
             ?? throw new NotFoundException($"User Role not found with this ID={rolePermission.RoleId}");
 
         var existPermission = await unitOfWork.Permissions.SelectAsync(p => p.Id == rolePermission.PermissionId)
             ?? throw new NotFoundException($"Permission not found with this ID={rolePermission.PermissionId}");
 
         var existRolePermission = await unitOfWork.RolePermissions
-            .SelectAsync(rp => 
+            .SelectAsync(rp =>
                 rp.PermissionId == rolePermission.PermissionId && rp.RoleId == rolePermission.RoleId && !rp.IsDeleted);
 
         if (existRolePermission is not null)
@@ -27,7 +27,7 @@ public class RolePermissionService(IUnitOfWork unitOfWork) : IRolePermissionServ
                 $"RoleId={rolePermission.RoleId}, PermissionId={rolePermission.PermissionId}");
 
         rolePermission.CreatedByUserId = HttpContextHelper.UserId;
-        
+
         var createdRolePermission = await unitOfWork.RolePermissions.InsertAsync(rolePermission);
         createdRolePermission.Permission = existPermission;
         createdRolePermission.Role = existUserRole;

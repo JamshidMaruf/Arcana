@@ -1,11 +1,11 @@
-﻿using Arcana.WebApi.Helpers;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Mvc;
-using Arcana.Service.Exceptions;
-using Arcana.WebApi.Models.Commons;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Authorization;
+﻿using Arcana.Service.Exceptions;
 using Arcana.Service.Services.RolePermissions;
+using Arcana.WebApi.Helpers;
+using Arcana.WebApi.Models.Commons;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System.Security.Claims;
 
 namespace Arcana.WebApi.Services;
 
@@ -24,14 +24,14 @@ public class CustomAuthorize : Attribute, IAuthorizationFilter
         var allowAnonymous = actionDescriptor?.MethodInfo.GetCustomAttributes(inherit: true)
                 .OfType<AllowAnonymousAttribute>().Any() ?? false;
         if (allowAnonymous) return;
-        
+
         string authorizationHeader = context.HttpContext.Request.Headers["Authorization"];
         if (string.IsNullOrEmpty(authorizationHeader))
         {
             SetStatusCodeResult(context);
             return;
         }
-            
+
         var action = actionDescriptor.ActionName;
         var controller = actionDescriptor.ControllerName;
         var role = context.HttpContext?.User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;

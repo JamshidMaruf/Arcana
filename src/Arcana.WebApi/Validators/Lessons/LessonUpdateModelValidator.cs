@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Arcana.WebApi.Models.Lessons;
+﻿using Arcana.WebApi.Models.Lessons;
+using FluentValidation;
 
 namespace Arcana.WebApi.Validators.Lessons;
 

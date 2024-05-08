@@ -1,8 +1,6 @@
 ﻿using Arcana.Service.Configurations;
-using Arcana.WebApi.ApiServices.Permissions;
 using Arcana.WebApi.ApiServices.StudentCourses;
 using Arcana.WebApi.Models.Commons;
-using Arcana.WebApi.Models.Permissions;
 using Arcana.WebApi.Models.StudentCourses;
 using Microsoft.AspNetCore.Mvc;
 

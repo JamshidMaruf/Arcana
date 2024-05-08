@@ -1,9 +1,9 @@
+using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Configurations;
 using Arcana.Service.Services.InstructorStarsService;
 using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Models.InstructorStars;
 using Arcana.WebApi.Validators.InstructorStars;
-using Arcana.Domain.Entities.Instructors;
 using AutoMapper;
 
 namespace Arcana.WebApi.ApiServices.InstructorsStars;
@@ -25,7 +25,7 @@ InstructorStarsUpdateModelValidator updateModelValidator) : IInsturctorStarsApiS
     {
         await updateModelValidator.EnsureValidatedAsync(updateModel);
         var mappedInstructorStars = mapper.Map<InstructorStars>(updateModel);
-        var updatedInstructorStars = await instructorStarsService.UpdateAsync(id,mappedInstructorStars);
+        var updatedInstructorStars = await instructorStarsService.UpdateAsync(id, mappedInstructorStars);
         return mapper.Map<InstructorStarsViewModel>(updatedInstructorStars);
     }
     public async ValueTask<bool> DeleteAsync(long id)
@@ -41,7 +41,7 @@ InstructorStarsUpdateModelValidator updateModelValidator) : IInsturctorStarsApiS
 
     public async ValueTask<IEnumerable<InstructorStarsViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
     {
-        var instructorStars = await instructorStarsService.GetAllAsync(@params,filter, search);
+        var instructorStars = await instructorStarsService.GetAllAsync(@params, filter, search);
         return mapper.Map<IEnumerable<InstructorStarsViewModel>>(instructorStars);
     }
 

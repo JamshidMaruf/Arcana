@@ -25,7 +25,7 @@ LanguageUpdateModelValidator updateModelValidator) : ILanguageApiService
     {
         await updateModelValidator.EnsureValidatedAsync(updateModel);
         var mappedLanguage = mapper.Map<Language>(updateModel);
-        var updateLanguage = await languageService.UpdateAsync(id,mappedLanguage);
+        var updateLanguage = await languageService.UpdateAsync(id, mappedLanguage);
         return mapper.Map<LanguageViewModel>(updateLanguage);
     }
     public async ValueTask<bool> DeleteAsync(long id)
@@ -36,12 +36,12 @@ LanguageUpdateModelValidator updateModelValidator) : ILanguageApiService
     public async ValueTask<LanguageViewModel> GetAsync(long id)
     {
         var language = await languageService.GetByIdAsync(id);
-        return  mapper.Map<LanguageViewModel>(language);
+        return mapper.Map<LanguageViewModel>(language);
     }
 
     public async ValueTask<IEnumerable<LanguageViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
     {
-        var languages = await languageService.GetAllAsync(@params,filter, search);
+        var languages = await languageService.GetAllAsync(@params, filter, search);
         return mapper.Map<IEnumerable<LanguageViewModel>>(languages);
     }
 

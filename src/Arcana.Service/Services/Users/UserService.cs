@@ -1,10 +1,10 @@
-﻿using Arcana.Service.Helpers;
+﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Domain.Entities.Users;
+using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
-using Arcana.Domain.Entities.Users;
+using Arcana.Service.Helpers;
 using Microsoft.EntityFrameworkCore;
-using Arcana.Service.Configurations;
-using Arcana.DataAccess.UnitOfWorks;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Arcana.Service.Services.Users;
@@ -99,8 +99,8 @@ public class UserService(IUnitOfWork unitOfWork, IMemoryCache memoryCache) : IUs
             includes: ["Role"])
             ?? throw new ArgumentIsNotValidException($"Phone or password is not valid");
 
-        if(!PasswordHasher.Verify(password, existUser.Password))
-             throw new ArgumentIsNotValidException($"Phone or password is not valid");
+        if (!PasswordHasher.Verify(password, existUser.Password))
+            throw new ArgumentIsNotValidException($"Phone or password is not valid");
 
         return (user: existUser, token: AuthHelper.GenerateToken(existUser));
     }
@@ -155,8 +155,8 @@ public class UserService(IUnitOfWork unitOfWork, IMemoryCache memoryCache) : IUs
     public async ValueTask<User> ChangePasswordAsync(string phone, string oldPassword, string newPassword)
     {
         var existUser = await unitOfWork.Users.SelectAsync(
-            expression: u => 
-                u.Phone == phone && PasswordHasher.Verify(oldPassword, u.Password) && !u.IsDeleted, 
+            expression: u =>
+                u.Phone == phone && PasswordHasher.Verify(oldPassword, u.Password) && !u.IsDeleted,
             includes: ["Role"])
             ?? throw new ArgumentIsNotValidException($"Phone or password is not valid");
 

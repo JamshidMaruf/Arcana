@@ -1,6 +1,4 @@
-﻿using Arcana.Domain.Entities.Questions;
-
-namespace Arcana.WebApi.Models.QuizQuestions;
+﻿namespace Arcana.WebApi.Models.QuizQuestions;
 
 public class QuizQuestionCreateModel
 {

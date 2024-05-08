@@ -1,12 +1,9 @@
 using Arcana.DataAccess.Contexts;
-using Arcana.Service.Helpers;
 using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Helpers;
 using Arcana.WebApi.Mappers;
-using Arcana.WebApi.Validators.Users;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

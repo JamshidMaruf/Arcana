@@ -1,6 +1,5 @@
-﻿using FluentValidation;
-using Arcana.WebApi.Models.RolePermissions;
-using Arcana.Domain.Entities.Users;
+﻿using Arcana.WebApi.Models.RolePermissions;
+using FluentValidation;
 
 namespace Arcana.WebApi.Validators.RolePermissions;
 

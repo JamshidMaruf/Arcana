@@ -19,8 +19,8 @@ namespace Arcana.DataAccess.UnitOfWorks;
 
 public interface IUnitOfWork : IDisposable
 {
-    IRepository<User> Users { get;}
-    IRepository<Asset> Assets { get;}
+    IRepository<User> Users { get; }
+    IRepository<Asset> Assets { get; }
     IRepository<Quiz> Quizzes { get; }
     IRepository<Lesson> Lessons { get; }
     IRepository<Course> Courses { get; }

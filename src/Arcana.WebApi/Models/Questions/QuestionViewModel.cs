@@ -1,5 +1,4 @@
-﻿using Arcana.Domain.Entities.Commons;
-using Arcana.WebApi.Models.Assets;
+﻿using Arcana.WebApi.Models.Assets;
 
 namespace Arcana.WebApi.Models.Questions;
 

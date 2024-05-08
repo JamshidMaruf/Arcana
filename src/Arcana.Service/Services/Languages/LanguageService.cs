@@ -15,7 +15,7 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
         var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Name == language.Name);
         if (existLanguage is not null)
             throw new AlreadyExistException($"This language already exist Name: {language.Name}");
-        
+
         language.CreatedByUserId = HttpContextHelper.UserId;
         var caratedLanguage = await unitOfWork.Languages.InsertAsync(language);
 
@@ -25,8 +25,8 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
     }
     public async ValueTask<Language> UpdateAsync(long id, Language language)
     {
-        var existLanguage = await unitOfWork.Languages.SelectAsync(lan =>lan.Id == id)
-            ??throw new NotFoundException($"Language is not found with Id: {id}");
+        var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id)
+            ?? throw new NotFoundException($"Language is not found with Id: {id}");
 
         existLanguage.Name = language.Name;
         existLanguage.ShortName = language.ShortName;
@@ -41,8 +41,8 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
     public async ValueTask<bool> DeleteAsync(long id)
     {
         var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id)
-            ??throw new NotFoundException($"Language is not found with Id: {id}");
-        
+            ?? throw new NotFoundException($"Language is not found with Id: {id}");
+
         existLanguage.DeletedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Languages.DeleteAsync(existLanguage);
 
@@ -54,16 +54,16 @@ public class LanguageService(IUnitOfWork unitOfWork) : ILanguageService
     public async ValueTask<IEnumerable<Language>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var languages = unitOfWork.Languages
-            .SelectAsQueryable(expression: lan => !lan.IsDeleted,isTracked: false)
+            .SelectAsQueryable(expression: lan => !lan.IsDeleted, isTracked: false)
             .OrderBy(filter);
-        
+
         return await languages.ToPaginateAsQueryable(@params).ToListAsync();
     }
 
     public async ValueTask<Language> GetByIdAsync(long id)
     {
         var existLanguage = await unitOfWork.Languages.SelectAsync(lan => lan.Id == id)
-            ??throw new NotFoundException($"Language is not found with Id:{id}");
+            ?? throw new NotFoundException($"Language is not found with Id:{id}");
 
         return existLanguage;
     }

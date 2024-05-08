@@ -12,5 +12,5 @@ public class Lesson : Auditable
     public long ModuleId { get; set; }
     public Asset File { get; set; }
     public CourseModule Module { get; set; }
+    public IEnumerable<LessonComment> Comments { get; set; }
 }
-
