@@ -13,4 +13,5 @@ public interface IQuestionService
     ValueTask<IEnumerable<Question>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
     ValueTask<Question> UploadFileAsync(long id, IFormFile file);
     ValueTask<Question> DeleteFileAsync(long id);
+    ValueTask<List<Question>> GetShuffledListAsync(long moduleId, int questionCount);
 }
