@@ -7,7 +7,7 @@ using Arcana.WebApi.Models.Assets;
 using Arcana.WebApi.Models.Students;
 using Arcana.WebApi.Validators.Students;
 
-namespace Arcana.WebApi.ApiServices.Instructors;
+namespace Arcana.WebApi.ApiServices.Students;
 
 public class StudentApiService(
     IStudentService studentService,

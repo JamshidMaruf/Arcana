@@ -1,7 +1,7 @@
 using Arcana.Service.Configurations;
 using Arcana.WebApi.Models.InstructorStars;
 
-namespace Arcana.WebApi.ApiServices.InstructorsStars;
+namespace Arcana.WebApi.ApiServices.InstructorStars;
 
 public interface IInsturctorStarsApiService
 {

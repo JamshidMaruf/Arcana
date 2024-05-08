@@ -1,7 +1,7 @@
 ﻿using Arcana.Service.Configurations;
 using Arcana.WebApi.Models.Students;
 
-namespace Arcana.WebApi.ApiServices.Instructors;
+namespace Arcana.WebApi.ApiServices.Students;
 
 public interface IStudentApiService
 {

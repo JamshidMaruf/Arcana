@@ -1,6 +1,6 @@
-﻿namespace Arcana.WebApi.Models.QuestionAnswers;
+﻿namespace Arcana.WebApi.Models.QuestionOptions;
 
-public class QuestionAnswerCreateModel
+public class QuestionOptionUpdateModel
 {
     public string Content { get; set; }
     public long QuestionId { get; set; }

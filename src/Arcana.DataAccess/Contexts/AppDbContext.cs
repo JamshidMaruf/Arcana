@@ -5,7 +5,7 @@ using Arcana.Domain.Entities.Courses;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
 using Arcana.Domain.Entities.Lessons;
-using Arcana.Domain.Entities.QuestionAnswers;
+using Arcana.Domain.Entities.QuestionOptions;
 using Arcana.Domain.Entities.Questions;
 using Arcana.Domain.Entities.QuizApplications;
 using Arcana.Domain.Entities.QuizQuestions;
@@ -38,10 +38,10 @@ public class AppDbContext : DbContext
     public DbSet<CourseComment> CourseComments { get; set; }
     public DbSet<LessonComment> LessonComments { get; set; }
     public DbSet<StudentCourse> StudentCourses { get; set; }
-    public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
+    public DbSet<QuestionOption> QuestionAnswers { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
     public DbSet<CourseCategory> CourseCategories { get; set; }
-    public DbSet<InstructorStars> InstructorStars { get; set; }
+    public DbSet<InstructorStar> InstructorStars { get; set; }
     public DbSet<QuizApplication> QuizApplications { get; set; }
     public DbSet<InstructorComment> InstructorComments { get; set; }
 
@@ -99,31 +99,31 @@ public class AppDbContext : DbContext
             .HasForeignKey(instructor => instructor.PictureId);
 
         // InstructorStar and Student
-        modelBuilder.Entity<InstructorStars>()
-            .HasOne(insturctorStar => insturctorStar.Student)
+        modelBuilder.Entity<InstructorStar>()
+            .HasOne(instructorStar => instructorStar.Student)
             .WithMany()
-            .HasForeignKey(insturctorStar => insturctorStar.StudentId)
+            .HasForeignKey(instructorStar => instructorStar.StudentId)
             .OnDelete(DeleteBehavior.NoAction);
 
         // InstructorStar and Instructor
-        modelBuilder.Entity<InstructorStars>()
-            .HasOne(insturctorStar => insturctorStar.Instructor)
+        modelBuilder.Entity<InstructorStar>()
+            .HasOne(instructorStar => instructorStar.Instructor)
             .WithMany(instructor => instructor.Stars)
-            .HasForeignKey(insturctorStar => insturctorStar.InstructorId)
+            .HasForeignKey(instructorStar => instructorStar.InstructorId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // InstructorComment and Student
         modelBuilder.Entity<InstructorComment>()
-            .HasOne(insturactorComment => insturactorComment.Student)
+            .HasOne(instructorComment => instructorComment.Student)
             .WithMany()
-            .HasForeignKey(insturactorComment => insturactorComment.StudentId)
+            .HasForeignKey(instructorComment => instructorComment.StudentId)
             .OnDelete(DeleteBehavior.NoAction);
 
         // InstructorComment and Instructor
         modelBuilder.Entity<InstructorComment>()
-            .HasOne(insturactorComment => insturactorComment.Instructor)
+            .HasOne(instructorComment => instructorComment.Instructor)
             .WithMany(instructor => instructor.Comments)
-            .HasForeignKey(insturactorComment => insturactorComment.InstructorId)
+            .HasForeignKey(instructorComment => instructorComment.InstructorId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Course and CourseCategory
@@ -245,11 +245,11 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(question => question.ModuleId);
 
-        // QuestionAnswer and Question
-        modelBuilder.Entity<QuestionAnswer>()
-            .HasOne(questionAnswer => questionAnswer.Question)
-            .WithMany(question => question.Answers)
-            .HasForeignKey(questionAnswer => questionAnswer.QuestionId);
+        // QuestionOption and Question
+        modelBuilder.Entity<QuestionOption>()
+            .HasOne(questionOption => questionOption.Question)
+            .WithMany(question => question.Options)
+            .HasForeignKey(questionOption => questionOption.QuestionId);
 
         // Quiz and CourseModule
         modelBuilder.Entity<Quiz>()
@@ -272,9 +272,9 @@ public class AppDbContext : DbContext
             .OnDelete(DeleteBehavior.Restrict);
 
         // Question and QuizAnswer
-        modelBuilder.Entity<QuestionAnswer>()
+        modelBuilder.Entity<QuestionOption>()
             .HasOne(questionAnswer => questionAnswer.Question)
-            .WithMany(question => question.Answers)
+            .WithMany(question => question.Options)
             .HasForeignKey(questionAnswer => questionAnswer.QuestionId)
             .OnDelete(DeleteBehavior.Cascade);
             

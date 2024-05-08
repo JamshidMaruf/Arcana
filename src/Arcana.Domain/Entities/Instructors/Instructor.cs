@@ -13,7 +13,7 @@ public class Instructor : Auditable
     public User Detail { get; set; }
     public long? PictureId { get; set; }
     public Asset Picture { get; set; }
-    public IEnumerable<InstructorStars> Stars { get; set; }
+    public IEnumerable<InstructorStar> Stars { get; set; }
     public IEnumerable<InstructorComment> Comments { get; set; }
     public IEnumerable<Course> Courses { get; set; }
 }

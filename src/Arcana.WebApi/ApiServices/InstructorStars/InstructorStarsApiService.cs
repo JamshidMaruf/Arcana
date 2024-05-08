@@ -1,12 +1,11 @@
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Configurations;
-using Arcana.Service.Services.InstructorStarsService;
 using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Models.InstructorStars;
 using Arcana.WebApi.Validators.InstructorStars;
 using AutoMapper;
 
-namespace Arcana.WebApi.ApiServices.InstructorsStars;
+namespace Arcana.WebApi.ApiServices.InstructorStars;
 
 public class InstructorStarsApiService(IMapper mapper,
 IInstructorStarsService instructorStarsService,
@@ -16,7 +15,7 @@ InstructorStarsUpdateModelValidator updateModelValidator) : IInsturctorStarsApiS
     public async ValueTask<InstructorStarsViewModel> PostAsync(InstructorStarsCreateModel createModel)
     {
         await createModelValidator.EnsureValidatedAsync(createModel);
-        var mappedInstructorStars = mapper.Map<InstructorStars>(createModel);
+        var mappedInstructorStars = mapper.Map<InstructorStar>(createModel);
         var createdInstructorStars = await instructorStarsService.CreateAsync(mappedInstructorStars);
         return mapper.Map<InstructorStarsViewModel>(createdInstructorStars);
     }
@@ -24,7 +23,7 @@ InstructorStarsUpdateModelValidator updateModelValidator) : IInsturctorStarsApiS
     public async ValueTask<InstructorStarsViewModel> PutAsync(long id, InstructorStarsUpdateModel updateModel)
     {
         await updateModelValidator.EnsureValidatedAsync(updateModel);
-        var mappedInstructorStars = mapper.Map<InstructorStars>(updateModel);
+        var mappedInstructorStars = mapper.Map<InstructorStar>(updateModel);
         var updatedInstructorStars = await instructorStarsService.UpdateAsync(id, mappedInstructorStars);
         return mapper.Map<InstructorStarsViewModel>(updatedInstructorStars);
     }
