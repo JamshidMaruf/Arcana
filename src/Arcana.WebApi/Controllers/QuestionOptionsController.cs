@@ -1,32 +1,32 @@
 ﻿using Arcana.Service.Configurations;
-using Arcana.WebApi.ApiServices.QuestionAnswers;
+using Arcana.WebApi.ApiServices.QuestionOptions;
 using Arcana.WebApi.Models.Commons;
-using Arcana.WebApi.Models.QuestionAnswers;
+using Arcana.WebApi.Models.QuestionOptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
 
-public class QuestionAnswersController(IQuestionAnswerApiService questionAnswerService) : BaseController
+public class QuestionOptionsController(IQuestionOptionApiService questionOptionService) : BaseController
 {
     [HttpPost]
-    public async ValueTask<IActionResult> PostAsync(QuestionAnswerCreateModel createModel)
+    public async ValueTask<IActionResult> PostAsync(QuestionOptionCreateModel createModel)
     {
         return Ok(new Response
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await questionAnswerService.PostAsync(createModel)
+            Data = await questionOptionService.PostAsync(createModel)
         });
     }
 
     [HttpPut("{id:long}")]
-    public async ValueTask<IActionResult> PutAsync(long id, QuestionAnswerUpdateModel updateModel)
+    public async ValueTask<IActionResult> PutAsync(long id, QuestionOptionUpdateModel updateModel)
     {
         return Ok(new Response
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await questionAnswerService.PutAsync(id, updateModel)
+            Data = await questionOptionService.PutAsync(id, updateModel)
         });
     }
 
@@ -37,7 +37,7 @@ public class QuestionAnswersController(IQuestionAnswerApiService questionAnswerS
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await questionAnswerService.DeleteAsync(id)
+            Data = await questionOptionService.DeleteAsync(id)
         });
     }
 
@@ -48,7 +48,7 @@ public class QuestionAnswersController(IQuestionAnswerApiService questionAnswerS
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await questionAnswerService.GetAsync(id)
+            Data = await questionOptionService.GetAsync(id)
         });
     }
 
@@ -63,7 +63,7 @@ public class QuestionAnswersController(IQuestionAnswerApiService questionAnswerS
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await questionAnswerService.GetAsync(@params, filter, search)
+            Data = await questionOptionService.GetAsync(@params, filter, search)
         });
     }
 }

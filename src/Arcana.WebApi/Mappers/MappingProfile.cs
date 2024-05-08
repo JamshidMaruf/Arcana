@@ -5,7 +5,7 @@ using Arcana.Domain.Entities.Courses;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
 using Arcana.Domain.Entities.Lessons;
-using Arcana.Domain.Entities.QuestionAnswers;
+using Arcana.Domain.Entities.QuestionOptions;
 using Arcana.Domain.Entities.Questions;
 using Arcana.Domain.Entities.QuizApplications;
 using Arcana.Domain.Entities.QuizQuestions;
@@ -26,7 +26,7 @@ using Arcana.WebApi.Models.Languages;
 using Arcana.WebApi.Models.LessonComments;
 using Arcana.WebApi.Models.Lessons;
 using Arcana.WebApi.Models.Permissions;
-using Arcana.WebApi.Models.QuestionAnswers;
+using Arcana.WebApi.Models.QuestionOptions;
 using Arcana.WebApi.Models.Questions;
 using Arcana.WebApi.Models.QuizApplications;
 using Arcana.WebApi.Models.QuizQuestions;
@@ -94,9 +94,9 @@ public class MappingProfile : Profile
         CreateMap<InstructorComment, InstructorCommentCreateModel>().ReverseMap();
         CreateMap<InstructorComment, InstructorCommentUpdateModel>().ReverseMap();
 
-        CreateMap<InstructorStarsViewModel, InstructorStars>().ReverseMap();
-        CreateMap<InstructorStars, InstructorStarsCreateModel>().ReverseMap();
-        CreateMap<InstructorStars, InstructorStarsUpdateModel>().ReverseMap();
+        CreateMap<InstructorStarsViewModel, InstructorStar>().ReverseMap();
+        CreateMap<InstructorStar, InstructorStarsCreateModel>().ReverseMap();
+        CreateMap<InstructorStar, InstructorStarsUpdateModel>().ReverseMap();
 
         CreateMap<LanguageViewModel, Language>().ReverseMap();
         CreateMap<Language, LanguageCreateModel>().ReverseMap();
@@ -110,9 +110,9 @@ public class MappingProfile : Profile
         CreateMap<LessonComment, LessonCommentCreateModel>().ReverseMap();
         CreateMap<LessonComment, LessonCommentUpdateModel>().ReverseMap();
 
-        CreateMap<QuestionAnswerViewModel, QuestionAnswer>().ReverseMap();
-        CreateMap<QuestionAnswer, QuestionAnswerCreateModel>().ReverseMap();
-        CreateMap<QuestionAnswer, QuestionAnswerUpdateModel>().ReverseMap();
+        CreateMap<QuestionOptionViewModel, QuestionOption>().ReverseMap();
+        CreateMap<QuestionOption, QuestionOptionCreateModel>().ReverseMap();
+        CreateMap<QuestionOption, QuestionOptionUpdateModel>().ReverseMap();
 
         CreateMap<QuestionViewModel, Question>().ReverseMap();
         CreateMap<Question, QuestionCreateModel>().ReverseMap();
