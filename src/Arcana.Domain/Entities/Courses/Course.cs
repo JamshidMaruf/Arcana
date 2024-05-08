@@ -3,7 +3,7 @@ using Arcana.Domain.Entities.Commons;
 using Arcana.Domain.Entities.CourseCategories;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
-using Arcana.Domain.Enums.Levels;
+using Arcana.Domain.Enums;
 
 namespace Arcana.Domain.Entities.Courses;
 
@@ -18,7 +18,7 @@ public class Course : Auditable
     public long CategoryId { get; set; }
     public CourseCategory Category { get; set; } 
     public long InstructorId { get; set; }
-    public Instructor Intructor { get; set; }
+    public Instructor Instructor { get; set; }
     public long FileId { get; set; }
     public Asset File { get; set; }
     public long LanguageId {  get; set; }

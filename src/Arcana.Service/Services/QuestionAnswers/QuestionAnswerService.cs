@@ -1,4 +1,4 @@
-﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.DataAccess.UnitOfWorks;
 using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;

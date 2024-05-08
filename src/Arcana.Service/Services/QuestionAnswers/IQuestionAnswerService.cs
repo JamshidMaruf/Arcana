@@ -1,4 +1,4 @@
-﻿using Arcana.Domain.Entities.QuestionAnswers;
+using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Service.Configurations;
 using Microsoft.AspNetCore.Http;
 
