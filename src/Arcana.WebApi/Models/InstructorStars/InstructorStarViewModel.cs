@@ -3,7 +3,7 @@ using Arcana.WebApi.Models.Students;
 
 namespace Arcana.WebApi.Models.InstructorStars;
 
-public class InstructorStarsViewModel
+public class InstructorStarViewModel
 {
     public long Id { get; set; }
     public StudentViewModel Student { get; set; }

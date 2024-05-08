@@ -19,8 +19,8 @@ namespace Arcana.DataAccess.UnitOfWorks;
 
 public interface IUnitOfWork : IDisposable
 {
-    IRepository<User> Users { get; }
-    IRepository<Asset> Assets { get; }
+    IRepository<User> Users { get;}
+    IRepository<Asset> Assets { get;}
     IRepository<Quiz> Quizzes { get; }
     IRepository<Lesson> Lessons { get; }
     IRepository<Course> Courses { get; }
@@ -39,7 +39,7 @@ public interface IUnitOfWork : IDisposable
     IRepository<QuestionAnswer> QuestionAnswers { get; }
     IRepository<RolePermission> RolePermissions { get; }
     IRepository<CourseCategory> CourseCategories { get; }
-    IRepository<InstructorStars> InstructorStars { get; }
+    IRepository<InstructorStar> InstructorStars { get; }
     IRepository<QuizApplication> QuizApplications { get; }
     IRepository<InstructorComment> InstructorComments { get; }
     ValueTask<bool> SaveAsync();

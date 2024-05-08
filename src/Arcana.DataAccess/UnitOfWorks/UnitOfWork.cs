@@ -42,7 +42,7 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<StudentCourse> StudentCourses { get; }
     public IRepository<QuestionAnswer> QuestionAnswers { get; }
     public IRepository<CourseCategory> CourseCategories { get; }
-    public IRepository<InstructorStars> InstructorStars { get; }
+    public IRepository<InstructorStar> InstructorStars { get; }
     public IRepository<QuizApplication> QuizApplications { get; }
     public IRepository<InstructorComment> InstructorComments { get; }
     private IDbContextTransaction transaction;
@@ -70,7 +70,7 @@ public class UnitOfWork : IUnitOfWork
         QuestionAnswers = new Repository<QuestionAnswer>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
         CourseCategories = new Repository<CourseCategory>(this.context);
-        InstructorStars = new Repository<InstructorStars>(this.context);
+        InstructorStars = new Repository<InstructorStar>(this.context);
         QuizApplications = new Repository<QuizApplication>(this.context);
         InstructorComments = new Repository<InstructorComment>(this.context);
 
