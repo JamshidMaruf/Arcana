@@ -3,7 +3,7 @@ using Arcana.WebApi.Models.InstructorComments;
 
 namespace Arcana.WebApi.ApiServices.InstructorComments;
 
-public interface IInstructorCommentsApiService
+public interface IInstructorCommentApiService
 {
 
     ValueTask<InstructorCommentViewModel > PostAsync(InstructorCommentCreateModel model);

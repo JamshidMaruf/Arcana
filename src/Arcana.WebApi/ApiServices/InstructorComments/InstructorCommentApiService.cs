@@ -1,37 +1,49 @@
-﻿using Arcana.Domain.Entities.Lessons;
+﻿using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Configurations;
+using Arcana.Service.Services.InstructorComments;
+using Arcana.WebApi.Extensions;
 using Arcana.WebApi.Models.InstructorComments;
+using Arcana.WebApi.Validators.InstructorComments;
+using AutoMapper;
 
 namespace Arcana.WebApi.ApiServices.InstructorComments;
 
-public class InstructorCommentApiService : IInstructorCommentsApiService
+public class InstructorCommentApiService(IMapper mapper, 
+    IInstructorCommentService service, 
+    InstructorCommentCreateModelValidator instructorCommentCreateModelValidator,
+    InstructorCommentUpdateModelValidator instructorCommentUpdateModelValidator)
+    : IInstructorCommentApiService
 {
 
     public async ValueTask<InstructorCommentViewModel> PostAsync(InstructorCommentCreateModel model)
     {
 
-        await createModelValidator.EnsureValidatedAsync(model);
-        var createdLessonComment = await lessonCommentService.CreateAsync(mapper.Map<LessonComment>(createModel));
-        return mapper.Map<LessonCommentViewModel>(createdLessonComment);
+        await instructorCommentCreateModelValidator.EnsureValidatedAsync(model);
+        var createdInstructorComment = await service.CreateAsync(mapper.Map<InstructorComment>(model));
+        return mapper.Map<InstructorCommentViewModel>(createdInstructorComment);
     }
 
-    public ValueTask<bool> DeleteAsync(long id)
+    public async ValueTask<InstructorCommentViewModel> PutAsync(long id, InstructorCommentUpdateModel model)
     {
-        throw new NotImplementedException();
+        await instructorCommentUpdateModelValidator.EnsureValidatedAsync(model);
+        var updatedInstructorComment = await service.UpdateAsync(id, mapper.Map<InstructorComment>(model));
+        return mapper.Map<InstructorCommentViewModel>(updatedInstructorComment);
     }
 
-    public ValueTask<InstructorCommentViewModel> GetAsync(long id)
+    public async ValueTask<bool> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        return await service.DeleteAsync(id);
     }
 
-    public ValueTask<IEnumerable<InstructorCommentViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
+    public async ValueTask<InstructorCommentViewModel> GetAsync(long id)
     {
-        throw new NotImplementedException();
+        var InstructorComment = await service.GetByIdAsync(id);
+        return mapper.Map<InstructorCommentViewModel>(InstructorComment);
     }
 
-    public ValueTask<InstructorCommentViewModel> PutAsync(long id, InstructorCommentUpdateModel model)
+    public async ValueTask<IEnumerable<InstructorCommentViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
     {
-        throw new NotImplementedException();
+        var instructorComments = await service.GetAllAsync(@params, filter, search);
+        return mapper.Map<IEnumerable<InstructorCommentViewModel>>(instructorComments);
     }
 }
