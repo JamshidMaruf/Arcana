@@ -28,7 +28,7 @@ public class InstructorCommentService(IUnitOfWork unitOfWork) : IInstructorComme
         var existInstructor = await unitOfWork.InstructorComments.SelectAsync(c => c.Id == model.InstructorId && !c.IsDeleted)
             ??throw new NotFoundException($"Instructor is not found with this ID = {id}");
        
-        var existInstructorComment = await unitOfWork.InstructorComments.SelectAsync(ic => ic.Id == id && !ic.IsDeleted, ["Student", "Instructor", "Parent"])
+        var existInstructorComment = await unitOfWork.InstructorComments.SelectAsync(ic => ic.Id == id && !ic.IsDeleted, ["Student", "Instructor"])
             ??throw new NotFoundException($"Instructor comment is not found with this ID = {id}");
 
         existInstructorComment.Content = model.Content;
@@ -54,7 +54,7 @@ public class InstructorCommentService(IUnitOfWork unitOfWork) : IInstructorComme
     public async ValueTask<InstructorComment> GetByIdAsync(long id)
     {
         var existInstructorComment = await unitOfWork.InstructorComments.
-            SelectAsync(expression: ic => ic.Id == id && !ic.IsDeleted, includes: ["Student", "Instructor", "Parent"])
+            SelectAsync(expression: ic => ic.Id == id && !ic.IsDeleted, includes: ["Student", "Instructor", ])
             ?? throw new NotFoundException($"Instructor comment is not found with this ID = {id}");
 
         return existInstructorComment;
@@ -64,7 +64,7 @@ public class InstructorCommentService(IUnitOfWork unitOfWork) : IInstructorComme
     {
         var instructorComments = unitOfWork.InstructorComments.
             SelectAsQueryable(expression: ic => !ic.IsDeleted,
-            includes: ["Student", "Instructor", "Parent"],
+            includes: ["Student", "Instructor"],
             isTracked: false).OrderBy(filter);
 
 
