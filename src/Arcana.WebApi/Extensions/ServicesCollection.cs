@@ -128,7 +128,7 @@ public static class ServicesCollection
         services.AddTransient<StudentCourseUpdateModelValidator>();
 
         services.AddTransient<RolePermissionCreateModelValidator>();
-        
+
         services.AddTransient<LoginModelValidator>();
         services.AddTransient<ResetPasswordModelValidator>();
         services.AddTransient<SendCodeModelValidator>();

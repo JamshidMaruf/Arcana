@@ -1,6 +1,6 @@
-﻿using FluentValidation;
-using Arcana.Service.Helpers;
+﻿using Arcana.Service.Helpers;
 using Arcana.WebApi.Models.Users;
+using FluentValidation;
 
 namespace Arcana.WebApi.Validators.Users;
 

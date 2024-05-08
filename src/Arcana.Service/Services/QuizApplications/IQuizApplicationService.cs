@@ -1,5 +1,5 @@
-﻿using Arcana.Service.Configurations;
-using Arcana.Domain.Entities.QuizApplications;
+﻿using Arcana.Domain.Entities.QuizApplications;
+using Arcana.Service.Configurations;
 
 namespace Arcana.Service.Services.QuizApplications;
 

@@ -67,8 +67,8 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
             .SelectAsQueryable(expression: lc => !lc.IsDeleted, includes: ["Lesson", "Student", "Instructor", "Parent"], isTracked: false)
             .OrderBy(filter);
 
-        if(!string.IsNullOrEmpty(search))
-            lessonComments = lessonComments.Where(lc => 
+        if (!string.IsNullOrEmpty(search))
+            lessonComments = lessonComments.Where(lc =>
             lc.Content.ToLower().Contains(search.ToLower()));
 
         return await lessonComments.ToPaginateAsQueryable(@params).ToListAsync();

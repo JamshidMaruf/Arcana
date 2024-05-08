@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Arcana.Service.Services.Lessons;
 
 public class LessonService(
-    IUnitOfWork unitOfWork, 
+    IUnitOfWork unitOfWork,
     IAssetService assetService) : ILessonService
 {
     public async ValueTask<Lesson> CreateAsync(Lesson lesson, IFormFile file, FileType fileType)

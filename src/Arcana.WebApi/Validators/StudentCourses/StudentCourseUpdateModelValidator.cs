@@ -4,7 +4,7 @@ using FluentValidation;
 namespace Arcana.WebApi.Validators.StudentCourses;
 
 public class StudentCourseUpdateModelValidator : AbstractValidator<StudentCourseUpdateModel>
-{ 
+{
     public StudentCourseUpdateModelValidator()
     {
         RuleFor(studentCourse => studentCourse.StudentId)

@@ -1,6 +1,4 @@
-﻿using Arcana.Domain.Entities.Commons;
-
-namespace Arcana.WebApi.Models.Questions;
+﻿namespace Arcana.WebApi.Models.Questions;
 
 public class QuestionUpdateModel
 {

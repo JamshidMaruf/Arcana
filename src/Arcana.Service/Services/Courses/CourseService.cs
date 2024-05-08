@@ -1,10 +1,10 @@
-﻿using Arcana.Service.Helpers;
+﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Domain.Entities.Courses;
+using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
-using Arcana.Service.Configurations;
+using Arcana.Service.Helpers;
 using Microsoft.EntityFrameworkCore;
-using Arcana.DataAccess.UnitOfWorks;
-using Arcana.Domain.Entities.Courses;
 
 namespace Arcana.Service.Services.Courses;
 

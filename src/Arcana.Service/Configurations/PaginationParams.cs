@@ -9,6 +9,6 @@ public class PaginationParams
         PageIndex = EnvironmentHelper.PageIndex;
         PageSize = EnvironmentHelper.PageSize;
     }
-    public int PageIndex { get; set; } 
+    public int PageIndex { get; set; }
     public int PageSize { get; set; }
 }

@@ -1,10 +1,6 @@
-﻿using Arcana.Domain.Entities.Users;
-using Arcana.Service.Configurations;
-using Arcana.Service.Services.UserRoles;
-using Arcana.WebApi.ApiServices.Instructors;
+﻿using Arcana.Service.Configurations;
 using Arcana.WebApi.ApiServices.UserRoles;
 using Arcana.WebApi.Models.Commons;
-using Arcana.WebApi.Models.Students;
 using Arcana.WebApi.Models.UserRoles;
 using Microsoft.AspNetCore.Mvc;
 

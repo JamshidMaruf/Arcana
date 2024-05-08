@@ -8,9 +8,9 @@ using AutoMapper;
 
 namespace Arcana.WebApi.ApiServices.Lessons;
 
-public class LessonApiService (
-    IMapper mapper, 
-    ILessonService lessonService, 
+public class LessonApiService(
+    IMapper mapper,
+    ILessonService lessonService,
     LessonCreateModelValidator createModelValidator,
     LessonUpdateModelValidator updateModelValidator) : ILessonApiService
 {

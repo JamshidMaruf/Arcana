@@ -11,6 +11,6 @@ public class Question : Auditable
     public long ModuleId { get; set; }
     public CourseModule Module { get; set; }
     public long? FileId { get; set; }
-    public Asset File { get; set; }    
-    public ICollection<QuestionAnswer> Answers { get; set; }
+    public Asset File { get; set; }
+    public IEnumerable<QuestionAnswer> Answers { get; set; }
 }

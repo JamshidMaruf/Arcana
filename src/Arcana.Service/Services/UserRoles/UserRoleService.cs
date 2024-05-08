@@ -1,9 +1,9 @@
-﻿using Arcana.Service.Helpers;
-using Arcana.Service.Extensions;
-using Arcana.Service.Exceptions;
+﻿using Arcana.DataAccess.UnitOfWorks;
 using Arcana.Domain.Entities.Users;
 using Arcana.Service.Configurations;
-using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Service.Exceptions;
+using Arcana.Service.Extensions;
+using Arcana.Service.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.UserRoles;

@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Arcana.WebApi.Models.UserRoles;
+﻿using Arcana.WebApi.Models.UserRoles;
+using FluentValidation;
 
 namespace Arcana.WebApi.Validators.UserRoles;
 

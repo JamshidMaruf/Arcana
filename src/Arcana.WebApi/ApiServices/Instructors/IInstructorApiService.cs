@@ -1,5 +1,4 @@
-﻿using Arcana.Domain.Entities.Instructors;
-using Arcana.Service.Configurations;
+﻿using Arcana.Service.Configurations;
 using Arcana.WebApi.Models.Instructors;
 
 namespace Arcana.WebApi.ApiServices.Instructors;

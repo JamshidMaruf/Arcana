@@ -1,10 +1,10 @@
-﻿using Arcana.Service.Helpers;
+﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Domain.Entities.Courses;
+using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
-using Arcana.DataAccess.UnitOfWorks;
-using Arcana.Service.Configurations;
+using Arcana.Service.Helpers;
 using Microsoft.EntityFrameworkCore;
-using Arcana.Domain.Entities.Courses;
 
 namespace Arcana.Service.Services.CourseModules;
 
@@ -15,8 +15,8 @@ public class CourseModuleService(IUnitOfWork unitOfWork) : ICourseModuleService
         var existCourse = await unitOfWork.Courses.SelectAsync(course => course.Id == courseModule.CourseId && !course.IsDeleted)
              ?? throw new NotFoundException($"Course is not found with this ID = {courseModule.CourseId}");
 
-        var existCourseModule = await unitOfWork.CourseModules.SelectAsync(module => 
-            module.Name.ToLower() == courseModule.Name.ToLower() && 
+        var existCourseModule = await unitOfWork.CourseModules.SelectAsync(module =>
+            module.Name.ToLower() == courseModule.Name.ToLower() &&
             module.CourseId == courseModule.CourseId && !module.IsDeleted);
 
         if (existCourseModule is not null)

@@ -1,8 +1,8 @@
-﻿using Arcana.WebApi.Models.Assets;
-using Arcana.WebApi.Models.Languages;
-using Arcana.WebApi.Models.Instructors;
+﻿using Arcana.Domain.Enums;
+using Arcana.WebApi.Models.Assets;
 using Arcana.WebApi.Models.CourseCategories;
-using Arcana.Domain.Enums;
+using Arcana.WebApi.Models.Instructors;
+using Arcana.WebApi.Models.Languages;
 
 namespace Arcana.WebApi.Models.Courses;
 
