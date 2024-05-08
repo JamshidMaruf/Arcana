@@ -4,6 +4,7 @@ using Arcana.WebApi.Helpers;
 using Arcana.WebApi.Mappers;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,11 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.EnsureCreated();
     dbContext.Database.Migrate();
 }
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
