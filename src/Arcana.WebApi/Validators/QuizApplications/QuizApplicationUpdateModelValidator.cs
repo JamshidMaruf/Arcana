@@ -1,5 +1,5 @@
-﻿using Arcana.WebApi.Models.QuizApplications;
-using FluentValidation;
+﻿using FluentValidation;
+using Arcana.WebApi.Models.QuizApplications;
 
 namespace Arcana.WebApi.Validators.QuizApplications;
 
