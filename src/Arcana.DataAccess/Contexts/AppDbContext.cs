@@ -5,6 +5,7 @@ using Arcana.Domain.Entities.Courses;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
 using Arcana.Domain.Entities.Lessons;
+using Arcana.Domain.Entities.QuestionAnswer1;
 using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Domain.Entities.Questions;
 using Arcana.Domain.Entities.QuizApplications;
@@ -39,6 +40,7 @@ public class AppDbContext : DbContext
     public DbSet<LessonComment> LessonComments { get; set; }
     public DbSet<StudentCourse> StudentCourses { get; set; }
     public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
+    public DbSet<QuestionAnswer1> QuestionAnswers1 { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
     public DbSet<CourseCategory> CourseCategories { get; set; }
     public DbSet<InstructorStars> InstructorStars { get; set; }

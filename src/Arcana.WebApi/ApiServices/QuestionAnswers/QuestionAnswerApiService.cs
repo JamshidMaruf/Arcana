@@ -9,7 +9,7 @@ using AutoMapper;
 namespace Arcana.WebApi.ApiServices.QuestionAnswers;
 
 public class QuestionAnswerApiService(
-    IMapper mapper, IQuestionAnswerService questionAnswerService,
+    IMapper mapper, IQuestionAnswer1Service questionAnswerService,
     QuestionAnswerCreateModelValidator createValidator,
     QuestionAnswerUpdateModelValidator updateValidator) : IQuestionAnswerApiService
 {

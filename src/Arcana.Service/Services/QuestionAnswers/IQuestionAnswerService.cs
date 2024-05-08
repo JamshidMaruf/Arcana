@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Arcana.Service.Services.QuestionAnswers;
 
-public interface IQuestionAnswerService
+public interface IQuestionAnswer1Service
 {
     ValueTask<QuestionAnswer> CreateAsync(QuestionAnswer questionAnswer);
     ValueTask<QuestionAnswer> UpdateAsync(long id, QuestionAnswer questionAnswer);

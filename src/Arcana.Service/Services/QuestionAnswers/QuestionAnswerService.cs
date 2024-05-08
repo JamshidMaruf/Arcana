@@ -8,15 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.QuestionAnswers;
 
-public class QuestionAnswerService(IUnitOfWork unitOfWork) : IQuestionAnswerService
+public class QuestionAnswer1Service(IUnitOfWork unitOfWork) : IQuestionAnswer1Service
 {
     public async ValueTask<QuestionAnswer> CreateAsync(QuestionAnswer questionAnswer)
     {
         questionAnswer.CreatedByUserId = HttpContextHelper.UserId;
         var createdQuestionAnswer = await unitOfWork.QuestionAnswers.InsertAsync(questionAnswer);
-
         await unitOfWork.SaveAsync();
-
         return createdQuestionAnswer;
     }
 
@@ -60,7 +58,6 @@ public class QuestionAnswerService(IUnitOfWork unitOfWork) : IQuestionAnswerServ
             ?? throw new NotFoundException($"Question Answer is not found with this ID={id}");
 
         existQuestionAnswer.Content = questionAnswer.Content;
-
         existQuestionAnswer.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.QuestionAnswers.UpdateAsync(existQuestionAnswer);
         await unitOfWork.SaveAsync();

@@ -7,6 +7,7 @@ using Arcana.Domain.Entities.Courses;
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Domain.Entities.Languages;
 using Arcana.Domain.Entities.Lessons;
+using Arcana.Domain.Entities.QuestionAnswer1;
 using Arcana.Domain.Entities.QuestionAnswers;
 using Arcana.Domain.Entities.Questions;
 using Arcana.Domain.Entities.QuizApplications;
@@ -41,6 +42,7 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<LessonComment> LessonComments { get; }
     public IRepository<StudentCourse> StudentCourses { get; }
     public IRepository<QuestionAnswer> QuestionAnswers { get; }
+    public IRepository<QuestionAnswer1> QuestionAnswers1 { get; }
     public IRepository<CourseCategory> CourseCategories { get; }
     public IRepository<InstructorStars> InstructorStars { get; }
     public IRepository<QuizApplication> QuizApplications { get; }
@@ -67,6 +69,7 @@ public class UnitOfWork : IUnitOfWork
         CourseComments = new Repository<CourseComment>(this.context);
         LessonComments = new Repository<LessonComment>(this.context);
         StudentCourses = new Repository<StudentCourse>(this.context);
+        QuestionAnswers1 = new Repository<QuestionAnswer1>(this.context);
         QuestionAnswers = new Repository<QuestionAnswer>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
         CourseCategories = new Repository<CourseCategory>(this.context);
