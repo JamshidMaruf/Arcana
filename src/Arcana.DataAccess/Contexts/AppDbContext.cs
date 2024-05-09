@@ -688,7 +688,7 @@ public class AppDbContext : DbContext
                 CountOfLessons = 150,
                 Level = Level.Advanced,
                 CategoryId = 1,
-                InstructorId = 3,
+                InstructorId = 1,
                 FileId = 1,
                 LanguageId = 1,
                 CreatedAt = DateTime.UtcNow
@@ -704,7 +704,7 @@ public class AppDbContext : DbContext
 
         // CoursesComment
         modelBuilder.Entity<CourseComment>().HasData(
-            new CourseComment() { Id = 1, Content = "Course Comment", StudentId = 2, CourseId = 1, CreatedAt = DateTime.UtcNow });
+            new CourseComment() { Id = 1, Content = "Course Comment", StudentId = 1, CourseId = 1, CreatedAt = DateTime.UtcNow });
 
         // CourseModule
         modelBuilder.Entity<CourseModule>().HasData(
@@ -712,7 +712,7 @@ public class AppDbContext : DbContext
 
         // CourseStars
         modelBuilder.Entity<CourseStars>().HasData(
-            new CourseStars() { Id = 1, StudentId = 2, CourseId = 1, Stars = 5, CreatedAt = DateTime.UtcNow });
+            new CourseStars() { Id = 1, StudentId = 1, CourseId = 1, Stars = 5, CreatedAt = DateTime.UtcNow });
 
         // Lesson
         modelBuilder.Entity<Lesson>().HasData(
@@ -728,17 +728,17 @@ public class AppDbContext : DbContext
 
         // InstructorStars
         modelBuilder.Entity<InstructorStar>().HasData(
-            new InstructorStar() { Id = 1, Stars = 5, StudentId = 1, InstructorId = 3, CreatedAt = DateTime.UtcNow });
+            new InstructorStar() { Id = 1, Stars = 5, StudentId = 1, InstructorId = 1, CreatedAt = DateTime.UtcNow });
 
         // InstructorComment
         modelBuilder.Entity<InstructorComment>().HasData(
-            new InstructorComment() { Id = 1, StudentId = 2, InstructorId = 3, CreatedAt = DateTime.UtcNow });
+            new InstructorComment() { Id = 1, StudentId = 1, InstructorId = 1, CreatedAt = DateTime.UtcNow });
 
         // Quiz
         modelBuilder.Entity<Quiz>().HasData(new Quiz() { Id = 1, Name = "Quiz1", QuestionCount = 5, ModuleId = 1, CreatedAt = DateTime.UtcNow });
 
         // QuizApplication
-        modelBuilder.Entity<QuizApplication>().HasData(new QuizApplication() { Id = 1, QuizId = 1, StudentId = 2, StartTime = new DateTime(2024, 10, 8, 10, 0, 0), EndTime = new DateTime(2024, 11, 8, 10, 0, 0), CreatedAt = DateTime.UtcNow });
+        modelBuilder.Entity<QuizApplication>().HasData(new QuizApplication() { Id = 1, QuizId = 1, StudentId = 1, StartTime = new DateTime(2024, 10, 8, 10, 0, 0), EndTime = new DateTime(2024, 11, 8, 10, 0, 0), CreatedAt = DateTime.UtcNow });
 
         // Question
         modelBuilder.Entity<Question>().HasData(new Question() { Id = 1, Content = "Content", FileId = 2, ModuleId = 1, CreatedAt = DateTime.UtcNow });
@@ -752,7 +752,7 @@ public class AppDbContext : DbContext
 
         // QuizAnswer
         modelBuilder.Entity<QuestionAnswer>().HasData(
-            new QuestionAnswer() { Id = 1, QuizId = 1, StudentId = 2, QuestionId = 1, OptionId = 1, CreatedAt = DateTime.UtcNow });
+            new QuestionAnswer() { Id = 1, QuizId = 1, StudentId = 1, QuestionId = 1, OptionId = 1, CreatedAt = DateTime.UtcNow });
 
         // QuizQuestion
         modelBuilder.Entity<QuizQuestion>().HasData(new QuizQuestion() { Id = 1, QuestionId = 1, QuizId = 1, CreatedAt = DateTime.UtcNow });
