@@ -21,10 +21,9 @@ public class QuestionAnswerService(IUnitOfWork unitOfWork) : IQuestionAnswerServ
        
             var question = await unitOfWork.Questions.SelectAsync(question => question.Id == questionAnswer.QuestionId)
                 ?? throw new NotFoundException($"Question is not found with this ID={questionAnswer.QuestionId}");
-
-            await unitOfWork.QuestionAnswers.InsertAsync(questionAnswer);
         }
 
+        await unitOfWork.QuestionAnswers.BulkInsertAsync(questionAnswers);
         await unitOfWork.SaveAsync();
     }
 
