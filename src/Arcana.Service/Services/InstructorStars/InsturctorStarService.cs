@@ -14,7 +14,7 @@ public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarServ
     {
         var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId);
         if (existInstructorStars is not null)
-            throw new AlreadyExistException($"This instructorStars already exists with this id={instructorStars.Id}");
+            throw new AlreadyExistException($"This instructorStar already exists with this id={instructorStars.Id}");
         instructorStars.CreatedByUserId = HttpContextHelper.UserId;
         var createdInstructorStars = await unitOfWork.InstructorStars.InsertAsync(instructorStars);
 
