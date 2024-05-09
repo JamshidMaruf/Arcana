@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Arcana.WebApi.Validators.InstructorStars;
 
-public class InstructorStarsUpdateModelValidator : AbstractValidator<InstructorStarsUpdateModel>
+public class InstructorStarCreateModelValidator : AbstractValidator<InstructorStarCreateModel>
 {
-    public InstructorStarsUpdateModelValidator()
+    public InstructorStarCreateModelValidator()
     {
         RuleFor(instructorStars => instructorStars.Stars)
             .NotNull()

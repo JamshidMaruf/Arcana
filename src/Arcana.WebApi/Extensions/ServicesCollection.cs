@@ -97,7 +97,7 @@ public static class ServicesCollection
         services.AddScoped<ICourseCommentService, CourseCommentService>();
         services.AddScoped<ICourseModuleService, CourseModuleService>();
         services.AddScoped<IInstructorCommentService, InstructorCommentService>();
-        services.AddScoped<IInstructorStarsService, InstructorStarService>();
+        services.AddScoped<IInstructorStarService, InstructorStarService>();
         services.AddScoped<ILanguageService, LanguageService>();
         services.AddScoped<IQuizService, QuizService>();
     }
@@ -123,7 +123,7 @@ public static class ServicesCollection
         services.AddScoped<ICourseCommentApiService, CourseCommentApiService>();
         services.AddScoped<ICourseModuleApiService, CourseModuleApiService>();
         services.AddScoped<IInstructorCommentApiService, InstructorCommentApiService>();
-        services.AddScoped<IInsturctorStarsApiService, InstructorStarsApiService>();
+        services.AddScoped<IInsturctorStarsApiService, InstructorStarApiService>();
         services.AddScoped<ILanguageApiService, LanguageApiService>();
     }
 
@@ -182,8 +182,8 @@ public static class ServicesCollection
         services.AddTransient<InstructorCommentCreateModelValidator>();
         services.AddTransient<InstructorCommentUpdateModelValidator>();
 
-        services.AddTransient<InstructorStarsCreateModelValidator>();
-        services.AddTransient<InstructorStarsUpdateModelValidator>();
+        services.AddTransient<InstructorStarCreateModelValidator>();
+        services.AddTransient<InstructorStarUpdateModelValidator>();
 
         services.AddTransient<LanguageCreateModelValidator>();
         services.AddTransient<LanguageUpdateModelValidator>();
