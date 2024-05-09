@@ -15,7 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.ConfigureSwagger();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDbConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultDbConnection")));
 
 builder.Services.AddJwtService(builder.Configuration);
 builder.Services.AddExceptionHandlers();
@@ -38,13 +38,13 @@ var app = builder.Build();
 app.AddInjectHelper();
 app.InjectEnvironmentItems();
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var dbContext = services.GetRequiredService<AppDbContext>();
-    dbContext.Database.EnsureCreated();
-    dbContext.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    var dbContext = services.GetRequiredService<AppDbContext>();
+//    dbContext.Database.EnsureCreated();
+//    dbContext.Database.Migrate();
+//}
 
 
 // Configure the HTTP request pipeline.
