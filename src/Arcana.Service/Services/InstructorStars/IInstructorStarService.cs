@@ -1,8 +1,9 @@
 using Arcana.Domain.Entities.Instructors;
 using Arcana.Service.Configurations;
 
+namespace Arcana.Service.Services.InstructorStars;
 
-public interface IInstructorStarsService
+public interface IInstructorStarService
 {
     ValueTask<InstructorStar> CreateAsync(InstructorStar instructorStars);
     ValueTask<InstructorStar> UpdateAsync(long id, InstructorStar instructorStars);

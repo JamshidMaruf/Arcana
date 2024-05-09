@@ -6,13 +6,15 @@ using Arcana.Service.Extensions;
 using Arcana.Service.Helpers;
 using Microsoft.EntityFrameworkCore;
 
-public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarsService
+namespace Arcana.Service.Services.InstructorStars;
+
+public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarService
 {
     public async ValueTask<InstructorStar> CreateAsync(InstructorStar instructorStars)
     {
         var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId);
         if (existInstructorStars is not null)
-            throw new AlreadyExistException($"This instuctorStars already exists with this id={instructorStars.Id}");
+            throw new AlreadyExistException($"This instructorStars already exists with this id={instructorStars.Id}");
         instructorStars.CreatedByUserId = HttpContextHelper.UserId;
         var createdInstructorStars = await unitOfWork.InstructorStars.InsertAsync(instructorStars);
 
