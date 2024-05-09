@@ -293,6 +293,25 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(quizApplication => quizApplication.QuizId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<QuestionAnswer>()
+             .HasOne(quizApplication => quizApplication.Question)
+             .WithMany()
+             .HasForeignKey(quizApplication => quizApplication.QuestionId)
+             .OnDelete(DeleteBehavior.NoAction);
+
+        // QuizApplication and Quiz
+        modelBuilder.Entity<QuestionAnswer>()
+            .HasOne(quizApplication => quizApplication.Quiz)
+            .WithMany()
+            .HasForeignKey(quizApplication => quizApplication.QuizId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<QuestionAnswer>()
+            .HasOne(quizApplication => quizApplication.Student)
+            .WithMany()
+            .HasForeignKey(quizApplication => quizApplication.StudentId)
+            .OnDelete(DeleteBehavior.Restrict);
         #endregion
     }
 }
