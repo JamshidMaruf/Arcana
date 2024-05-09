@@ -2,6 +2,7 @@
 using Arcana.WebApi.ApiServices.Users;
 using Arcana.WebApi.Models.Commons;
 using Arcana.WebApi.Models.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
@@ -9,6 +10,7 @@ namespace Arcana.WebApi.Controllers;
 public class UsersController(IUserApiService userApiService) : BaseController
 {
     [HttpPost]
+    [AllowAnonymous]
     public async ValueTask<IActionResult> PostAsync(UserCreateModel createModel)
     {
         return Ok(new Response

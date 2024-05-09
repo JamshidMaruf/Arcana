@@ -1,6 +1,7 @@
 ﻿using Arcana.WebApi.ApiServices.Accounts;
 using Arcana.WebApi.Models.Accounts;
 using Arcana.WebApi.Models.Commons;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
@@ -10,6 +11,7 @@ namespace Arcana.WebApi.Controllers;
 public class AccountsController(IAccountApiService accountApiService) : ControllerBase
 {
     [HttpGet("login")]
+    [AllowAnonymous]
     public async ValueTask<IActionResult> LoginAsync([FromQuery] LoginModel loginModel)
     {
         return Ok(new Response
