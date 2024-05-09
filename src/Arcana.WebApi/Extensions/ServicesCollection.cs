@@ -7,6 +7,7 @@ using Arcana.Service.Services.CourseModules;
 using Arcana.Service.Services.Courses;
 using Arcana.Service.Services.InstructorComments;
 using Arcana.Service.Services.Instructors;
+using Arcana.Service.Services.InstructorStars;
 using Arcana.Service.Services.Languages;
 using Arcana.Service.Services.LessonComments;
 using Arcana.Service.Services.Lessons;
@@ -123,7 +124,7 @@ public static class ServicesCollection
         services.AddScoped<ICourseCommentApiService, CourseCommentApiService>();
         services.AddScoped<ICourseModuleApiService, CourseModuleApiService>();
         services.AddScoped<IInstructorCommentApiService, InstructorCommentApiService>();
-        services.AddScoped<IInsturctorStarsApiService, InstructorStarApiService>();
+        services.AddScoped<IInstructorStarApiService, InstructorStarApiService>();
         services.AddScoped<ILanguageApiService, LanguageApiService>();
     }
 
