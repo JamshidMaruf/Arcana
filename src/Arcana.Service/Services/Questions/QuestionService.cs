@@ -72,6 +72,8 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
 
     public async ValueTask<Question> UploadFileAsync(long id, IFormFile file)
     {
+        await unitOfWork.BeginTransactionAsync();
+
         var existQuestion = await unitOfWork.Questions
             .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File"])
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
@@ -83,12 +85,15 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
         existQuestion.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Questions.UpdateAsync(existQuestion);
         await unitOfWork.SaveAsync();
+        await unitOfWork.CommitTransactionAsync();
 
         return existQuestion;
     }
 
     public async ValueTask<Question> DeleteFileAsync(long id)
     {
+        await unitOfWork.BeginTransactionAsync();
+
         var existQuestion = await unitOfWork.Questions
             .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File"])
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
@@ -98,6 +103,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
         existQuestion.FileId = null;
         await unitOfWork.Questions.UpdateAsync(existQuestion);
         await unitOfWork.SaveAsync();
+        await unitOfWork.CommitTransactionAsync();
 
         return existQuestion;
     }
