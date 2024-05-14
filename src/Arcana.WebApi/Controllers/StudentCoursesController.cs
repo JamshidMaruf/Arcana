@@ -62,7 +62,7 @@ namespace Arcana.WebApi.Controllers
             {
                 StatusCode = 200,
                 Message = "Ok",
-                Data = await studentCourseApiService.GetAsync(@params, filter, search)
+                Data = await studentCourseApiService.GetAllAsync(@params, filter, search)
             });
         }
     }
