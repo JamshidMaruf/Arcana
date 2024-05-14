@@ -1,59 +1,60 @@
 ﻿using Arcana.Service.Configurations;
-using Arcana.WebApi.ApiServices.QuizQuestions;
+using Arcana.WebApi.ApiServices.InstructorComments;
 using Arcana.WebApi.Models.Commons;
-using Arcana.WebApi.Models.QuizQuestions;
+using Arcana.WebApi.Models.InstructorComments;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
 
-public class QuizQuestionsController(IQuizQuestionApiService quizQuestionApiService) : BaseController
+public class InstructorCommentsController(IInstructorCommentApiService apiService) : BaseController
 {
     [HttpPost]
-    public async ValueTask<IActionResult> PostAsync(QuizQuestionCreateModel createModel)
+    public async ValueTask<IActionResult> PostAsync(InstructorCommentCreateModel createModel)
     {
         return Ok(new Response
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await quizQuestionApiService.PostAsync(createModel)
+            Data = await apiService.PostAsync(createModel)
         });
     }
 
-    [HttpPut("{id:long}")]
-    public async ValueTask<IActionResult> PutAsync(long id, QuizQuestionUpdateModel updateModel)
-    {
-        return Ok(new Response
-        {
-            StatusCode = 200,
-            Message = "Ok",
-            Data = await quizQuestionApiService.PutAsync(id, updateModel)
-        });
-    }
-
-    [HttpDelete("{id:long}")]
+    [HttpPut("{id: long}")]
     public async ValueTask<IActionResult> DeleteAsync(long id)
     {
         return Ok(new Response
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await quizQuestionApiService.DeleteAsync(id)
+            Data = await apiService.DeleteAsync(id)
+        });
+    }
+    
+
+    [HttpPut]
+    public async ValueTask<IActionResult> PutAsync(long id, InstructorCommentUpdateModel updateModel)
+    {
+        return Ok(new Response
+        {
+            StatusCode = 200,
+            Message = "Ok",
+            Data = await apiService.PutAsync(id, updateModel)
         });
     }
 
-    [HttpGet("{id:long}")]
+    [HttpGet("{id: long}")]
     public async ValueTask<IActionResult> GetAsync(long id)
     {
         return Ok(new Response
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await quizQuestionApiService.GetAsync(id)
+            Data = await apiService.GetAsync(id)
         });
     }
 
     [HttpGet]
-    public async ValueTask<IActionResult> GetAllAsync(
+    public async ValueTask<IActionResult> GetAsync(
         [FromQuery] PaginationParams @params,
         [FromQuery] Filter filter,
         [FromQuery] string search = null)
@@ -62,7 +63,7 @@ public class QuizQuestionsController(IQuizQuestionApiService quizQuestionApiServ
         {
             StatusCode = 200,
             Message = "Ok",
-            Data = await quizQuestionApiService.GetAsync(@params, filter, search)
+            Data = await apiService.GetAsync(@params, filter, search)
         });
     }
 }
