@@ -21,7 +21,9 @@ namespace Arcana.DataAccess.Contexts;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions options) : base(options) { }
+    public AppDbContext(DbContextOptions options) : base(options) {
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+    }
 
     public DbSet<User> Users { get; set; }
     public DbSet<Asset> Assets { get; set; }
