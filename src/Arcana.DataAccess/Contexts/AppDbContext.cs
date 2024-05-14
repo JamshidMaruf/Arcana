@@ -418,7 +418,6 @@ public class AppDbContext : DbContext
                 new Permission { Id = 82, Action = "PutAsync", Controller = "QuestionAnswers", CreatedAt = DateTime.UtcNow },
                 new Permission { Id = 83, Action = "DeleteAsync", Controller = "QuestionAnswers", CreatedAt = DateTime.UtcNow },
                 new Permission { Id = 84, Action = "GetAllAsync", Controller = "QuestionAnswers", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 85, Action = "GetAsync", Controller = "QuestionAnswers", CreatedAt = DateTime.UtcNow },
 
                 new Permission { Id = 86, Action = "PostAsync", Controller = "LessonComments", CreatedAt = DateTime.UtcNow },
                 new Permission { Id = 87, Action = "PutAsync", Controller = "LessonComments", CreatedAt = DateTime.UtcNow },
@@ -462,22 +461,17 @@ public class AppDbContext : DbContext
                 new Permission { Id = 119, Action = "GetAllAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
                 new Permission { Id = 120, Action = "GetAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
 
-                new Permission { Id = 121, Action = "LoginAsync", Controller = "Accounts", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 122, Action = "SendCodeAsync", Controller = "Accounts", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 123, Action = "ConfirmAsync", Controller = "Accounts", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 124, Action = "ResetPasswordAsync", Controller = "Accounts", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 121, Action = "PostAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 122, Action = "PutAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 123, Action = "DeleteAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 124, Action = "GetAllAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 125, Action = "GetAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
 
-                new Permission { Id = 125, Action = "PostAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 126, Action = "PutAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 127, Action = "DeleteAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 128, Action = "GetAllAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 129, Action = "GetAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
-
-                new Permission { Id = 130, Action = "PostAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 131, Action = "PutAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 132, Action = "DeleteAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 133, Action = "GetAllAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 134, Action = "GetAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow }
+                new Permission { Id = 126, Action = "PostAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 127, Action = "PutAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 128, Action = "DeleteAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 129, Action = "GetAllAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 130, Action = "GetAsync", Controller = "CourseCategories", CreatedAt = DateTime.UtcNow }
             );
 
         // UserRole
@@ -626,11 +620,7 @@ public class AppDbContext : DbContext
             new RolePermission() { Id = 127, RoleId = 1, PermissionId = 127, CreatedAt = DateTime.UtcNow },
             new RolePermission() { Id = 128, RoleId = 1, PermissionId = 128, CreatedAt = DateTime.UtcNow },
             new RolePermission() { Id = 129, RoleId = 1, PermissionId = 129, CreatedAt = DateTime.UtcNow },
-            new RolePermission() { Id = 130, RoleId = 1, PermissionId = 130, CreatedAt = DateTime.UtcNow },
-            new RolePermission() { Id = 131, RoleId = 1, PermissionId = 131, CreatedAt = DateTime.UtcNow },
-            new RolePermission() { Id = 132, RoleId = 1, PermissionId = 132, CreatedAt = DateTime.UtcNow },
-            new RolePermission() { Id = 133, RoleId = 1, PermissionId = 133, CreatedAt = DateTime.UtcNow },
-            new RolePermission() { Id = 134, RoleId = 1, PermissionId = 134, CreatedAt = DateTime.UtcNow }
+            new RolePermission() { Id = 130, RoleId = 1, PermissionId = 130, CreatedAt = DateTime.UtcNow }
             );
 
         // User
