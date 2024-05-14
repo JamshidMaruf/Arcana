@@ -1,5 +1,6 @@
-﻿using Arcana.Domain.Entities.Courses;
+﻿using Microsoft.AspNetCore.Http;
 using Arcana.Service.Configurations;
+using Arcana.Domain.Entities.Courses;
 
 namespace Arcana.Service.Services.Courses;
 
@@ -10,4 +11,6 @@ public interface ICourseService
     ValueTask<bool> DeleteAsync(long id);
     ValueTask<Course> GetByIdAsync(long id);
     ValueTask<IEnumerable<Course>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
+    ValueTask<Course> UploadFileAsync(long id, IFormFile file, FileType fileType);
+    ValueTask<Course> DeleteFileAsync(long id);
 }

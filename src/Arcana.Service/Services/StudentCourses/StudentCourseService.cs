@@ -20,7 +20,7 @@ public class StudentCourseService(IUnitOfWork unitOfWork) : IStudentCourseServic
 
         var existStudentCourse = await unitOfWork.StudentCourses.SelectAsync(
             c => c.CourseId == studentCourse.CourseId
-            && c.StudentId == studentCourse.StudentId);
+            && c.StudentId == studentCourse.StudentId && !c.IsDeleted);
 
         if (existStudentCourse is not null)
             throw new AlreadyExistException($"Course is already exists" +

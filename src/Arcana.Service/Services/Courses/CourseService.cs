@@ -4,15 +4,19 @@ using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
 using Arcana.Service.Helpers;
+using Arcana.Service.Services.Assets;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arcana.Service.Services.Courses;
 
-public class CourseService(IUnitOfWork unitOfWork) : ICourseService
+public class CourseService(
+    IUnitOfWork unitOfWork,
+    IAssetService assetService) : ICourseService
 {
     public async ValueTask<Course> CreateAsync(Course course)
     {
-        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Name.ToLower() == course.Name.ToLower());
+        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Name.ToLower() == course.Name.ToLower() && !c.IsDeleted);
         if (existCourse is not null)
             throw new AlreadyExistException("This course already exists");
 
@@ -49,7 +53,6 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
         existCourse.Name = course.Name;
         existCourse.Level = course.Level;
         existCourse.Price = course.Price;
-        existCourse.FileId = course.FileId;
         existCourse.Duration = course.Duration;
         existCourse.LanguageId = course.LanguageId;
         existCourse.CategoryId = course.CategoryId;
@@ -70,6 +73,7 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
            ?? throw new NotFoundException($"Course is not found with this ID = {id}");
 
         await unitOfWork.Courses.DeleteAsync(existCourse);
+        await unitOfWork.SaveAsync();
         return true;
     }
 
@@ -94,5 +98,42 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
                 user.Description.ToLower().Contains(search.ToLower()));
 
         return await courses.ToPaginateAsQueryable(@params).ToListAsync();
+    }
+
+    public async ValueTask<Course> UploadFileAsync(long id, IFormFile file, FileType fileType)
+    {
+        await unitOfWork.BeginTransactionAsync();
+
+        var existCourse = await unitOfWork.Courses
+           .SelectAsync(expression: course => course.Id == id && !course.IsDeleted, includes: ["Category", "Instructor", "File", "Language"])
+           ?? throw new NotFoundException($"Course is not found with this ID = {id}");
+
+        var createdFile = await assetService.UploadAsync(file, fileType);
+
+        existCourse.File = createdFile;
+        existCourse.FileId = createdFile.Id;
+        existCourse.UpdatedByUserId = HttpContextHelper.UserId;
+
+        await unitOfWork.Courses.UpdateAsync(existCourse);
+        await unitOfWork.SaveAsync();
+        await unitOfWork.CommitTransactionAsync();
+
+        return existCourse;
+    }
+
+    public async ValueTask<Course> DeleteFileAsync(long id)
+    {
+        await unitOfWork.BeginTransactionAsync();
+
+        var existCourse = await unitOfWork.Courses
+           .SelectAsync(expression: course => course.Id == id && !course.IsDeleted, includes: ["Category", "Instructor", "File", "Language"])
+           ?? throw new NotFoundException($"Course is not found with this ID = {id}");
+
+        await assetService.DeleteAsync(Convert.ToInt64(existCourse.FileId));
+        existCourse.FileId = null;
+        await unitOfWork.Courses.UpdateAsync(existCourse);
+        await unitOfWork.SaveAsync();
+
+        return existCourse;
     }
 }
