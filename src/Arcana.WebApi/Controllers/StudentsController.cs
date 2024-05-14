@@ -66,7 +66,7 @@ public class StudentsController(IStudentApiService studentApiService) : BaseCont
         });
     }
 
-    [HttpPost("{id:long}/files/upload")]
+    [HttpPost("{id:long}/pictures/upload")]
     public async ValueTask<IActionResult> UploadPictureAsync(long id, IFormFile file)
     {
         return Ok(new Response
@@ -77,7 +77,7 @@ public class StudentsController(IStudentApiService studentApiService) : BaseCont
         });
     }
 
-    [HttpPost("{id:long}/files/delete")]
+    [HttpPost("{id:long}/pictures/delete")]
     public async ValueTask<IActionResult> DeletePictureAsync(long id)
     {
         return Ok(new Response
