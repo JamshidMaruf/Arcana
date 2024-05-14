@@ -55,7 +55,7 @@ public class UsersController(IUserApiService userApiService) : BaseController
     }
 
     [HttpGet]
-    public async ValueTask<IActionResult> GetAsync(
+    public async ValueTask<IActionResult> GetAllAsync(
         [FromQuery] PaginationParams @params,
         [FromQuery] Filter filter,
         [FromQuery] string search = null)
