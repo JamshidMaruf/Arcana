@@ -50,7 +50,6 @@ app.InjectEnvironmentItems();
 //    dbContext.Database.Migrate();
 //}
 
-
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();

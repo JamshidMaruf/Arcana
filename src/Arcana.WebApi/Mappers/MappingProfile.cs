@@ -123,8 +123,8 @@ public class MappingProfile : Profile
         CreateMap<QuizApplication, QuizApplicationUpdateModel>().ReverseMap();
 
         CreateMap<QuizQuestionViewModel, QuizQuestion>().ReverseMap();
-        CreateMap<QuizApplication, QuizQuestionCreateModel>().ReverseMap();
-        CreateMap<QuizApplication, QuizQuestionUpdateModel>().ReverseMap();
+        CreateMap<QuizQuestion, QuizQuestionCreateModel>().ReverseMap();
+        CreateMap<QuizQuestion, QuizQuestionUpdateModel>().ReverseMap();
 
         CreateMap<QuizViewModel, Quiz>().ReverseMap();
         CreateMap<Quiz, QuizCreateModel>().ReverseMap();

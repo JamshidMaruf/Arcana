@@ -12,11 +12,15 @@ public class QuestionOptionService(IUnitOfWork unitOfWork) : IQuestionOptionServ
 {
     public async ValueTask<QuestionOption> CreateAsync(QuestionOption questionOption)
     {
-        questionOption.CreatedByUserId = HttpContextHelper.UserId;
-        var createdQuestionAnswer = await unitOfWork.QuestionOptions.InsertAsync(questionOption);
-        await unitOfWork.SaveAsync();
+        var question = await unitOfWork.Questions.SelectAsync(question => question.Id == questionOption.QuestionId)
+            ?? throw new NotFoundException($"Question is not found with this ID={questionOption.QuestionId}");
 
-        return createdQuestionAnswer;
+        questionOption.CreatedByUserId = HttpContextHelper.UserId;
+        var createdQuestionOption = await unitOfWork.QuestionOptions.InsertAsync(questionOption);
+        await unitOfWork.SaveAsync();
+        createdQuestionOption.Question = question;
+
+        return createdQuestionOption;
     }
 
     public async ValueTask<bool> DeleteAsync(long id)
@@ -27,14 +31,16 @@ public class QuestionOptionService(IUnitOfWork unitOfWork) : IQuestionOptionServ
         existQuestionOption.DeletedByUserId = HttpContextHelper.UserId;
         await unitOfWork.QuestionOptions.DeleteAsync(existQuestionOption);
         await unitOfWork.SaveAsync();
-
+        
         return true;
     }
 
     public async ValueTask<IEnumerable<QuestionOption>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var questionOptions = unitOfWork.QuestionOptions.
-            SelectAsQueryable(expression: questionOption => !questionOption.IsDeleted, includes: ["Question"], isTracked: false)
+            SelectAsQueryable(expression: questionOption => !questionOption.IsDeleted, 
+            includes: ["Question"],
+            isTracked: false)
             .OrderBy(filter);
 
         if (!string.IsNullOrEmpty(search))
@@ -47,7 +53,8 @@ public class QuestionOptionService(IUnitOfWork unitOfWork) : IQuestionOptionServ
     public async ValueTask<QuestionOption> GetByIdAsync(long id)
     {
         var existQuestionOption = await unitOfWork.QuestionOptions
-           .SelectAsync(questionOption => questionOption.Id == id && !questionOption.IsDeleted, includes: ["Question"])
+           .SelectAsync(questionOption => questionOption.Id == id && !questionOption.IsDeleted, 
+           includes: ["Question"])
            ?? throw new NotFoundException($"Question option is not found with this ID={id}");
 
         return existQuestionOption;
