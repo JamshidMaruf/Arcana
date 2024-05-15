@@ -14,9 +14,11 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
 {
     public async ValueTask<Question> CreateAsync(Question question)
     {
+        var existModule = await unitOfWork.CourseModules.SelectAsync(module => module.Id == question.ModuleId)
+            ?? throw new NotFoundException($"Module is not found with this ID={question.ModuleId}");
         question.CreatedByUserId = HttpContextHelper.UserId;
         var createdQuestion = await unitOfWork.Questions.InsertAsync(question);
-
+        createdQuestion.Module = existModule;
         await unitOfWork.SaveAsync();
 
         return createdQuestion;
@@ -51,7 +53,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
     public async ValueTask<IEnumerable<Question>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var questions = unitOfWork.Questions.
-            SelectAsQueryable(expression: question => !question.IsDeleted, includes: ["File"], isTracked: false)
+            SelectAsQueryable(expression: question => !question.IsDeleted, includes: ["File", "Module"], isTracked: false)
             .OrderBy(filter);
 
         if (!string.IsNullOrEmpty(search))
@@ -64,7 +66,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
     public async ValueTask<Question> GetByIdAsync(long id)
     {
         var existQuestion = await unitOfWork.Questions
-            .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File"])
+            .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File", "Module"])
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
 
         return existQuestion;
@@ -75,7 +77,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
         await unitOfWork.BeginTransactionAsync();
 
         var existQuestion = await unitOfWork.Questions
-            .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File"])
+            .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File", "Module"])
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
 
         var createdFile = await assetService.UploadAsync(file, FileType.Pictures);
@@ -95,7 +97,7 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
         await unitOfWork.BeginTransactionAsync();
 
         var existQuestion = await unitOfWork.Questions
-            .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File"])
+            .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File", "Module"])
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
 
         await assetService.DeleteAsync(Convert.ToInt64(existQuestion.FileId));

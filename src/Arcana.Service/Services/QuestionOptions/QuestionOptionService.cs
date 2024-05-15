@@ -31,7 +31,7 @@ public class QuestionOptionService(IUnitOfWork unitOfWork) : IQuestionOptionServ
         existQuestionOption.DeletedByUserId = HttpContextHelper.UserId;
         await unitOfWork.QuestionOptions.DeleteAsync(existQuestionOption);
         await unitOfWork.SaveAsync();
-
+        
         return true;
     }
 
