@@ -74,7 +74,7 @@ public class StudentApiService(
 
     private Student Map(StudentUpdateModel createModel)
     {
-        return new Student
+        return new Student 
         {
             Detail = new User
             {
