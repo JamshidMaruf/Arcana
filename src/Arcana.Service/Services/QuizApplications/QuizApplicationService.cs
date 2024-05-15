@@ -68,7 +68,7 @@ public class QuizApplicationService(IUnitOfWork unitOfWork) : IQuizApplicationSe
     public async ValueTask<QuizApplication> GetByIdAsync(long id)
     {
         var existQuizApplication = await unitOfWork.QuizApplications
-            .SelectAsync(qa => qa.Id == id && !qa.IsDeleted, includes: ["Student", "Quiz"])
+            .SelectAsync(qa => qa.Id == id && !qa.IsDeleted, includes: ["Student", "Quiz.Module.Course"])
            ?? throw new NotFoundException($"Quiz application is not found with this ID={id}");
 
         return existQuizApplication;
@@ -77,7 +77,7 @@ public class QuizApplicationService(IUnitOfWork unitOfWork) : IQuizApplicationSe
     public async ValueTask<IEnumerable<QuizApplication>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var quizApplications = unitOfWork.QuizApplications
-            .SelectAsQueryable(expression: qa => !qa.IsDeleted, includes: ["Student", "Quiz"], isTracked: false)
+            .SelectAsQueryable(expression: qa => !qa.IsDeleted, includes: ["Student", "Quiz.Module.Course"], isTracked: false)
             .OrderBy(filter);
 
         if (!string.IsNullOrWhiteSpace(search))
