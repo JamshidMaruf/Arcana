@@ -18,6 +18,7 @@ public class LessonCommentService(IUnitOfWork unitOfWork) : ILessonCommentServic
         var existLesson = await unitOfWork.Lessons.SelectAsync(lesson => lesson.Id == lessonComment.LessonId && !lesson.IsDeleted)
              ?? throw new NotFoundException($"Lesson is not found with this ID = {lessonComment.LessonId}");
 
+        lessonComment.ParentId = lessonComment.ParentId == 0 ? null : lessonComment.ParentId;
         lessonComment.CreatedByUserId = HttpContextHelper.UserId;
         var createdLessonComment = await unitOfWork.LessonComments.InsertAsync(lessonComment);
         await unitOfWork.SaveAsync();

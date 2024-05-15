@@ -1,12 +1,9 @@
-﻿using Arcana.Domain.Commons;
+﻿namespace Arcana.WebApi.Models.LessonComments;
 
-namespace Arcana.WebApi.Models.LessonComments;
-
-public class LessonCommentCreateModel : Auditable
+public class LessonCommentCreateModel
 {
     public long LessonId { get; set; }
     public long? UserId { get; set; }
-    public long? InstructorId { get; set; }
     public long? ParentId { get; set; }
     public string Content { get; set; }
 }
