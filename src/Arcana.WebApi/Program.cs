@@ -42,18 +42,13 @@ var app = builder.Build();
 app.AddInjectHelper();
 app.InjectEnvironmentItems();
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var dbContext = services.GetRequiredService<AppDbContext>();
-    dbContext.Database.EnsureCreated();
-    try
-    {
-        dbContext.Database.Migrate();
-    }
-    catch { }
-}
-
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    var dbContext = services.GetRequiredService<AppDbContext>();
+//    dbContext.Database.EnsureCreated();
+//    dbContext.Database.Migrate();
+//}
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
