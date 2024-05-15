@@ -5,7 +5,7 @@ namespace Arcana.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[CustomAuthorize]
+//[CustomAuthorize]
 public class BaseController : ControllerBase
 {
     public string UserPhone => HttpContext?.User?.FindFirst("Phone")?.Value;

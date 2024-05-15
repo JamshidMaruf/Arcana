@@ -1,11 +1,30 @@
-﻿using Arcana.Service.Services.QuizResults.Models;
+﻿using Arcana.DataAccess.UnitOfWorks;
+using Arcana.Service.Exceptions;
+using Arcana.Service.Services.QuizResults.Models;
 
 namespace Arcana.Service.Services.QuizResults;
 
-public class QuizResultService : IQuizResultService
+public class QuizResultService(IUnitOfWork unitOfWork) : IQuizResultService
 {
-    public ValueTask<QuizResult> GetResultByApplicationId(long applicationId)
+    public async ValueTask<QuizResult> GetResultByApplicationId(long applicationId)
     {
-        throw new NotImplementedException();
+        var existApplication = await unitOfWork.QuizApplications
+            .SelectAsync(
+                expression: application => application.Id == applicationId,
+                includes: ["Quiz"])
+            ?? throw new NotFoundException($"Application is not found with this ID={applicationId}");
+
+        var questionAnswers = await unitOfWork.QuestionAnswers
+            .SelectAsEnumerableAsync(
+                expression: qa => qa.QuizId == existApplication.QuizId,
+                includes: ["Option"]);
+
+        QuizResult result = new();
+
+        result.Application = existApplication;
+        result.CorrectAnswersCount = questionAnswers.Count(qa => qa.Option.IsCorrect);
+        result.Percentage = Math.Round(Convert.ToDouble(result.CorrectAnswersCount) / existApplication.Quiz.QuestionCount * 100, 2);
+
+        return result;
     }
 }

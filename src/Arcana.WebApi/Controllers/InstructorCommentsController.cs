@@ -19,7 +19,7 @@ public class InstructorCommentsController(IInstructorCommentApiService apiServic
         });
     }
 
-    [HttpPut("{id: long}")]
+    [HttpDelete("{id:long}")]
     public async ValueTask<IActionResult> DeleteAsync(long id)
     {
         return Ok(new Response
@@ -31,7 +31,7 @@ public class InstructorCommentsController(IInstructorCommentApiService apiServic
     }
     
 
-    [HttpPut]
+    [HttpPut("{id:long}")]
     public async ValueTask<IActionResult> PutAsync(long id, InstructorCommentUpdateModel updateModel)
     {
         return Ok(new Response
@@ -42,7 +42,7 @@ public class InstructorCommentsController(IInstructorCommentApiService apiServic
         });
     }
 
-    [HttpGet("{id: long}")]
+    [HttpGet("{id:long}")]
     public async ValueTask<IActionResult> GetAsync(long id)
     {
         return Ok(new Response

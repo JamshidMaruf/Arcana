@@ -104,9 +104,4 @@ public class QuizQuestionService(IUnitOfWork unitOfWork) : IQuizQuestionService
 
         return await quizQuestions.ToPaginateAsQueryable(@params).ToListAsync();
     }
-
-    public ValueTask<QuizQuestion> GenerateQuestionsAsync(QuizQuestion quizQuestion)
-    {
-        throw new NotImplementedException();
-    }
 }

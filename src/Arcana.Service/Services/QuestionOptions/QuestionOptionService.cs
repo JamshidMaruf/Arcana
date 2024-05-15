@@ -14,7 +14,6 @@ public class QuestionOptionService(IUnitOfWork unitOfWork) : IQuestionOptionServ
     {
         questionOption.CreatedByUserId = HttpContextHelper.UserId;
         var createdQuestionAnswer = await unitOfWork.QuestionOptions.InsertAsync(questionOption);
-
         await unitOfWork.SaveAsync();
 
         return createdQuestionAnswer;
