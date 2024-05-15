@@ -29,7 +29,7 @@ public class PermissionService(IUnitOfWork unitOfWork) : IPermissionService
     public async ValueTask<Permission> UpdateAsync(long id, Permission permission)
     {
         var existPermission = await unitOfWork.Permissions.SelectAsync(role => role.Id == id)
-            ?? throw new NotFoundException($"Role is not found with this ID={id}");
+            ?? throw new NotFoundException($"Permission is not found with this ID={id}");
 
         var alreadyExistPermission = await unitOfWork.Permissions.SelectAsync(p =>
            p.Action.ToLower() == permission.Action.ToLower() &&
@@ -49,7 +49,7 @@ public class PermissionService(IUnitOfWork unitOfWork) : IPermissionService
     public async ValueTask<bool> DeleteAsync(long id)
     {
         var existPermission = await unitOfWork.Permissions.SelectAsync(role => role.Id == id)
-            ?? throw new NotFoundException($"Role is not found with this ID={id}");
+            ?? throw new NotFoundException($"Permission is not found with this ID={id}");
 
         await unitOfWork.Permissions.DropAsync(existPermission);
         await unitOfWork.SaveAsync();
@@ -59,7 +59,7 @@ public class PermissionService(IUnitOfWork unitOfWork) : IPermissionService
     public async ValueTask<Permission> GetByIdAsync(long id)
     {
         var existPermission = await unitOfWork.Permissions.SelectAsync(role => role.Id == id)
-            ?? throw new NotFoundException($"Role is not found with this ID={id}");
+            ?? throw new NotFoundException($"Permission is not found with this ID={id}");
 
         return existPermission;
     }
@@ -70,8 +70,8 @@ public class PermissionService(IUnitOfWork unitOfWork) : IPermissionService
 
         if (!string.IsNullOrEmpty(search))
             permissions = permissions.Where(role =>
-                role.Action.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                role.Controller.Contains(search, StringComparison.OrdinalIgnoreCase));
+                role.Action.ToLower().Contains(search.ToLower()) ||
+                role.Controller.ToLower().Contains(search.ToLower()));
 
         return await permissions.ToPaginateAsQueryable(@params).ToListAsync();
     }

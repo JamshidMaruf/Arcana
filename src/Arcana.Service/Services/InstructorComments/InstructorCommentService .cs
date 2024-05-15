@@ -12,14 +12,18 @@ public class InstructorCommentService(IUnitOfWork unitOfWork) : IInstructorComme
 {
     public async ValueTask<InstructorComment> CreateAsync(InstructorComment instructorComment)
     {
-        var existInstructor = await unitOfWork.Instructors.SelectAsync(i => i.Id == instructorComment.InstructorId && !i.IsDeleted)
+        var existInstructor = await unitOfWork.Instructors.SelectAsync(i => i.Id == instructorComment.InstructorId && !i.IsDeleted, includes: ["Detail"])
             ??throw new NotFoundException($"Instructor is not found with this ID = {instructorComment.InstructorId}");
-
+        var existStudent = await unitOfWork.Students.SelectAsync(i => i.Id == instructorComment.StudentId && !i.IsDeleted, includes: ["Detail"])
+            ?? throw new NotFoundException($"Instructor is not found with this ID = {instructorComment.InstructorId}");
+        
         instructorComment.CreatedByUserId = HttpContextHelper.UserId;
         var createdInstructorComment = await unitOfWork.InstructorComments.InsertAsync(instructorComment);
         await unitOfWork.SaveAsync();
 
         createdInstructorComment.Instructor = existInstructor;
+        createdInstructorComment.Student = existStudent;
+        
         return createdInstructorComment;
     }
 
@@ -54,7 +58,7 @@ public class InstructorCommentService(IUnitOfWork unitOfWork) : IInstructorComme
     public async ValueTask<InstructorComment> GetByIdAsync(long id)
     {
         var existInstructorComment = await unitOfWork.InstructorComments.
-            SelectAsync(expression: ic => ic.Id == id && !ic.IsDeleted, includes: ["Student", "Instructor", ])
+            SelectAsync(expression: ic => ic.Id == id && !ic.IsDeleted, includes: ["Student.Detail", "Instructor.Detail"])
             ?? throw new NotFoundException($"Instructor comment is not found with this ID = {id}");
 
         return existInstructorComment;
@@ -64,7 +68,7 @@ public class InstructorCommentService(IUnitOfWork unitOfWork) : IInstructorComme
     {
         var instructorComments = unitOfWork.InstructorComments.
             SelectAsQueryable(expression: ic => !ic.IsDeleted,
-            includes: ["Student", "Instructor"],
+            includes: ["Student.Detail", "Instructor.Detail"],
             isTracked: false).OrderBy(filter);
 
 

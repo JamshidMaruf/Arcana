@@ -83,7 +83,7 @@ public class RolePermissionService(IUnitOfWork unitOfWork) : IRolePermissionServ
         var rolePermissions = unitOfWork.RolePermissions.SelectAsQueryable(expression: rp =>
             rp.Role.Name.ToLower() == role.ToLower() &&
             rp.Permission.Action.ToLower() == action.ToLower() &&
-            rp.Permission.Controller.ToLower() == controller.ToLower(), isTracked: false);
+            rp.Permission.Controller.ToLower() == controller.ToLower(), isTracked: false).ToList();
 
         if (rolePermissions.Any()) return true;
 
