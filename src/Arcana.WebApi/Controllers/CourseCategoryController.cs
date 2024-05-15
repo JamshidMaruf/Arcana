@@ -52,18 +52,19 @@ public class CourseCategoryController(ICourseCategoryApiService courseCategoryAp
         });
     }
 
-        [HttpGet]
-        public async ValueTask<IActionResult> GetAllAsync(
-            [FromQuery] PaginationParams @params,
-            [FromQuery] Filter filter,
-            [FromQuery] string search = null)
+    [HttpGet]
+    public async ValueTask<IActionResult> GetAllAsync(
+        [FromQuery] PaginationParams @params,
+        [FromQuery] Filter filter,
+        [FromQuery] string search = null)
+    {
+        return Ok(new Response
         {
-            return Ok(new Response
-            {
-                StatusCode = 200,
-                Message = "Ok",
-                Data = await courseCategoryApiService.GetAsync(@params, filter, search)
-            });
-        }
+            StatusCode = 200,
+            Message = "Ok",
+            Data = await courseCategoryApiService.GetAsync(@params, filter, search)
+        });
     }
 }
+
+

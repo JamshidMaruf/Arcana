@@ -20,6 +20,7 @@ public class InstructorCommentApiService(IMapper mapper,
 
         await instructorCommentCreateModelValidator.EnsureValidatedAsync(model);
         var createdInstructorComment = await service.CreateAsync(mapper.Map<InstructorComment>(model));
+        //createdInstructorComment.Student.Detail = 
         return mapper.Map<InstructorCommentViewModel>(createdInstructorComment);
     }
 
@@ -46,4 +47,6 @@ public class InstructorCommentApiService(IMapper mapper,
         var instructorComments = await service.GetAllAsync(@params, filter, search);
         return mapper.Map<IEnumerable<InstructorCommentViewModel>>(instructorComments);
     }
+
+    //private InstructorCommentViewModel SelfMapper(Ins)
 }
