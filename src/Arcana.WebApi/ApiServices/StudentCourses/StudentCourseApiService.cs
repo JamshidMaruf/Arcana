@@ -40,7 +40,7 @@ public class StudentCourseApiService(IMapper mapper,
         return mapper.Map<StudentCourseViewModel>(studentCourse);
     }
 
-    public async ValueTask<IEnumerable<StudentCourseViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
+    public async ValueTask<IEnumerable<StudentCourseViewModel>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var studentCourses = await studentCourseService.GetAllAsync(@params, filter, search);
         return mapper.Map<IEnumerable<StudentCourseViewModel>>(studentCourses);

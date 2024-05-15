@@ -54,7 +54,7 @@ public class LessonsController(ILessonApiService lessonApiService) : BaseControl
     }
 
     [HttpGet]
-    public async ValueTask<IActionResult> GetAsync(
+    public async ValueTask<IActionResult> GetAllAsync(
         [FromQuery] PaginationParams @params,
         [FromQuery] Filter filter,
         [FromQuery] string search = null)

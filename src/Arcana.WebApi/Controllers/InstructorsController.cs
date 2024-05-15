@@ -2,6 +2,7 @@
 using Arcana.WebApi.ApiServices.Instructors;
 using Arcana.WebApi.Models.Commons;
 using Arcana.WebApi.Models.Instructors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
@@ -9,6 +10,7 @@ namespace Arcana.WebApi.Controllers;
 public class InstructorsController(IInstructorApiService instructorApiService) : BaseController
 {
     [HttpPost]
+    [AllowAnonymous]
     public async ValueTask<IActionResult> PostAsync(InstructorCreateModel createModel)
     {
         return Ok(new Response
@@ -53,7 +55,7 @@ public class InstructorsController(IInstructorApiService instructorApiService) :
     }
 
     [HttpGet]
-    public async ValueTask<IActionResult> GetAsync(
+    public async ValueTask<IActionResult> GetAllAsync(
         [FromQuery] PaginationParams @params,
         [FromQuery] Filter filter,
         [FromQuery] string search = null)
@@ -66,7 +68,7 @@ public class InstructorsController(IInstructorApiService instructorApiService) :
         });
     }
 
-    [HttpPost("pictures/{id:long}")]
+    [HttpPost("{id:long}/pictures/upload")]
     public async ValueTask<IActionResult> UploadPictureAsync(long id, IFormFile file)
     {
         return Ok(new Response
@@ -77,7 +79,7 @@ public class InstructorsController(IInstructorApiService instructorApiService) :
         });
     }
 
-    [HttpDelete("pictures/{id:long}")]
+    [HttpPost("{id:long}/pictures/delete")]
     public async ValueTask<IActionResult> DeletePictureAsync(long id)
     {
         return Ok(new Response

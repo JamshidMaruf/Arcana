@@ -65,7 +65,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2283),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 970, DateTimeKind.Utc).AddTicks(9879),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Picture",
@@ -74,7 +74,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2284),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 970, DateTimeKind.Utc).AddTicks(9881),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Picture2",
@@ -122,7 +122,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1741),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 971, DateTimeKind.Utc).AddTicks(181),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "IT"
@@ -181,7 +181,7 @@ namespace Arcana.DataAccess.Migrations
                             Id = 1L,
                             Content = "Course Comment",
                             CourseId = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2573),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 971, DateTimeKind.Utc).AddTicks(3470),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             StudentId = 1L
@@ -223,7 +223,7 @@ namespace Arcana.DataAccess.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("integer");
 
-                    b.Property<long>("FileId")
+                    b.Property<long?>("FileId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("InstructorId")
@@ -270,7 +270,7 @@ namespace Arcana.DataAccess.Migrations
                             Id = 1L,
                             CategoryId = 1L,
                             CountOfLessons = 150,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2312),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 972, DateTimeKind.Utc).AddTicks(7289),
                             CreatedByUserId = 0L,
                             Description = "Course Description",
                             Duration = 7,
@@ -330,7 +330,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             CourseId = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2599),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 972, DateTimeKind.Utc).AddTicks(8600),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Module1"
@@ -388,7 +388,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             CourseId = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2623),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(899),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Stars = (byte)5,
@@ -450,7 +450,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             About = "Description",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2692),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(5816),
                             CreatedByUserId = 0L,
                             DetailId = 3L,
                             IsDeleted = false,
@@ -509,7 +509,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2739),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(3597),
                             CreatedByUserId = 0L,
                             InstructorId = 1L,
                             IsDeleted = false,
@@ -567,7 +567,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2719),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(8128),
                             CreatedByUserId = 0L,
                             InstructorId = 1L,
                             IsDeleted = false,
@@ -619,7 +619,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1763),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(8310),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "English",
@@ -628,7 +628,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1764),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(8311),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Spanish",
@@ -689,7 +689,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2651),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4203),
                             CreatedByUserId = 0L,
                             Description = "Lesson Description",
                             FileId = 2L,
@@ -755,7 +755,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             Content = "Lesson Comment",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2669),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(2013),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             LessonId = 1L,
@@ -820,7 +820,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2910),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(7560),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             OptionId = 1L,
@@ -879,7 +879,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             Content = "asd",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2891),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 975, DateTimeKind.Utc).AddTicks(918),
                             CreatedByUserId = 0L,
                             IsCorrect = true,
                             IsDeleted = false,
@@ -889,7 +889,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 2L,
                             Content = "dsd",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2893),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 975, DateTimeKind.Utc).AddTicks(921),
                             CreatedByUserId = 0L,
                             IsCorrect = false,
                             IsDeleted = false,
@@ -899,7 +899,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 3L,
                             Content = "bdb",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2894),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 975, DateTimeKind.Utc).AddTicks(922),
                             CreatedByUserId = 0L,
                             IsCorrect = false,
                             IsDeleted = false,
@@ -909,7 +909,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 4L,
                             Content = "waw",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2895),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 975, DateTimeKind.Utc).AddTicks(923),
                             CreatedByUserId = 0L,
                             IsCorrect = false,
                             IsDeleted = false,
@@ -968,7 +968,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             Content = "Content",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2874),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(9735),
                             CreatedByUserId = 0L,
                             FileId = 2L,
                             IsDeleted = false,
@@ -1029,7 +1029,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2854),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 975, DateTimeKind.Utc).AddTicks(3245),
                             CreatedByUserId = 0L,
                             EndTime = new DateTime(2024, 11, 8, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -1091,7 +1091,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2928),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(3730),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             QuestionId = 1L,
@@ -1147,7 +1147,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2759),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 975, DateTimeKind.Utc).AddTicks(4359),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             ModuleId = 1L,
@@ -1204,7 +1204,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 1L,
                             CourseId = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2544),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 977, DateTimeKind.Utc).AddTicks(444),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             StudentId = 1L
@@ -1258,7 +1258,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2339),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(8220),
                             CreatedByUserId = 0L,
                             DetailId = 2L,
                             IsDeleted = false,
@@ -1309,1206 +1309,1161 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1246),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4384),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 2L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1249),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4385),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 3L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1250),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4386),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 4L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1251),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4388),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 5L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1252),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4389),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 6L,
-                            Action = "UploadPicture",
+                            Action = "UploadPictureAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1254),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4390),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 7L,
-                            Action = "DeletePicture",
+                            Action = "DeletePictureAsync",
                             Controller = "Students",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1255),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4391),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 8L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1256),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4392),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 9L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1257),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4393),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 10L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1258),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4394),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 11L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1259),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4395),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 12L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1260),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4396),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 13L,
-                            Action = "UploadPicture",
+                            Action = "UploadPictureAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1262),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4397),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 14L,
-                            Action = "DeletePicture",
+                            Action = "DeletePictureAsync",
                             Controller = "Instructors",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1263),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4398),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 15L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Users",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1264),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4400),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 16L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Users",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1265),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4401),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 17L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Users",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1266),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4402),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 18L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Users",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1268),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4403),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 19L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Users",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1269),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4404),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 20L,
-                            Action = "ChangePassword",
+                            Action = "ChangePasswordAsync",
                             Controller = "Users",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1270),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4405),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 21L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1271),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4406),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 22L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1279),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4407),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 23L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1280),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4408),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 24L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1281),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4409),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 25L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1282),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4410),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 26L,
-                            Action = "UploadPicture",
+                            Action = "UploadPictureAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1283),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4411),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 27L,
-                            Action = "DeletePicture",
+                            Action = "DeletePictureAsync",
                             Controller = "Lessons",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1284),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4412),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 28L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Courses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1285),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4414),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 29L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Courses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1286),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4415),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 30L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Courses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1288),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4416),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 31L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Courses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1289),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4417),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 32L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Courses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1290),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4418),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 33L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1291),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4419),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 34L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1292),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4420),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 35L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1293),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4421),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 36L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1294),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4422),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 37L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1295),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4423),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 38L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Permissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1296),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4424),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 39L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Permissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1297),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4425),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 40L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Permissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1302),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4466),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 41L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Permissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1303),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4467),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 42L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Permissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1304),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4468),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 43L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "StudentCourses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1305),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4469),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 44L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "StudentCourses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1306),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4471),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 45L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "StudentCourses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1307),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4472),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 46L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "StudentCourses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1308),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4473),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 47L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "StudentCourses",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1310),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4474),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 48L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Quizzes",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1311),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4475),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 49L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Quizzes",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1312),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4476),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 50L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Quizzes",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1313),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4478),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 51L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Quizzes",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1314),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4479),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 52L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Quizzes",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1315),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4480),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 53L,
-                            Action = "GenerateQuestions",
+                            Action = "GenerateQuestionsAsync",
                             Controller = "Quizzes",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1316),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4481),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 54L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "QuizQuestions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1317),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4482),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 55L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "QuizQuestions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1318),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4483),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 56L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "QuizQuestions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1319),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4484),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 57L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "QuizQuestions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1321),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4485),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 58L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "QuizQuestions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1322),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4486),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 59L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "QuizApplications",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1323),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4487),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 60L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "QuizApplications",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1324),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4488),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 61L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "QuizApplications",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1325),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4490),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 62L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "QuizApplications",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1327),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4491),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 63L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "QuizApplications",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1328),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4492),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 64L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1329),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4493),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 65L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1330),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4494),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 66L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1331),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4495),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 67L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1332),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4496),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 68L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1333),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4497),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 69L,
-                            Action = "UploadPicture",
+                            Action = "UploadPictureAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1334),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4498),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 70L,
-                            Action = "DeletePicture",
+                            Action = "DeletePictureAsync",
                             Controller = "Questions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1335),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4499),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 71L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1336),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4500),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 72L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1337),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4501),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 73L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1338),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4502),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 74L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1339),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4503),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 75L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "UserRoles",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1340),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4504),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 76L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "QuestionOptions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1341),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4505),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 77L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "QuestionOptions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1342),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4506),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 78L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "QuestionOptions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1343),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4507),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 79L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "QuestionOptions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1344),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4508),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 80L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "QuestionOptions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1345),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4509),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 81L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "QuestionAnswers",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1346),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4511),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 82L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "QuestionAnswers",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1347),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4512),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 83L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "QuestionAnswers",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1348),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4513),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 84L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "QuestionAnswers",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1350),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            Id = 85L,
-                            Action = "Get",
-                            Controller = "QuestionAnswers",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1351),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4514),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 86L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "LessonComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1358),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4515),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 87L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "LessonComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1359),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4516),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 88L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "LessonComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1360),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4517),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 89L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "LessonComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1361),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4518),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 90L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "LessonComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1362),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4519),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 91L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "Languages",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1363),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4520),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 92L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "Languages",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1364),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4521),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 93L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "Languages",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1365),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4522),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 94L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "Languages",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1366),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4523),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 95L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "Languages",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1367),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4524),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 96L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "InstructorStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1368),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4526),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 97L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "InstructorStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1369),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4527),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 98L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "InstructorStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1370),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4528),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 99L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "InstructorStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1372),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4529),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 100L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "InstructorStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1373),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4530),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 101L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "InstructorComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1374),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4531),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 102L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "InstructorComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1375),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4532),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 103L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "InstructorComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1376),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4533),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 104L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "InstructorComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1377),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4534),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 105L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "InstructorComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1378),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4570),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 106L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "RolePermissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1381),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4571),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 107L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "RolePermissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1382),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4572),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 108L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "RolePermissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1384),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4574),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 109L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "RolePermissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1385),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4575),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 110L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "RolePermissions",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1386),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4576),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 111L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "CourseModules",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1387),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4577),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 112L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "CourseModules",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1388),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4578),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 113L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "CourseModules",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1389),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4579),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 114L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "CourseModules",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1390),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4580),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 115L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "CourseModules",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1392),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4581),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 116L,
-                            Action = "Post",
+                            Action = "PostAsync",
                             Controller = "CourseStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1393),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4582),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 117L,
-                            Action = "Put",
+                            Action = "PutAsync",
                             Controller = "CourseStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1394),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4583),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 118L,
-                            Action = "Delete",
+                            Action = "DeleteAsync",
                             Controller = "CourseStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1395),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4584),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 119L,
-                            Action = "Get",
+                            Action = "GetAllAsync",
                             Controller = "CourseStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1396),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4585),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 120L,
-                            Action = "Get",
+                            Action = "GetAsync",
                             Controller = "CourseStars",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1397),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4586),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 121L,
-                            Action = "Login",
-                            Controller = "Accounts",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1398),
+                            Action = "PostAsync",
+                            Controller = "CourseComments",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4587),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 122L,
-                            Action = "SendCode",
-                            Controller = "Accounts",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1399),
+                            Action = "PutAsync",
+                            Controller = "CourseComments",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4588),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 123L,
-                            Action = "Confirm",
-                            Controller = "Accounts",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1400),
+                            Action = "DeleteAsync",
+                            Controller = "CourseComments",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4589),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 124L,
-                            Action = "ResetPassword",
-                            Controller = "Accounts",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1401),
+                            Action = "GetAllAsync",
+                            Controller = "CourseComments",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4590),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 125L,
-                            Action = "Post",
+                            Action = "GetAsync",
                             Controller = "CourseComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1402),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4591),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 126L,
-                            Action = "Put",
-                            Controller = "CourseComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1403),
+                            Action = "PostAsync",
+                            Controller = "CourseCategories",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4592),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 127L,
-                            Action = "Delete",
-                            Controller = "CourseComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1405),
+                            Action = "PutAsync",
+                            Controller = "CourseCategories",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4593),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 128L,
-                            Action = "Get",
-                            Controller = "CourseComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1407),
+                            Action = "DeleteAsync",
+                            Controller = "CourseCategories",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4594),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 129L,
-                            Action = "Get",
-                            Controller = "CourseComments",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1408),
+                            Action = "GetAllAsync",
+                            Controller = "CourseCategories",
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4595),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         },
                         new
                         {
                             Id = 130L,
-                            Action = "Post",
+                            Action = "GetAsync",
                             Controller = "CourseCategories",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1409),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            Id = 131L,
-                            Action = "Put",
-                            Controller = "CourseCategories",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1410),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            Id = 132L,
-                            Action = "Delete",
-                            Controller = "CourseCategories",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1411),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            Id = 133L,
-                            Action = "Get",
-                            Controller = "CourseCategories",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1412),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            Id = 134L,
-                            Action = "Get",
-                            Controller = "CourseCategories",
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1413),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4596),
                             CreatedByUserId = 0L,
                             IsDeleted = false
                         });
@@ -2561,7 +2516,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1798),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5888),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 1L,
@@ -2570,7 +2525,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1800),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5890),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 2L,
@@ -2579,7 +2534,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1801),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5891),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 3L,
@@ -2588,7 +2543,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1802),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5892),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 4L,
@@ -2597,7 +2552,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 5L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1803),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5893),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 5L,
@@ -2606,7 +2561,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 6L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1804),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5894),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 6L,
@@ -2615,7 +2570,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 7L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1805),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5895),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 7L,
@@ -2624,7 +2579,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 8L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1807),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5896),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 8L,
@@ -2633,7 +2588,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 9L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1808),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5897),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 9L,
@@ -2642,7 +2597,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 10L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1809),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5899),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 10L,
@@ -2651,7 +2606,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 11L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1810),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5900),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 11L,
@@ -2660,7 +2615,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 12L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1812),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5901),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 12L,
@@ -2669,7 +2624,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 13L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1813),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5902),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 13L,
@@ -2678,7 +2633,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 14L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1814),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5903),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 14L,
@@ -2687,7 +2642,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 15L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1815),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5904),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 15L,
@@ -2696,7 +2651,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 16L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1816),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5905),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 16L,
@@ -2705,7 +2660,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 17L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1996),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5906),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 17L,
@@ -2714,7 +2669,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 18L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1997),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5907),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 18L,
@@ -2723,7 +2678,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 19L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1998),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5908),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 19L,
@@ -2732,7 +2687,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 20L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1999),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5909),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 20L,
@@ -2741,7 +2696,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 21L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2007),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5910),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 21L,
@@ -2750,7 +2705,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 22L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2008),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5911),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 22L,
@@ -2759,7 +2714,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 23L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2009),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5912),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 23L,
@@ -2768,7 +2723,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 24L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2010),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5913),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 24L,
@@ -2777,7 +2732,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 25L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2011),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5914),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 25L,
@@ -2786,7 +2741,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 26L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2012),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5915),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 26L,
@@ -2795,7 +2750,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 27L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2013),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5916),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 27L,
@@ -2804,7 +2759,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 28L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2014),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5917),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 28L,
@@ -2813,7 +2768,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 29L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2015),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5918),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 29L,
@@ -2822,7 +2777,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 30L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2016),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5919),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 30L,
@@ -2831,7 +2786,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 31L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2019),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5920),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 31L,
@@ -2840,7 +2795,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 32L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2020),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5921),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 32L,
@@ -2849,7 +2804,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 33L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2021),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5922),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 33L,
@@ -2858,7 +2813,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 34L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2022),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5923),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 34L,
@@ -2867,7 +2822,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 35L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2023),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5924),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 35L,
@@ -2876,7 +2831,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 36L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2024),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5925),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 36L,
@@ -2885,7 +2840,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 37L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2025),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5927),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 37L,
@@ -2894,7 +2849,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 38L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2026),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5928),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 38L,
@@ -2903,7 +2858,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 39L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2027),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5929),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 39L,
@@ -2912,7 +2867,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 40L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2028),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5930),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 40L,
@@ -2921,7 +2876,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 41L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2029),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5931),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 41L,
@@ -2930,7 +2885,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 42L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2032),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5932),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 42L,
@@ -2939,7 +2894,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 43L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2033),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5933),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 43L,
@@ -2948,7 +2903,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 44L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2034),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5934),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 44L,
@@ -2957,7 +2912,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 45L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2035),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5942),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 45L,
@@ -2966,7 +2921,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 46L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2036),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5943),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 46L,
@@ -2975,7 +2930,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 47L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2037),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5944),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 47L,
@@ -2984,7 +2939,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 48L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2038),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5945),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 48L,
@@ -2993,7 +2948,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 49L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2039),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5946),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 49L,
@@ -3002,7 +2957,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 50L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2040),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5947),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 50L,
@@ -3011,7 +2966,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 51L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2041),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5948),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 51L,
@@ -3020,7 +2975,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 52L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2043),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5949),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 52L,
@@ -3029,7 +2984,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 53L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2044),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5950),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 53L,
@@ -3038,7 +2993,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 54L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2046),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5951),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 54L,
@@ -3047,7 +3002,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 55L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2047),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5952),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 55L,
@@ -3056,7 +3011,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 56L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2048),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5953),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 56L,
@@ -3065,7 +3020,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 57L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2049),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5954),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 57L,
@@ -3074,7 +3029,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 58L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2050),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5955),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 58L,
@@ -3083,7 +3038,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 59L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2051),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5956),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 59L,
@@ -3092,7 +3047,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 60L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2052),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5958),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 60L,
@@ -3101,7 +3056,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 61L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2053),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5959),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 61L,
@@ -3110,7 +3065,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 62L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2055),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5960),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 62L,
@@ -3119,7 +3074,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 63L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2056),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5961),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 63L,
@@ -3128,7 +3083,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 64L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2057),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5962),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 64L,
@@ -3137,7 +3092,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 65L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2058),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5963),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 65L,
@@ -3146,7 +3101,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 66L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2059),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5964),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 66L,
@@ -3155,7 +3110,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 67L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2060),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5965),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 67L,
@@ -3164,7 +3119,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 68L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2061),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5966),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 68L,
@@ -3173,7 +3128,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 69L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2062),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5967),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 69L,
@@ -3182,7 +3137,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 70L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2063),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5968),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 70L,
@@ -3191,7 +3146,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 71L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2065),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5969),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 71L,
@@ -3200,7 +3155,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 72L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2066),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5970),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 72L,
@@ -3209,7 +3164,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 73L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2067),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5971),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 73L,
@@ -3218,7 +3173,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 74L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2068),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5972),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 74L,
@@ -3227,7 +3182,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 75L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2069),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5973),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 75L,
@@ -3236,7 +3191,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 76L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2070),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5974),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 76L,
@@ -3245,7 +3200,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 77L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2072),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5975),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 77L,
@@ -3254,7 +3209,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 78L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2082),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5976),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 78L,
@@ -3263,7 +3218,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 79L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2083),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5977),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 79L,
@@ -3272,7 +3227,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 80L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2084),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5980),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 80L,
@@ -3281,7 +3236,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 81L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2085),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5981),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 81L,
@@ -3290,7 +3245,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 82L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2086),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5982),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 82L,
@@ -3299,7 +3254,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 83L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2087),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5982),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 83L,
@@ -3308,7 +3263,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 84L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2089),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5983),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 84L,
@@ -3316,17 +3271,8 @@ namespace Arcana.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 85L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2091),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false,
-                            PermissionId = 85L,
-                            RoleId = 1L
-                        },
-                        new
-                        {
                             Id = 86L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2092),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5984),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 86L,
@@ -3335,7 +3281,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 87L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2095),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5985),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 87L,
@@ -3344,7 +3290,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 88L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2096),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5986),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 88L,
@@ -3353,7 +3299,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 89L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2097),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5987),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 89L,
@@ -3362,7 +3308,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 90L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2098),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5988),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 90L,
@@ -3371,7 +3317,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 91L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2100),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5989),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 91L,
@@ -3380,7 +3326,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 92L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2101),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5990),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 92L,
@@ -3389,7 +3335,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 93L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2102),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5991),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 93L,
@@ -3398,7 +3344,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 94L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2103),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5992),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 94L,
@@ -3407,7 +3353,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 95L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2104),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5993),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 95L,
@@ -3416,7 +3362,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 96L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2105),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5994),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 96L,
@@ -3425,7 +3371,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 97L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2106),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5995),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 97L,
@@ -3434,7 +3380,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 98L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2107),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5996),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 98L,
@@ -3443,7 +3389,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 99L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2109),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5997),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 99L,
@@ -3452,7 +3398,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 100L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2110),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5998),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 100L,
@@ -3461,7 +3407,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 101L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2111),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(5999),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 101L,
@@ -3470,7 +3416,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 102L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2112),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6000),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 102L,
@@ -3479,7 +3425,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 103L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2113),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6006),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 103L,
@@ -3488,7 +3434,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 104L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2115),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6007),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 104L,
@@ -3497,7 +3443,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 105L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2116),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6008),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 105L,
@@ -3506,7 +3452,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 106L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2117),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6009),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 106L,
@@ -3515,7 +3461,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 107L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2118),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6011),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 107L,
@@ -3524,7 +3470,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 108L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2119),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6012),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 108L,
@@ -3533,7 +3479,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 109L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2120),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6013),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 109L,
@@ -3542,7 +3488,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 110L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2121),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6014),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 110L,
@@ -3551,7 +3497,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 111L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2122),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6015),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 111L,
@@ -3560,7 +3506,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 112L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2123),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6016),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 112L,
@@ -3569,7 +3515,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 113L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2124),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6017),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 113L,
@@ -3578,7 +3524,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 114L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2125),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6018),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 114L,
@@ -3587,7 +3533,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 115L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2126),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6019),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 115L,
@@ -3596,7 +3542,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 116L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2127),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6020),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 116L,
@@ -3605,7 +3551,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 117L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2128),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6020),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 117L,
@@ -3614,7 +3560,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 118L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2130),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6021),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 118L,
@@ -3623,7 +3569,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 119L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2131),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6022),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 119L,
@@ -3632,7 +3578,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 120L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2132),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6023),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 120L,
@@ -3641,7 +3587,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 121L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2133),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6024),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 121L,
@@ -3650,7 +3596,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 122L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2135),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6025),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 122L,
@@ -3659,7 +3605,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 123L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2136),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6026),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 123L,
@@ -3668,7 +3614,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 124L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2137),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6027),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 124L,
@@ -3677,7 +3623,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 125L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2138),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6028),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 125L,
@@ -3686,7 +3632,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 126L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2139),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6029),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 126L,
@@ -3695,7 +3641,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 127L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2140),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6030),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 127L,
@@ -3704,7 +3650,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 128L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2141),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6031),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 128L,
@@ -3713,7 +3659,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 129L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2142),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6032),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 129L,
@@ -3722,46 +3668,10 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 130L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2144),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 976, DateTimeKind.Utc).AddTicks(6033),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             PermissionId = 130L,
-                            RoleId = 1L
-                        },
-                        new
-                        {
-                            Id = 131L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2145),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false,
-                            PermissionId = 131L,
-                            RoleId = 1L
-                        },
-                        new
-                        {
-                            Id = 132L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2146),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false,
-                            PermissionId = 132L,
-                            RoleId = 1L
-                        },
-                        new
-                        {
-                            Id = 133L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2147),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false,
-                            PermissionId = 133L,
-                            RoleId = 1L
-                        },
-                        new
-                        {
-                            Id = 134L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2148),
-                            CreatedByUserId = 0L,
-                            IsDeleted = false,
-                            PermissionId = 134L,
                             RoleId = 1L
                         });
                 });
@@ -3826,42 +3736,42 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2254),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 26, 291, DateTimeKind.Utc).AddTicks(4732),
                             CreatedByUserId = 0L,
                             DateOfBirth = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Email1@gmail.com",
                             FirstName = "FirstName1",
                             IsDeleted = false,
                             LastName = "LastName1",
-                            Password = "Password1",
+                            Password = "$2a$12$ztRzpwiSNoy7THNO6ZmSJu/aHpfJwFfynndGlRmjGlKMxs2wYkmdW",
                             Phone = "+998991111111",
                             RoleId = 1L
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2257),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 26, 598, DateTimeKind.Utc).AddTicks(4892),
                             CreatedByUserId = 0L,
                             DateOfBirth = new DateTime(2002, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Email2@gmail.com",
                             FirstName = "FirstName2",
                             IsDeleted = false,
                             LastName = "LastName2",
-                            Password = "Password2",
+                            Password = "$2a$12$ViCHHEzIw5JY46RPfhupSew1lJjhb/Ek4KhtsNNXCCRySvgzfmNti",
                             Phone = "+998992222222",
                             RoleId = 2L
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(2259),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 26, 986, DateTimeKind.Utc).AddTicks(6510),
                             CreatedByUserId = 0L,
                             DateOfBirth = new DateTime(2003, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Email3@gmail.com",
                             FirstName = "FirstName3",
                             IsDeleted = false,
                             LastName = "LastName3",
-                            Password = "Password3",
+                            Password = "$2a$12$0bdRqrfNR7m/t1gaw7klze/h1SSgDYoaU7ToUOWQs/sQMnx3qizPe",
                             Phone = "+998993333333",
                             RoleId = 3L
                         });
@@ -3907,7 +3817,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1713),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 26, 987, DateTimeKind.Utc).AddTicks(6264),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Admin"
@@ -3915,7 +3825,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1714),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 26, 987, DateTimeKind.Utc).AddTicks(6270),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Student"
@@ -3923,7 +3833,7 @@ namespace Arcana.DataAccess.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2024, 5, 9, 14, 40, 13, 87, DateTimeKind.Utc).AddTicks(1715),
+                            CreatedAt = new DateTime(2024, 5, 15, 7, 58, 26, 987, DateTimeKind.Utc).AddTicks(6273),
                             CreatedByUserId = 0L,
                             IsDeleted = false,
                             Name = "Instructor"
@@ -3963,9 +3873,7 @@ namespace Arcana.DataAccess.Migrations
 
                     b.HasOne("Arcana.Domain.Entities.Commons.Asset", "File")
                         .WithMany()
-                        .HasForeignKey("FileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FileId");
 
                     b.HasOne("Arcana.Domain.Entities.Instructors.Instructor", "Instructor")
                         .WithMany("Courses")
@@ -4132,7 +4040,7 @@ namespace Arcana.DataAccess.Migrations
                     b.HasOne("Arcana.Domain.Entities.Quizzes.Quiz", "Quiz")
                         .WithMany()
                         .HasForeignKey("QuizId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Arcana.Domain.Entities.Students.Student", "Student")

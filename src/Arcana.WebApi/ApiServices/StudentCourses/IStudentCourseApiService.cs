@@ -9,5 +9,5 @@ public interface IStudentCourseApiService
     ValueTask<StudentCourseViewModel> PutAsync(long id, StudentCourseUpdateModel updateModel);
     ValueTask<bool> DeleteAsync(long id);
     ValueTask<StudentCourseViewModel> GetAsync(long id);
-    ValueTask<IEnumerable<StudentCourseViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null);
+    ValueTask<IEnumerable<StudentCourseViewModel>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
 }

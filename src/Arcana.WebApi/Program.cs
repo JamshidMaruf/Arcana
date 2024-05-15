@@ -47,12 +47,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<AppDbContext>();
     dbContext.Database.EnsureCreated();
-    try 
-    {
-        dbContext.Database.Migrate();
-    }
-    catch{}
-    
+    dbContext.Database.Migrate();
 }
 
 

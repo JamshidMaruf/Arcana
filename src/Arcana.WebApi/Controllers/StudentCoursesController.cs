@@ -53,7 +53,7 @@ namespace Arcana.WebApi.Controllers
         }
 
         [HttpGet]
-        public async ValueTask<IActionResult> GetAsync(
+        public async ValueTask<IActionResult> GetAllAsync(
             [FromQuery] PaginationParams @params,
             [FromQuery] Filter filter,
             [FromQuery] string search = null)
@@ -62,7 +62,7 @@ namespace Arcana.WebApi.Controllers
             {
                 StatusCode = 200,
                 Message = "Ok",
-                Data = await studentCourseApiService.GetAsync(@params, filter, search)
+                Data = await studentCourseApiService.GetAllAsync(@params, filter, search)
             });
         }
     }
