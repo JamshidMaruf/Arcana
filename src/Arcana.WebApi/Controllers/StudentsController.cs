@@ -2,6 +2,7 @@
 using Arcana.WebApi.ApiServices.Students;
 using Arcana.WebApi.Models.Commons;
 using Arcana.WebApi.Models.Students;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
@@ -9,6 +10,7 @@ namespace Arcana.WebApi.Controllers;
 public class StudentsController(IStudentApiService studentApiService) : BaseController
 {
     [HttpPost]
+    [AllowAnonymous]
     public async ValueTask<IActionResult> PostAsync(StudentCreateModel createModel)
     {
         return Ok(new Response
