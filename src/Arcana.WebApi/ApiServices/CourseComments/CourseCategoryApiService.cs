@@ -22,21 +22,7 @@ public class CourseCommentApiService(
     public async ValueTask<CourseCommentViewModel> GetAsync(long id)
     {
         var CourseComment = await courseCommentService.GetByIdAsync(id);
-        var returnable = mapper.Map<CourseCommentViewModel>(CourseComment);
-
-        returnable.Student.FirstName = CourseComment.Student.Detail.FirstName;
-        returnable.Student.LastName = CourseComment.Student.Detail.LastName;
-        returnable.Student.Email = CourseComment.Student.Detail.Email;
-        returnable.Student.Phone = CourseComment.Student.Detail.Phone;
-        returnable.Student.DateOfBirth = CourseComment.Student.Detail.DateOfBirth;
-
-        returnable.Course.Instructor.Detail.FirstName = CourseComment.Student.Detail.FirstName;
-        returnable.Course.Instructor.Detail.LastName = CourseComment.Student.Detail.LastName;
-        returnable.Course.Instructor.Detail.Email = CourseComment.Student.Detail.Email;
-        returnable.Course.Instructor.Detail.Phone = CourseComment.Student.Detail.Phone;
-        returnable.Course.Instructor.Detail.DateOfBirth = CourseComment.Student.Detail.DateOfBirth;
-
-        return returnable;
+        return mapper.Map<CourseCommentViewModel>(CourseComment);
     }
 
     public async ValueTask<IEnumerable<CourseCommentViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
