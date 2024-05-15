@@ -74,7 +74,7 @@ public class QuizQuestionService(IUnitOfWork unitOfWork) : IQuizQuestionService
             .QuizQuestions
             .SelectAsync(
                 expression: quizQuestion => quizQuestion.Id == id && !quizQuestion.IsDeleted, 
-                includes: ["Quiz", "Question"])
+                includes: ["Quiz.Module.Course", "Question"])
             ?? throw new NotFoundException($"QuizQuestion is not found with this ID={id}");
 
         return existQuizQuestion;
@@ -90,7 +90,7 @@ public class QuizQuestionService(IUnitOfWork unitOfWork) : IQuizQuestionService
             .QuizQuestions
             .SelectAsQueryable(
                 expression: quizQuestions => !quizQuestions.IsDeleted, 
-                includes: ["Quiz", "Question"], 
+                includes: ["Quiz.Module.Course", "Question"], 
                 isTracked: false)
             .OrderBy(filter);
 
