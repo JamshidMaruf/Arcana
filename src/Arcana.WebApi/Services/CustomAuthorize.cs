@@ -36,7 +36,7 @@ public class CustomAuthorize : Attribute, IAuthorizationFilter
         var controller = actionDescriptor.ControllerName;
         var role = context.HttpContext?.User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
-        if (!rolePermissionService.CheckRolePermission(role, action, controller))
+        if (!rolePermissionService.CheckRolePermission(role, $"{action}Async", controller))
         {
             SetStatusCodeResult(context);
             return;
