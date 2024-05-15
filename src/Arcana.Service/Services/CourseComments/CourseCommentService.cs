@@ -1,5 +1,6 @@
 ﻿using Arcana.DataAccess.UnitOfWorks;
 using Arcana.Domain.Entities.CourseComments;
+using Arcana.Domain.Entities.Students;
 using Arcana.Service.Configurations;
 using Arcana.Service.Exceptions;
 using Arcana.Service.Extensions;
@@ -14,10 +15,12 @@ public class CourseCommentService(IUnitOfWork unitOfWork) : ICourseCommentServic
     {
         await unitOfWork.BeginTransactionAsync();
 
-        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == courseComment.CourseId && !c.IsDeleted)
+        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == courseComment.CourseId && !c.IsDeleted,
+            includes: ["Category", "Instructor", "File", "Language"])
             ?? throw new NotFoundException($"Course not found with Id = {courseComment.CourseId}");
 
-        var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == courseComment.StudentId && !s.IsDeleted)
+        var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == courseComment.StudentId && !s.IsDeleted,
+            includes: ["Detail", "Picture"])
             ?? throw new NotFoundException($"Student not found with Id = {courseComment.StudentId}");
 
         courseComment.CreatedByUserId = HttpContextHelper.UserId;
@@ -26,6 +29,7 @@ public class CourseCommentService(IUnitOfWork unitOfWork) : ICourseCommentServic
 
         created.Course = existCourse;
         created.Student = existStudent;
+        created.Student.Detail = existStudent.Detail;
 
         await unitOfWork.CommitTransactionAsync();
 
@@ -70,10 +74,12 @@ public class CourseCommentService(IUnitOfWork unitOfWork) : ICourseCommentServic
     {
         await unitOfWork.BeginTransactionAsync();
 
-        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == courseComment.CourseId && !c.IsDeleted)
-            ?? throw new NotFoundException($"Course not found with Id = {courseComment.CourseId}");
+        var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == courseComment.CourseId && !c.IsDeleted,
+           includes: ["Category", "Instructor", "File", "Language"])
+           ?? throw new NotFoundException($"Course not found with Id = {courseComment.CourseId}");
 
-        var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == courseComment.StudentId && !s.IsDeleted)
+        var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == courseComment.StudentId && !s.IsDeleted,
+            includes: ["Detail", "Picture"])
             ?? throw new NotFoundException($"Student not found with Id = {courseComment.StudentId}");
 
         var existCourseComment = await unitOfWork.CourseComments.SelectAsync(c => c.Id == id && !c.IsDeleted)
