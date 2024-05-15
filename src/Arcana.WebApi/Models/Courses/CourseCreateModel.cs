@@ -12,6 +12,5 @@ public class CourseCreateModel
     public Level Level { get; set; }
     public long CategoryId { get; set; }
     public long InstructorId { get; set; }
-    public long FileId { get; set; }
     public long LanguageId { get; set; }
 }
