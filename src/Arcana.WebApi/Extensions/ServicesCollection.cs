@@ -61,6 +61,7 @@ using Arcana.WebApi.Validators.Languages;
 using Arcana.WebApi.Validators.LessonComments;
 using Arcana.WebApi.Validators.Lessons;
 using Arcana.WebApi.Validators.Permissions;
+using Arcana.WebApi.Validators.QuestionAnswers;
 using Arcana.WebApi.Validators.QuestionOptions;
 using Arcana.WebApi.Validators.Questions;
 using Arcana.WebApi.Validators.QuizApplications;
@@ -202,6 +203,9 @@ public static class ServicesCollection
 
         services.AddTransient<AssetCreateModelValidator>();
 
+        services.AddTransient<QuestionAnswerCreateModelValidator>();
+        services.AddTransient<QuestionAnswerUpdateModelValidator>();
+      
         services.AddTransient<CourseStarCreateModelValidator>();
         services.AddTransient<CourseStarUpdateModelValidator>();
     }
