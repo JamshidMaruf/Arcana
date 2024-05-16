@@ -52,22 +52,49 @@ public class QuestionService(IUnitOfWork unitOfWork, IAssetService assetService)
 
     public async ValueTask<IEnumerable<Question>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
-        var questions = unitOfWork.Questions.
-            SelectAsQueryable(expression: question => !question.IsDeleted, includes: ["File", "Module"], isTracked: false)
+        // Prepare the base query
+        var query = unitOfWork.Questions
+            .SelectAsQueryable(question => !question.IsDeleted, includes: ["File", "Module"], isTracked: false)
             .OrderBy(filter);
 
+        // Apply search filter if provided
         if (!string.IsNullOrEmpty(search))
-            questions = questions.Where(question =>
-            question.Content.ToLower().Contains(search.ToLower()));
+        {
+            var lowerSearch = search.ToLower();
+            query = query.Where(question => question.Content.ToLower().Contains(lowerSearch));
+        }
 
-        return await questions.ToPaginateAsQueryable(@params).ToListAsync();
+        // Apply pagination before fetching the data
+        var paginatedQuery = query.ToPaginateAsQueryable(@params);
+
+        // Fetch the data including paginated result
+        var questions = await paginatedQuery.ToListAsync();
+
+        // Fetch and assign related QuestionOptions for each question
+        foreach (var question in questions)
+        {
+            var options = await unitOfWork.QuestionOptions
+                .SelectAsEnumerableAsync(option => option.QuestionId == question.Id);
+
+            question.Options = options.ToList();
+        }
+
+        return questions;
     }
+
+
 
     public async ValueTask<Question> GetByIdAsync(long id)
     {
         var existQuestion = await unitOfWork.Questions
             .SelectAsync(question => question.Id == id && !question.IsDeleted, includes: ["File", "Module"])
             ?? throw new NotFoundException($"Question is not found with this ID={id}");
+
+        var options = unitOfWork.QuestionOptions.SelectAsEnumerableAsync(
+            expression: option => option.QuestionId == existQuestion.Id
+            );
+
+        existQuestion.Options = await options;
 
         return existQuestion;
     }
