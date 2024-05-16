@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Arcana.WebApi.Controllers;
 
-public class CourseCategoryController(ICourseCategoryApiService courseCategoryApiService) : BaseController
+public class CourseCategoriesController(ICourseCategoryApiService courseCategoryApiService) : BaseController
 {
     [HttpPost]
     public async ValueTask<IActionResult> PostAsync(CourseCategoryCreateModel createModel)
