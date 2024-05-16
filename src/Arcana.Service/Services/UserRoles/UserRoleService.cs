@@ -46,6 +46,7 @@ public class UserRoleService(IUnitOfWork unitOfWork) : IUserRoleService
             ?? throw new NotFoundException($"Role is not found with this ID={id}");
 
         await unitOfWork.UserRoles.DropAsync(existRole);
+        await unitOfWork.SaveAsync();
         return true;
     }
 
