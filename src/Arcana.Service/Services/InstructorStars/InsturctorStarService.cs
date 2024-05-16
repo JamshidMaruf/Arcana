@@ -12,13 +12,21 @@ public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarServ
 {
     public async ValueTask<InstructorStar> CreateAsync(InstructorStar instructorStars)
     {
-        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId);
+        var existStudent = await unitOfWork.Students.SelectAsync(student => student.Id == instructorStars.StudentId && ! student.IsDeleted)
+            ?? throw new NotFoundException($"Student is not found with this Id {instructorStars.StudentId}");
+
+        var existInstructor = await unitOfWork.Instructors.SelectAsync(Instructor => Instructor.Id == instructorStars.InstructorId && !Instructor.IsDeleted, ["Detail"])
+            ?? throw new NotFoundException($"Instructor is not found with this Id {instructorStars.InstructorId}");
+
+        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.InstructorId == instructorStars.InstructorId && i.StudentId == instructorStars.StudentId && !i.IsDeleted);
         if (existInstructorStars is not null)
             throw new AlreadyExistException($"This instructorStar already exists with this id={instructorStars.Id}");
         instructorStars.CreatedByUserId = HttpContextHelper.UserId;
         var createdInstructorStars = await unitOfWork.InstructorStars.InsertAsync(instructorStars);
 
         await unitOfWork.SaveAsync();
+        createdInstructorStars.Instructor = existInstructor;
+        createdInstructorStars.Student = existStudent;
 
         return createdInstructorStars;
     }
@@ -39,29 +47,39 @@ public class InstructorStarService(IUnitOfWork unitOfWork) : IInstructorStarServ
     public async ValueTask<IEnumerable<InstructorStar>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var instructorStars = unitOfWork.InstructorStars
-            .SelectAsQueryable(expression: InstructorStars => !InstructorStars.IsDeleted, isTracked: false)
+            .SelectAsQueryable(expression: InstructorStars => !InstructorStars.IsDeleted, includes: ["Student", "Instructor.Detail"], isTracked: false)
             .OrderBy(filter);
+
         return await instructorStars.ToPaginateAsQueryable(@params).ToListAsync();
     }
 
     public async ValueTask<InstructorStar> GetByIdAsync(long id)
     {
-        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.Id == id)
+        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => i.Id == id && !i.IsDeleted, ["Student", "Instructor.Detail"])
             ?? throw new NotFoundException($"InstructorStars is not found with this ID={id}");
         return existInstructorStars;
     }
 
     public async ValueTask<InstructorStar> UpdateAsync(long id, InstructorStar instructorStars)
     {
-        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => id == i.Id)
+        var existStudent = await unitOfWork.Students.SelectAsync(student => student.Id == instructorStars.StudentId && !student.IsDeleted)
+           ?? throw new NotFoundException($"Student is not found with this Id {instructorStars.StudentId}");
+
+        var existInstructor = await unitOfWork.Instructors.SelectAsync(Instructor => Instructor.Id == instructorStars.InstructorId && !Instructor.IsDeleted, ["Detail"])
+            ?? throw new NotFoundException($"Instructor is not found with this Id {instructorStars.InstructorId}");
+
+        var existInstructorStars = await unitOfWork.InstructorStars.SelectAsync(i => id == i.Id && !i.IsDeleted)
             ?? throw new NotFoundException($"InstructorStars is not found with this ID={id}");
-        existInstructorStars.InstructorId = instructorStars.Id;
-        existInstructorStars.StudentId = instructorStars.StudentId;
+
         existInstructorStars.Stars = instructorStars.Stars;
+        existInstructorStars.InstructorId = instructorStars.InstructorId;
+        existInstructorStars.StudentId = instructorStars.StudentId;
         existInstructorStars.UpdatedByUserId = HttpContextHelper.UserId;
 
-        await unitOfWork.InstructorStars.UpdateAsync(existInstructorStars);
+        var updatedInstructorStars = await unitOfWork.InstructorStars.UpdateAsync(existInstructorStars);
         await unitOfWork.SaveAsync();
+        updatedInstructorStars.Instructor = existInstructor;
+        updatedInstructorStars.Student = existStudent;
 
         return existInstructorStars;
     }
