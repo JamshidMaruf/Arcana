@@ -25,6 +25,6 @@ public class Course : Auditable
     public long LanguageId { get; set; }
     public Language Language { get; set; }
     public IEnumerable<CourseModule> Modules { get; set; }
-    public IEnumerable<CourseStars> Stars { get; set; }
+    public IEnumerable<CourseStar> Stars { get; set; }
     public IEnumerable<CourseComment> Comments { get; set; }
 }

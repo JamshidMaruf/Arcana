@@ -35,7 +35,7 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Course> Courses { get; }
     public IRepository<Language> Languages { get; }
     public IRepository<Question> Questions { get; }
-    public IRepository<CourseStars> CourseStars { get; }
+    public IRepository<CourseStar> CourseStars { get; }
     public IRepository<CourseModule> CourseModules { get; }
     public IRepository<QuizQuestion> QuizQuestions { get; }
     public IRepository<CourseComment> CourseComments { get; }
@@ -63,7 +63,7 @@ public class UnitOfWork : IUnitOfWork
         Questions = new Repository<Question>(this.context);
         Instructors = new Repository<Instructor>(this.context);
         Permissions = new Repository<Permission>(this.context);
-        CourseStars = new Repository<CourseStars>(this.context);
+        CourseStars = new Repository<CourseStar>(this.context);
         CourseModules = new Repository<CourseModule>(this.context);
         QuizQuestions = new Repository<QuizQuestion>(this.context);
         CourseComments = new Repository<CourseComment>(this.context);

@@ -5,6 +5,7 @@ using Arcana.Service.Services.CourseCategories;
 using Arcana.Service.Services.CourseComments;
 using Arcana.Service.Services.CourseModules;
 using Arcana.Service.Services.Courses;
+using Arcana.Service.Services.CourseStars;
 using Arcana.Service.Services.InstructorComments;
 using Arcana.Service.Services.Instructors;
 using Arcana.Service.Services.InstructorStars;
@@ -27,6 +28,7 @@ using Arcana.WebApi.ApiServices.CourseCategories;
 using Arcana.WebApi.ApiServices.CourseComments;
 using Arcana.WebApi.ApiServices.CourseModules;
 using Arcana.WebApi.ApiServices.Courses;
+using Arcana.WebApi.ApiServices.CourseStars;
 using Arcana.WebApi.ApiServices.InstructorComments;
 using Arcana.WebApi.ApiServices.Instructors;
 using Arcana.WebApi.ApiServices.InstructorStars;
@@ -51,6 +53,7 @@ using Arcana.WebApi.Validators.CourseCategories;
 using Arcana.WebApi.Validators.CourseComments;
 using Arcana.WebApi.Validators.CourseModules;
 using Arcana.WebApi.Validators.Courses;
+using Arcana.WebApi.Validators.CourseStars;
 using Arcana.WebApi.Validators.InstructorComments;
 using Arcana.WebApi.Validators.Instructors;
 using Arcana.WebApi.Validators.InstructorStars;
@@ -101,6 +104,7 @@ public static class ServicesCollection
         services.AddScoped<IInstructorStarService, InstructorStarService>();
         services.AddScoped<ILanguageService, LanguageService>();
         services.AddScoped<IQuizService, QuizService>();
+        services.AddScoped<ICourseStarService, CourseStarService>();
     }
 
     public static void AddApiServices(this IServiceCollection services)
@@ -126,6 +130,7 @@ public static class ServicesCollection
         services.AddScoped<IInstructorCommentApiService, InstructorCommentApiService>();
         services.AddScoped<IInstructorStarApiService, InstructorStarApiService>();
         services.AddScoped<ILanguageApiService, LanguageApiService>();
+        services.AddScoped<ICourseStarApiService, CourseStarApiService>();
     }
 
     public static void AddValidators(this IServiceCollection services)
@@ -196,6 +201,9 @@ public static class ServicesCollection
         services.AddTransient<QuizQuestionUpdateModelValidator>();
 
         services.AddTransient<AssetCreateModelValidator>();
+
+        services.AddTransient<CourseStarCreateModelValidator>();
+        services.AddTransient<CourseStarUpdateModelValidator>();
     }
 
     public static void AddExceptionHandlers(this IServiceCollection services)

@@ -31,7 +31,7 @@ public interface IUnitOfWork : IDisposable
     IRepository<Question> Questions { get; }
     IRepository<Instructor> Instructors { get; }
     IRepository<Permission> Permissions { get; }
-    IRepository<CourseStars> CourseStars { get; }
+    IRepository<CourseStar> CourseStars { get; }
     IRepository<CourseModule> CourseModules { get; }
     IRepository<QuizQuestion> QuizQuestions { get; }
     IRepository<CourseComment> CourseComments { get; }
