@@ -340,7 +340,7 @@ namespace Arcana.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Arcana.Domain.Entities.Courses.CourseStars", b =>
+            modelBuilder.Entity("Arcana.Domain.Entities.Courses.CourseStar", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -384,7 +384,7 @@ namespace Arcana.DataAccess.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("CourseStars");
+                    b.ToTable("CourseStar");
 
                     b.HasData(
                         new
@@ -2339,7 +2339,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 116L,
                             Action = "PostAsync",
-                            Controller = "CourseStars",
+                            Controller = "CourseStar",
                             CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4582),
                             CreatedByUserId = 0L,
                             IsDeleted = false
@@ -2348,7 +2348,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 117L,
                             Action = "PutAsync",
-                            Controller = "CourseStars",
+                            Controller = "CourseStar",
                             CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4583),
                             CreatedByUserId = 0L,
                             IsDeleted = false
@@ -2357,7 +2357,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 118L,
                             Action = "DeleteAsync",
-                            Controller = "CourseStars",
+                            Controller = "CourseStar",
                             CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4584),
                             CreatedByUserId = 0L,
                             IsDeleted = false
@@ -2366,7 +2366,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 119L,
                             Action = "GetAllAsync",
-                            Controller = "CourseStars",
+                            Controller = "CourseStar",
                             CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4585),
                             CreatedByUserId = 0L,
                             IsDeleted = false
@@ -2375,7 +2375,7 @@ namespace Arcana.DataAccess.Migrations
                         {
                             Id = 120L,
                             Action = "GetAsync",
-                            Controller = "CourseStars",
+                            Controller = "CourseStar",
                             CreatedAt = new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4586),
                             CreatedByUserId = 0L,
                             IsDeleted = false
@@ -3910,7 +3910,7 @@ namespace Arcana.DataAccess.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("Arcana.Domain.Entities.Courses.CourseStars", b =>
+            modelBuilder.Entity("Arcana.Domain.Entities.Courses.CourseStar", b =>
                 {
                     b.HasOne("Arcana.Domain.Entities.Courses.Course", "Course")
                         .WithMany("Stars")

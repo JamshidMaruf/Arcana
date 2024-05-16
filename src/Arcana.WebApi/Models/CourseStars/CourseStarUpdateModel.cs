@@ -1,6 +1,6 @@
 ﻿namespace Arcana.WebApi.Models.CourseStars;
 
-public class CourseStarsUpdateModel
+public class CourseStarUpdateModel
 {
     public byte Stars { get; set; }
 }
