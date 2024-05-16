@@ -14,22 +14,6 @@ public class CourseCommentApiService(
     CourseCommentCreateModelValidator createModelValidator,
     CourseCommentUpdateModelValidator updateModelValidator) : ICourseCommentApiService
 {
-    public async ValueTask<bool> DeleteAsync(long id)
-    {
-        return await courseCommentService.DeleteAsync(id);
-    }
-
-    public async ValueTask<CourseCommentViewModel> GetAsync(long id)
-    {
-        var CourseComment = await courseCommentService.GetByIdAsync(id);
-        return mapper.Map<CourseCommentViewModel>(CourseComment);
-    }
-
-    public async ValueTask<IEnumerable<CourseCommentViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
-    {
-        var courseComment = await courseCommentService.GetAllAsync(@params, filter, search);
-        return mapper.Map<IEnumerable<CourseCommentViewModel>>(courseComment);
-    }
 
     public async ValueTask<CourseCommentViewModel> PostAsync(CourseCommentCreateModel createModel)
     {
@@ -73,5 +57,22 @@ public class CourseCommentApiService(
         returnable.Course.Instructor.Detail.DateOfBirth = updatedCourseComment.Student.Detail.DateOfBirth;
 
         return returnable;
+    }
+
+    public async ValueTask<bool> DeleteAsync(long id)
+    {
+        return await courseCommentService.DeleteAsync(id);
+    }
+
+    public async ValueTask<CourseCommentViewModel> GetAsync(long id)
+    {
+        var CourseComment = await courseCommentService.GetByIdAsync(id);
+        return mapper.Map<CourseCommentViewModel>(CourseComment);
+    }
+
+    public async ValueTask<IEnumerable<CourseCommentViewModel>> GetAsync(PaginationParams @params, Filter filter, string search = null)
+    {
+        var courseComment = await courseCommentService.GetAllAsync(@params, filter, search);
+        return mapper.Map<IEnumerable<CourseCommentViewModel>>(courseComment);
     }
 }

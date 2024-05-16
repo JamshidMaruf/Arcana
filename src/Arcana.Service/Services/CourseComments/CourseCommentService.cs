@@ -13,8 +13,6 @@ public class CourseCommentService(IUnitOfWork unitOfWork) : ICourseCommentServic
 {
     public async ValueTask<CourseComment> CreateAsync(CourseComment courseComment)
     {
-        await unitOfWork.BeginTransactionAsync();
-
         var existCourse = await unitOfWork.Courses.SelectAsync(c => c.Id == courseComment.CourseId && !c.IsDeleted,
             includes: ["Category", "Instructor", "File", "Language"])
             ?? throw new NotFoundException($"Course not found with Id = {courseComment.CourseId}");
@@ -30,8 +28,6 @@ public class CourseCommentService(IUnitOfWork unitOfWork) : ICourseCommentServic
         created.Course = existCourse;
         created.Student = existStudent;
         created.Student.Detail = existStudent.Detail;
-
-        await unitOfWork.CommitTransactionAsync();
 
         return created;
     }
