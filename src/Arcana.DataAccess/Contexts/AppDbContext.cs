@@ -38,7 +38,7 @@ public class AppDbContext : DbContext
     public DbSet<Question> Questions { get; set; }
     public DbSet<Instructor> Instructors { get; set; }
     public DbSet<Permission> Permissions { get; set; }
-    public DbSet<CourseStars> CourseStars { get; set; }
+    public DbSet<CourseStar> CourseStars { get; set; }
     public DbSet<CourseModule> CourseModules { get; set; }
     public DbSet<QuizQuestion> QuizQuestions { get; set; }
     public DbSet<CourseComment> CourseComments { get; set; }

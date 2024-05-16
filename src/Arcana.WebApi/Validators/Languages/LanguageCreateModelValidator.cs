@@ -10,6 +10,7 @@ public class LanguageCreateModelValidator : AbstractValidator<LanguageCreateMode
         RuleFor(language => language.Name)
             .NotNull()
             .WithMessage(language => $"{nameof(language.Name)} is not specified");
+
         RuleFor(language => language.ShortName)
             .NotNull()
             .WithMessage(language => $"{nameof(language.ShortName)} is not specified");

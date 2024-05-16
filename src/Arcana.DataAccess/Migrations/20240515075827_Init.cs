@@ -433,7 +433,7 @@ namespace Arcana.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CourseStars",
+                name: "CourseStar",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -918,11 +918,11 @@ namespace Arcana.DataAccess.Migrations
                     { 113L, "DeleteAsync", "CourseModules", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4579), 0L, null, null, false, null, null },
                     { 114L, "GetAllAsync", "CourseModules", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4580), 0L, null, null, false, null, null },
                     { 115L, "GetAsync", "CourseModules", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4581), 0L, null, null, false, null, null },
-                    { 116L, "PostAsync", "CourseStars", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4582), 0L, null, null, false, null, null },
-                    { 117L, "PutAsync", "CourseStars", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4583), 0L, null, null, false, null, null },
-                    { 118L, "DeleteAsync", "CourseStars", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4584), 0L, null, null, false, null, null },
-                    { 119L, "GetAllAsync", "CourseStars", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4585), 0L, null, null, false, null, null },
-                    { 120L, "GetAsync", "CourseStars", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4586), 0L, null, null, false, null, null },
+                    { 116L, "PostAsync", "CourseStar", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4582), 0L, null, null, false, null, null },
+                    { 117L, "PutAsync", "CourseStar", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4583), 0L, null, null, false, null, null },
+                    { 118L, "DeleteAsync", "CourseStar", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4584), 0L, null, null, false, null, null },
+                    { 119L, "GetAllAsync", "CourseStar", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4585), 0L, null, null, false, null, null },
+                    { 120L, "GetAsync", "CourseStar", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4586), 0L, null, null, false, null, null },
                     { 121L, "PostAsync", "CourseComments", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4587), 0L, null, null, false, null, null },
                     { 122L, "PutAsync", "CourseComments", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4588), 0L, null, null, false, null, null },
                     { 123L, "DeleteAsync", "CourseComments", new DateTime(2024, 5, 15, 7, 58, 25, 974, DateTimeKind.Utc).AddTicks(4589), 0L, null, null, false, null, null },
@@ -1127,7 +1127,7 @@ namespace Arcana.DataAccess.Migrations
                 values: new object[] { 1L, 1L, new DateTime(2024, 5, 15, 7, 58, 25, 972, DateTimeKind.Utc).AddTicks(8600), 0L, null, null, false, "Module1", null, null });
 
             migrationBuilder.InsertData(
-                table: "CourseStars",
+                table: "CourseStar",
                 columns: new[] { "Id", "CourseId", "CreatedAt", "CreatedByUserId", "DeletedAt", "DeletedByUserId", "IsDeleted", "Stars", "StudentId", "UpdatedAt", "UpdatedByUserId" },
                 values: new object[] { 1L, 1L, new DateTime(2024, 5, 15, 7, 58, 25, 973, DateTimeKind.Utc).AddTicks(899), 0L, null, null, false, (byte)5, 1L, null, null });
 
@@ -1224,12 +1224,12 @@ namespace Arcana.DataAccess.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseStars_CourseId",
-                table: "CourseStars",
+                table: "CourseStar",
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseStars_StudentId",
-                table: "CourseStars",
+                table: "CourseStar",
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
@@ -1395,7 +1395,7 @@ namespace Arcana.DataAccess.Migrations
                 name: "CourseComments");
 
             migrationBuilder.DropTable(
-                name: "CourseStars");
+                name: "CourseStar");
 
             migrationBuilder.DropTable(
                 name: "InstructorComments");
