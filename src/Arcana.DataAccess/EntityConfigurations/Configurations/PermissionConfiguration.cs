@@ -148,11 +148,11 @@ public class PermissionConfiguration : IEntityConfiguration
                 new Permission { Id = 114, Action = "GetAllAsync", Controller = "CourseModules", CreatedAt = DateTime.UtcNow },
                 new Permission { Id = 115, Action = "GetAsync", Controller = "CourseModules", CreatedAt = DateTime.UtcNow },
 
-                new Permission { Id = 116, Action = "PostAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 117, Action = "PutAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 118, Action = "DeleteAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 119, Action = "GetAllAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
-                new Permission { Id = 120, Action = "GetAsync", Controller = "CourseStars", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 116, Action = "PostAsync", Controller = "CourseStar", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 117, Action = "PutAsync", Controller = "CourseStar", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 118, Action = "DeleteAsync", Controller = "CourseStar", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 119, Action = "GetAllAsync", Controller = "CourseStar", CreatedAt = DateTime.UtcNow },
+                new Permission { Id = 120, Action = "GetAsync", Controller = "CourseStar", CreatedAt = DateTime.UtcNow },
 
                 new Permission { Id = 121, Action = "PostAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },
                 new Permission { Id = 122, Action = "PutAsync", Controller = "CourseComments", CreatedAt = DateTime.UtcNow },

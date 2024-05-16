@@ -86,9 +86,9 @@ public class MappingProfile : Profile
         CreateMap<Course, CourseCreateModel>().ReverseMap();
         CreateMap<Course, CourseUpdateModel>().ReverseMap();
 
-        CreateMap<CourseStarsViewModel, CourseStars>().ReverseMap();
-        CreateMap<CourseStars, CourseStarsCreateModel>().ReverseMap();
-        CreateMap<CourseStars, CourseStarsUpdateModel>().ReverseMap();
+        CreateMap<CourseStarViewModel, CourseStar>().ReverseMap();
+        CreateMap<CourseStar, CourseStarCreateModel>().ReverseMap();
+        CreateMap<CourseStar, CourseStarUpdateModel>().ReverseMap();
 
         CreateMap<InstructorCommentViewModel, InstructorComment>().ReverseMap();
         CreateMap<InstructorComment, InstructorCommentCreateModel>().ReverseMap();
