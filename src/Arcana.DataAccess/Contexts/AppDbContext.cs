@@ -15,7 +15,6 @@ using Arcana.Domain.Entities.Quizzes;
 using Arcana.Domain.Entities.StudentCourses;
 using Arcana.Domain.Entities.Students;
 using Arcana.Domain.Entities.Users;
-using Arcana.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
